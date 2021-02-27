@@ -1,3 +1,5 @@
+import './src/components/style.css'
+
 const path = require('path');
 
 module.exports = {
@@ -18,6 +20,10 @@ module.exports = {
             presets: ['@babel/preset-react', '@babel/preset-env'],
           },
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
