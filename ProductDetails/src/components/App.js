@@ -1,13 +1,6 @@
 import React from 'react';
-// eslint-disable-next-line import/extensions
 
 
-const App = () => (
-    // eslint-disable-next-line react/jsx-filename-extension
-    <div>
-        <h1>hello</h1>
+class App extends React.Component {
 
-    </div>
-);
-
-export default App;
+}
