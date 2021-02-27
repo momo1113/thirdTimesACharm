@@ -1,13 +1,13 @@
 import React from 'react';
-import SubApp from './SubApp.js'
+// eslint-disable-next-line import/extensions
 
-const App = () => {
-    return (
-        <div>
-            <h1>hello</h1>
-      
-        </div>
-    )
-}
+
+const App = () => (
+    // eslint-disable-next-line react/jsx-filename-extension
+    <div>
+        <h1>hello</h1>
+
+    </div>
+);
 
 export default App;
