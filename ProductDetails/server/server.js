@@ -29,7 +29,6 @@ app.use('/products/:id', (req, res) => {
 // get basic product style
 app.use('/styles', (req, res) => {
   const { id } = req.params;
-  console.log(id);
 
   axios.get(`${api.api}/products/14807/styles`, {
     headers: {
