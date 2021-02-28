@@ -7,7 +7,7 @@ import ImageGallery from './LeftSection/ImageGallery.jsx';
 // eslint-disable-next-line import/extensions
 import ProductDetails from './RightSection/ProductDetails.jsx';
 // eslint-disable-next-line import/extensions
-import ProductInfo from './ProductInfo.jsx';
+import ProductInfo from './BottomSection/ProductInfo.jsx';
 
 class Products extends React.Component {
   constructor() {
@@ -35,7 +35,11 @@ class Products extends React.Component {
         } = data;
         // eslint-disable-next-line object-curly-newline
         // eslint-disable-next-line max-len
-        this.setState({ product: { category, default_price, description, features, name, slogan } });
+        this.setState({
+          product: {
+            category, default_price, description, features, name, slogan,
+          },
+        });
       })
       .catch((err) => console.log(err));
   }
