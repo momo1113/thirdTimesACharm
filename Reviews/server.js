@@ -30,6 +30,22 @@ app.get('/reviews', (req, res) => {
     });
 });
 
+app.get('/meta', (req, res) => {
+  // console.log(req.body)
+  const prodId = req.body.id;
+  axios({
+    method: 'get',
+    url: `${keys.api}/reviews/meta/?product_id=${prodId}`,
+    headers: {
+      Authorization: keys.TOKEN,
+    },
+  })
+    .then((response) => {
+      // console.log(response.data);
+      res.send(response.data);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

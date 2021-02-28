@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import ReviewList from './ReviewList.jsx';
+import ReviewList from './ReviewList/ReviewList.jsx';
+import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 
-class MainApp extends React.Component {
+class ReviewApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +12,7 @@ class MainApp extends React.Component {
       reviewCount: 2,
     };
 
-    this.seeMoreReviews = this.seeMoreReviews.bind(this)
+    this.seeMoreReviews = this.seeMoreReviews.bind(this);
   }
 
   componentDidMount() {
@@ -44,9 +45,8 @@ class MainApp extends React.Component {
         reviewCount={reviewCount}
         reviews={reviews}
       />
-      // <div>hi</div>
     );
   }
 }
 
-export default MainApp;
+export default ReviewApp;
