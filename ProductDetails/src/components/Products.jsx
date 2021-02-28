@@ -3,9 +3,9 @@
 import React from 'react';
 import axios from 'axios';
 // eslint-disable-next-line import/extensions
-import ImageGallery from './ImageGallery.jsx';
+import ImageGallery from './LeftSection/ImageGallery.jsx';
 // eslint-disable-next-line import/extensions
-import ProductDetails from './ProductDetails.jsx';
+import ProductDetails from './RightSection/ProductDetails.jsx';
 // eslint-disable-next-line import/extensions
 import ProductInfo from './ProductInfo.jsx';
 
