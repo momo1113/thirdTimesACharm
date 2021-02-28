@@ -9,28 +9,24 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-let storage = [];
+let products = [];
 
-app.get('/products', (req, res) => {
-  axios.get(`${api.api}/products`, {
-    headers: {
-      Authorization: api.TOKEN,
-    },
-  })
-    .then((response) => {
-      storage = response.data;
-      res.send('Success');
-    })
-    .catch((err) => res.send(err));
-});
-
-app.get('/products/3', (req, res) => {
-  if (storage.length !== 0) {
-    res.send(storage);
+app.get('/products/', (req, res) => {
+  if (products.length !== 0) {
+    res.send(products);
   }
   res.send();
 });
 
 app.listen(PORT, () => {
   console.log(`Server listening in on port ${PORT}`);
+  axios.get(`${api.api}/products`, {
+    headers: {
+      Authorization: api.TOKEN,
+    },
+  })
+    .then((response) => {
+      products = response.data;
+    })
+    .catch((err) => console.log(err));
 });
