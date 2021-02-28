@@ -7,16 +7,19 @@ class MainApp extends React.Component {
     super(props);
     this.state = {
       productId: this.props.productId,
-      reviews: []
+      reviews: [],
+      reviewCount: 2,
     };
+
+    this.seeMoreReviews = this.seeMoreReviews.bind(this)
   }
 
   componentDidMount() {
-    var prod = this.state.productId
+    const prodId = this.state.productId
     axios({
       method: 'get',
       url: '/reviews',
-      params: { id: 14931 },
+      params: { id: prodId },
     })
       .then((data) => {
         this.setState({
@@ -25,10 +28,22 @@ class MainApp extends React.Component {
       });
   }
 
+  seeMoreReviews() {
+    const newCount = this.state.reviewCount + 2;
+    this.setState({
+      reviewCount: newCount,
+    });
+  }
+
   render() {
-    const { reviews } = this.state.reviews
+    const reviews = this.state.reviews
+    const reviewCount = this.state.reviewCount
     return (
-      <ReviewList reviews={this.state.reviews} />
+      <ReviewList
+        seeMoreReviews={this.seeMoreReviews}
+        reviewCount={reviewCount}
+        reviews={reviews}
+      />
       // <div>hi</div>
     );
   }

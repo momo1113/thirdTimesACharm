@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ReviewBody = ({ summary, body }) => (
+const ReviewBody = ({ review }) => (
   <div>
     <p>
-      {summary}
+      {review.summary}
     </p>
     <p>
-      {body}
+      {review.body}
     </p>
   </div>
 );
 
 ReviewBody.propTypes = {
-  summary: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  summary: PropTypes.string,
+  body: PropTypes.string,
+};
+
+ReviewBody.defaultProps = {
+  summary: '',
+  body: '',
 };
 
 export default ReviewBody;
