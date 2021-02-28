@@ -2,4 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MainApp from './Components/MainApp.jsx';
 
-ReactDOM.render(<MainApp />, document.getElementById('app'));
+const id = 14931;
+
+ReactDOM.render(<MainApp productId={id} />, document.getElementById('app'));
