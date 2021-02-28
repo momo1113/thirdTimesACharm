@@ -1,9 +1,25 @@
 import React from 'react';
 
-const ProductInfo = () => {
+const ProductInfo = ({ product }) => {
+
+    const { features } = product;
+    let feature = [];
+    if (features) {
+        feature = features.map((item, key) => {
+            return <div key={key}>{item.feature}</div>
+        })
+    }
+
     return (
-        <div> Here is the bottom product info section</div>
+        <div className="slogan_features">
+            <div className="slogan">
+                <p>{product.slogan}</p>
+            </div>
+            <div className="feature">
+                {feature}
+            </div>
+        </div>
     )
-}
+};
 
 export default ProductInfo;
