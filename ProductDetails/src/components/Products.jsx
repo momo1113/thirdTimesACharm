@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
 // eslint-disable-next-line import/extensions
@@ -20,8 +21,12 @@ class Products extends React.Component {
     axios.get(`/products/${id}`)
       .then((response) => {
         const { data } = response;
+        // eslint-disable-next-line object-curly-newline
+        // eslint-disable-next-line camelcase
+        // eslint-disable-next-line object-curly-newline
         // eslint-disable-next-line camelcase
         const { category, default_price, description, features, name, slogan } = data;
+        // eslint-disable-next-line object-curly-newline
         this.setState({ product: { category, default_price, description, features, name, slogan } })
       })
       .catch((err) => console.log(err));
@@ -38,7 +43,7 @@ class Products extends React.Component {
           <ProductDetails />
         </div>
         <div className="product_info">
-          <ProductInfo />
+          <ProductInfo product={this.state.product} />
         </div>
       </div>
     );

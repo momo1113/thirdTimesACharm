@@ -4,16 +4,16 @@ const app = express();
 
 const path = require('path');
 const axios = require('axios');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 
 const api = require('../config');
 
 const PORT = 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use(express.json());
 
 app.use('/products/:id', (req, res) => {
