@@ -12,7 +12,7 @@
 #     jobs:
 #       - welcome/run
 
-version: 4
+version: 2.1
 jobs:
   one:
     steps:
@@ -21,7 +21,7 @@ jobs:
       - run: npm install
       - run: npm run test
 workflows:
-  version: 4
+  version: 2.1
   job_one:
     jobs:
       - one
