@@ -4,22 +4,42 @@ const app = express();
 
 const path = require('path');
 const axios = require('axios');
+
 const api = require('../config');
 
 const PORT = 3000;
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.json());
 
-app.use('/products', (req, res) => {
-  axios.get(`${api.api}/products`, {
+// get basic product detail
+app.use('/products/:id', (req, res) => {
+  const { id } = req.params;
+
+  axios.get(`${api.api}/products/${id}`, {
     headers: {
       Authorization: api.TOKEN,
     },
   })
     .then((response) => {
-      res.send(response.data);
+      const { data } = response;
+      res.status(200).send(data);
     })
-    .catch((err) => res.send(err));
+    .catch(() => res.status(400).send('Could\'n find the data your found'));
+});
+
+// get basic product style
+app.use('/styles', (req, res) => {
+  const { id } = req.params;
+
+  axios.get(`${api.api}/products/14807/styles`, {
+    headers: {
+      Authorization: api.TOKEN,
+    },
+  })
+    .then((response) => {
+      const { data } = response;
+      res.status(200).send(data);
+    })
+    .catch(() => res.status(400).send('Bad'));
 });
 
 app.listen(PORT, (err) => {
