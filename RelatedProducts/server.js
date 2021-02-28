@@ -21,6 +21,32 @@ app.get('/products/:id', (req, res) => {
     .catch((err) => console.log(err));
 });
 
+app.get('/products/:id/styles', (req, res) => {
+  const { id } = req.params;
+  axios.get(`${api.api}/products/${id}/styles`, {
+    headers: {
+      Authorization: api.TOKEN,
+    },
+  })
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get('/products/:id/related', (req, res) => {
+  const { id } = req.params;
+  axios.get(`${api.api}/products/${id}/related`, {
+    headers: {
+      Authorization: api.TOKEN,
+    },
+  })
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((err) => console.log(err));
+});
+
 // get all products
 app.get('/products', (req, res) => {
   axios.get(`${api.api}/products`, {
