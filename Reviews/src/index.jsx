@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainApp from './Components/MainApp.jsx';
+import ReviewApp from './Components/ReviewApp.jsx';
 
-ReactDOM.render(<MainApp />, document.getElementById('app'));
+const id = 14931;
+
+ReactDOM.render(<ReviewApp productId={id} />, document.getElementById('app'));
