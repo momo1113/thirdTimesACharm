@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "webpack": "webpack -w",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "coverage": "jest --collectCoverage"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
