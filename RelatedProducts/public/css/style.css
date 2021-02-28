@@ -1,0 +1,14 @@
+
+img {
+  width: 10rem;
+}
+.card{
+
+}
+
+.container{
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
