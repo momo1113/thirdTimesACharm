@@ -1,20 +1,14 @@
 import React from 'react';
-import StyleName from './StyleName.jsx'
-import StyleSizeQuantity from './StyleSizeQuantity.jsx';
+import Style from './Style.jsx'
+
 
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({ styles }) => {
-  console.log(styles)
 
-  let styleNames = "";
-  let styleSizeQuantity = [];
+  let style = "";
   if (styles.length !== 0) {
-    styleNames = styles.map((item, key) => {
-      return <StyleName key={key} styleName={item.name} />
-    })
-
-    styleSizeQuantity = styles.map((item, key) => {
-      return <StyleSizeQuantity key={key} styleSizeQuantity={item.skus} />
+    style = styles.map((item, key) => {
+      return <Style key={key} style={item} />
     })
   }
 
@@ -25,8 +19,13 @@ const BottomSection = ({ styles }) => {
         <p> STYLE > </p>
         <span> SELECTED STYLE</span>
       </div>
-      {styleNames}
-      {styleSizeQuantity}
+      <div className="style">
+        {style}
+      </div>
+      <div className="add_to_bag">
+        <p> ADD TO BAG</p>
+        <span> star </span>
+      </div>
     </div>
   );
 };
