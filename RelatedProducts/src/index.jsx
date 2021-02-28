@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import RelatedList from './components/RelatedList.jsx';
-import OutfitList from './components/OutfitList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,14 +27,18 @@ class App extends React.Component {
       .then((res) => {
         this.setState({ style: res.data });
       });
+    localStorage.setItem('outfitList', [14036, 14807]);
+    const outfitList = localStorage.getItem('outfitList').split(',');
+    this.setState({ outfitList });
   }
 
   render() {
     console.log(this.state.relatedList)
+    console.log(this.state.outfitList)
     return (
       <div>
         <RelatedList relatedList={this.state.relatedList} />
-        <OutfitList />
+        <RelatedList relatedList={this.state.outfitList} />
       </div>
     );
   }
