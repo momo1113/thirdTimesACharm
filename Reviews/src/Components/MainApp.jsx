@@ -15,7 +15,6 @@ class MainApp extends React.Component {
         <h1>Hello123456</h1>
       </div>
 
-
     );
   }
 }
