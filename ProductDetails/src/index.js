@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // eslint-disable-next-line import/extensions
-import Products from './components/Products.jsx';
+import Products from './components/Products.js';
 
 // eslint-disable-next-line react/jsx-filename-extension
 ReactDOM.render(<Products />, document.getElementById('app'));

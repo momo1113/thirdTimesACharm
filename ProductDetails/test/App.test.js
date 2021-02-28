@@ -1,7 +1,7 @@
 // Link.react.test.js
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import App from '../src/components/Products.jsx';
+import App from '../src/components/Products.js';
 
 it('Link changes the class when hovered', () => {
     const wrapper = shallow(<App />);
