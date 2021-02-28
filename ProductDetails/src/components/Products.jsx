@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
@@ -13,7 +14,15 @@ class Products extends React.Component {
     super();
     this.state = {
       product: {},
+      styles: [],
     };
+    this.getStyles = this.getStyles.bind(this);
+  }
+
+  // eslint-disable-next-line react/sort-comp
+  getStyles(styles) {
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ styles });
   }
 
   componentDidMount() {
@@ -21,27 +30,25 @@ class Products extends React.Component {
     axios.get(`/products/${id}`)
       .then((response) => {
         const { data } = response;
+        const {
+          category, default_price, description, features, name, slogan,
+        } = data;
         // eslint-disable-next-line object-curly-newline
-        // eslint-disable-next-line camelcase
-        // eslint-disable-next-line object-curly-newline
-        // eslint-disable-next-line camelcase
-        const { category, default_price, description, features, name, slogan } = data;
-        // eslint-disable-next-line object-curly-newline
-        this.setState({ product: { category, default_price, description, features, name, slogan } })
+        // eslint-disable-next-line max-len
+        this.setState({ product: { category, default_price, description, features, name, slogan } });
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    // eslint-disable-next-line react/destructuring-assignment
-    console.log(this.state.product);
     return (
       <div className="product_overview">
         <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
         <div className="product_detail">
-          <ImageGallery />
-          <ProductDetails />
+          <ImageGallery getStyles={this.getStyles} />
+          <ProductDetails product={this.state.product} styles={this.state.styles} />
         </div>
+        <br />
         <div className="product_info">
           <ProductInfo product={this.state.product} />
         </div>
