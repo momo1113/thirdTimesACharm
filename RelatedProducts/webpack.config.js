@@ -1,4 +1,4 @@
-import './src/components/style.css'
+
 
 const path = require('path');
 

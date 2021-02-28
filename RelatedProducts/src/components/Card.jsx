@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './style.css';
+import '../../public/css/css.js'
 
 class Card extends React.Component {
   constructor(props) {
