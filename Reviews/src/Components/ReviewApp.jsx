@@ -14,7 +14,6 @@ class ReviewApp extends React.Component {
       ratings: {},
       loaded: false,
       displayedReviews: [],
-      sort: 'relevant',
     };
 
     this.seeMoreReviews = this.seeMoreReviews.bind(this);
@@ -102,7 +101,6 @@ class ReviewApp extends React.Component {
       const allReviews = this.state.reviews
       const reviews = this.state.displayedReviews
       const reviewCount = this.state.reviewCount
-      console.log(reviews)
       return (
         <div>
           <SortForm reviewCount={allReviews.length} getSort={this.getSort}/>
