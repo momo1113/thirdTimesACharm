@@ -34,7 +34,7 @@ app.get('/questions/:id', (req, res) => {
       })
       .catch((err) => res.send(JSON.stringify(err)));
   } else {
-    res.send(questions[productId]);
+    res.send(questions);
   }
 });
 
