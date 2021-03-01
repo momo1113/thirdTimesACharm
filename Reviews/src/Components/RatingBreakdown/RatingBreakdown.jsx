@@ -14,6 +14,7 @@ const RatingBreakdown = (props) => (
       recommended={props.ratings.recommended}
     />
     <Breakdown ratings={props.ratings.ratings} />
+    <Factors factors={props.ratings.characteristics} />
   </div>
 );
 
