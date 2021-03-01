@@ -14,6 +14,7 @@ class App extends React.Component {
     };
     this.addToList = this.addToList.bind(this);
     this.removeFromList = this.removeFromList.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -43,11 +44,24 @@ class App extends React.Component {
     this.setState({ outfitList: newList });
   }
 
+  handleScroll(list, id) {
+    const scrollList = document.getElementById(list);
+    switch (id) {
+      case 'left':
+        scrollList.scrollLeft -= 80;
+        break;
+
+      case 'right':
+        scrollList.scrollLeft += 80;
+        break;
+    }
+  }
+
   render() {
     return (
       <div>
-        <RelatedList relatedList={this.state.relatedList} />
-        <OutfitList removeFromList={this.removeFromList} addToList={this.addToList} outfitList={this.state.outfitList} />
+        <RelatedList handleScroll={this.handleScroll} relatedList={this.state.relatedList} />
+        <OutfitList handleScroll={this.handleScroll} removeFromList={this.removeFromList} addToList={this.addToList} outfitList={this.state.outfitList} />
       </div>
     );
   }

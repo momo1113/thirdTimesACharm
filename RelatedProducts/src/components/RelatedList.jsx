@@ -5,6 +5,7 @@ class RelatedList extends React.Component {
   constructor(props) {
     super(props);
     this.handleCompare = this.handleCompare.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleCompare(id) {
@@ -13,17 +14,7 @@ class RelatedList extends React.Component {
 
   handleScroll(e) {
     e.preventDefault();
-    const list = document.getElementById('relatedList');
-    console.log(e.target.id)
-    switch(e.target.id) {
-      case 'left':
-        list.scrollLeft -= 80;
-        break;
-
-        case 'right':
-          list.scrollLeft += 80;
-          break;
-    }
+    this.props.handleScroll('relatedList', e.target.id);
   }
 
   render() {
