@@ -7,15 +7,16 @@ import {
 export const Slider = styled.div`
   position:relative;
   display:flex;
-  height:100vh;
+  height:85vh;
   //margin:10%;
   justify-content:center;
   align-items:center;
+  margin-left:20%;
 `;
 
 export const Image = styled.img`
 position: absolute;
-width:1000px;
+width:600px;
 height:600px;
 border-radius:10px;
 `;
@@ -25,15 +26,16 @@ export const ThumbnailWrapper = styled.div`
 export const Thumbnail = styled.img`
  display: block;
  z-index:9;
- width:150px;
+ width:75px;
+ height:75px;
  margin:10px;
 `;
 
 export const LeftArrow = styled(ArrowLeft)`
   position:absolute;
-  width:50px;
+  width:40px;
   top:50%;
-  left:150px;
+  left:30%;
   font-size:3rem;
   z-index:10;
   cursor:pointer;
@@ -42,9 +44,9 @@ export const LeftArrow = styled(ArrowLeft)`
 
 export const RightArrow = styled(ArrowRight)`
   position:absolute;
-  width:50px;
+  width:40px;
   top:50%;
-  right:10px;
+  right:10%;
   font-size:3rem;
   z-index:10;
   cursor:pointer;
@@ -53,9 +55,9 @@ export const RightArrow = styled(ArrowRight)`
 
 export const FullscreenArrow = styled(ArrowsFullscreen)`
   position:absolute;
-  width:30px;
-  top:20%;
-  right:-10px;
+  width:15px;
+  top:10%;
+  right:10%;
   font-size:3rem;
   z-index:10;
   cursor:pointer;
@@ -64,9 +66,9 @@ export const FullscreenArrow = styled(ArrowsFullscreen)`
 
 export const DownArrow = styled(ArrowDown)`
  position:absolute;
-  width:50px;
+ width:40px;
   bottom:20%;
-  left:10px;
+  left:10%;
   font-size:3rem;
   z-index:10;
   cursor:pointer;

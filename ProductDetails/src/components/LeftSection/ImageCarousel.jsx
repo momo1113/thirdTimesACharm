@@ -34,7 +34,9 @@ const ImageCarousel = ({ styles }) => {
     // eslint-disable-next-line camelcase
     const { thumbnail_url } = item.photos[0];
     return (
+
       <Thumbnail key={index} src={thumbnail_url} alt="Women dress" />
+
     );
   });
 
