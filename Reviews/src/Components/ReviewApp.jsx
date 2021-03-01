@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList/ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
+import SortForm from './ReviewList/SortForm.jsx';
 
 class ReviewApp extends React.Component {
   constructor(props) {
@@ -11,10 +12,12 @@ class ReviewApp extends React.Component {
       reviews: [],
       reviewCount: 2,
       ratings: {},
-      loaded: false
+      loaded: false,
+      displayedReviews: [],
     };
 
     this.seeMoreReviews = this.seeMoreReviews.bind(this);
+    this.getSort = this.getSort.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +31,7 @@ class ReviewApp extends React.Component {
         this.setState({
           reviews: data.data.results,
         });
+        this.getSort('relevant');
       });
     axios({
       method: 'get',
@@ -37,9 +41,67 @@ class ReviewApp extends React.Component {
       .then((data) => {
         this.setState({
           ratings: data.data,
-          loaded: true
+          loaded: true,
         });
       });
+  }
+
+  getSort(val) {
+    if (val === 'helpful') {
+      this.sortReviews('help');
+    }
+    if (val === 'newest') {
+      this.sortReviews('date');
+    }
+    if (val === 'relevant') {
+      this.sortReviews('relevant');
+    }
+  }
+
+  sortReviews(sort) {
+    const sortedRevs = [];
+    const currRevs = this.state.reviews;
+
+    for (let i = 0; i < currRevs.length; i += 1) {
+      const review = currRevs[i];
+      if (!sortedRevs.length) {
+        sortedRevs.push(review);
+      } else {
+        let entered = false;
+        for (let j = 0; j < sortedRevs.length; j += 1) {
+          const sortedRev = sortedRevs[j];
+          if (sort === 'help') {
+            if (review.helpfulness > sortedRev.helpfulness && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
+          } else if (sort === 'date') {
+            if (review.date < sortedRev.date && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
+          } else if (sort === 'relevant') {
+            const reviewDate = new Date(review.date);
+            const sortedRevDate = new Date(sortedRev.date);
+            const today = new Date();
+            const reviewDif = today - reviewDate;
+            const sortedDif = today - sortedRevDate;
+            const reviewRel = reviewDif / review.helpfulness
+            const sortedRel = sortedDif / sortedRev.helpfulness;
+            if (reviewRel > sortedRel && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
+          }
+        }
+        if (!entered) {
+          sortedRevs.push(review);
+        }
+      }
+    }
+    this.setState({
+      displayedReviews: sortedRevs,
+    });
   }
 
   seeMoreReviews() {
@@ -51,10 +113,12 @@ class ReviewApp extends React.Component {
 
   render() {
     if (this.state.loaded) {
-      const reviews = this.state.reviews
+      const allReviews = this.state.reviews
+      const reviews = this.state.displayedReviews
       const reviewCount = this.state.reviewCount
       return (
         <div>
+          <SortForm reviewCount={allReviews.length} getSort={this.getSort}/>
           <ReviewList
             seeMoreReviews={this.seeMoreReviews}
             reviewCount={reviewCount}
