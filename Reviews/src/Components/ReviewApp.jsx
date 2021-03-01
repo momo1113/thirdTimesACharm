@@ -30,8 +30,8 @@ class ReviewApp extends React.Component {
       .then((data) => {
         this.setState({
           reviews: data.data.results,
-          displayedReviews: data.data.results,
         });
+        this.getSort('relevant');
       });
     axios({
       method: 'get',
@@ -52,6 +52,9 @@ class ReviewApp extends React.Component {
     }
     if (val === 'newest') {
       this.sortReviews('date');
+    }
+    if (val === 'relevant') {
+      this.sortReviews('relevant');
     }
   }
 
@@ -77,37 +80,15 @@ class ReviewApp extends React.Component {
               sortedRevs.splice(j, 0, review);
               entered = true;
             }
-          }
-        }
-        if (!entered) {
-          sortedRevs.push(review);
-        }
-      }
-    }
-    this.setState({
-      displayedReviews: sortedRevs,
-    });
-  }
-
-  sortRelevant() {
-    const sortedRevs = [];
-    const currRevs = this.state.reviews;
-
-    for (let i = 0; i < currRevs.length; i += 1) {
-      const review = currRevs[i];
-      if (!sortedRevs.length) {
-        sortedRevs.push(review);
-      } else {
-        let entered = false;
-        for (let j = 0; j < sortedRevs.length; j += 1) {
-          const sortedRev = sortedRevs[j];
-
-            if (review.helpfulness > sortedRev.helpfulness && !entered) {
-              sortedRevs.splice(j, 0, review);
-              entered = true;
-            }
-          } else if (sort === 'date') {
-            if (review.date < sortedRev.date && !entered) {
+          } else if (sort === 'relevant') {
+            const reviewDate = new Date(review.date);
+            const sortedRevDate = new Date(sortedRev.date);
+            const today = new Date();
+            const reviewDif = today - reviewDate;
+            const sortedDif = today - sortedRevDate;
+            const reviewRel = reviewDif / review.helpfulness
+            const sortedRel = sortedDif / sortedRev.helpfulness;
+            if (reviewRel > sortedRel && !entered) {
               sortedRevs.splice(j, 0, review);
               entered = true;
             }

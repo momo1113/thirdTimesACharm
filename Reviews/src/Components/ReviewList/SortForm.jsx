@@ -26,7 +26,7 @@ class SortForm extends React.Component {
           {this.props.reviewCount}
           &nbsp;Reviews, sorted by&nbsp;
           <select value={this.state.value} onChange={this.handleChange}>
-          <option value="relevant">Relevence</option>
+            <option value="relevant">Relevence</option>
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
 
