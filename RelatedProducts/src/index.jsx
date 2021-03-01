@@ -26,12 +26,19 @@ class App extends React.Component {
       .then((res) => {
         this.setState({ style: res.data });
       });
-    const outfitList = localStorage.getItem('outfitList').split(',');
-    this.setState({ outfitList });
+
+    if (localStorage.getItem('outfitList')) {
+      // localStorage.setItem('outfitList', []);
+      const outfitList = localStorage.getItem('outfitList').split(',');
+      this.setState({ outfitList });
+    }
   }
 
-  addToList() {
-    let outfitList = localStorage.getItem('outfitList').split(',');
+  addToList(){
+    let outfitList = [];
+    if (localStorage.getItem('outfitList')) {
+      outfitList = localStorage.getItem('outfitList').split(',');
+    }
     outfitList.push(this.state.currentProductId.toString());
     localStorage.setItem('outfitList', outfitList);
     this.setState({ outfitList });
