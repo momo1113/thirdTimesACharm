@@ -1,13 +1,39 @@
-/* eslint-disable camelcase */
+/* eslint-disable import/extensions */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
+
+import styled from 'styled-components';
 import ImageGallery from './LeftSection/ImageGallery.jsx';
-// eslint-disable-next-line import/extensions
+
 import ProductDetails from './RightSection/ProductDetails.jsx';
-// eslint-disable-next-line import/extensions
+
 import ProductInfo from './BottomSection/ProductInfo.jsx';
+
+const Wrapper = styled.div`
+display:grid;
+grid-template-columns:60% auto;
+grid-template-rows: 60px auto 90px;
+grid-template-areas: "hd hd"
+                      "image detail"
+                      "info info"
+`;
+
+const Header = styled.div`
+grid-area:hd;
+`;
+
+const Image = styled.div`
+grid-area:image;
+`;
+
+const Detail = styled.div`
+grid-area:detail;
+`;
+
+const Info = styled.div`
+grid-area:info;
+`;
 
 class Products extends React.Component {
   constructor() {
@@ -19,12 +45,6 @@ class Products extends React.Component {
     this.getStyles = this.getStyles.bind(this);
   }
 
-  // eslint-disable-next-line react/sort-comp
-  getStyles(styles) {
-    // eslint-disable-next-line react/no-unused-state
-    this.setState({ styles });
-  }
-
   componentDidMount() {
     const id = 14807;
     axios.get(`/products/${id}`)
@@ -33,8 +53,6 @@ class Products extends React.Component {
         const {
           category, default_price, description, features, name, slogan,
         } = data;
-        // eslint-disable-next-line object-curly-newline
-        // eslint-disable-next-line max-len
         this.setState({
           product: {
             category, default_price, description, features, name, slogan,
@@ -44,19 +62,26 @@ class Products extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  getStyles(styles) {
+    this.setState({ styles });
+  }
+
   render() {
     return (
-      <div className="product_overview">
-        <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
-        <div className="product_detail">
+      <Wrapper>
+        <Header>
+          <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
+        </Header>
+        <Image>
           <ImageGallery getStyles={this.getStyles} />
+        </Image>
+        <Detail>
           <ProductDetails product={this.state.product} styles={this.state.styles} />
-        </div>
-        <br />
-        <div className="product_info">
+        </Detail>
+        <Info>
           <ProductInfo product={this.state.product} />
-        </div>
-      </div>
+        </Info>
+      </Wrapper>
     );
   }
 }

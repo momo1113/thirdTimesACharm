@@ -5,6 +5,7 @@ import React from 'react';
 const ImageCarousel = ({ styles }) => {
   let imageUrl = '';
   let thumbnailUrl = '';
+  
   if (styles.length !== 0) {
     imageUrl = styles.map((item, index) => {
       const { url } = item.photos[0];
