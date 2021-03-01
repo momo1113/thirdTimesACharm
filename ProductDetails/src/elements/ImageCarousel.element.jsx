@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 import {
-  ArrowDown, ArrowLeft, ArrowRight, ArrowsFullscreen,
+  ArrowLeft, ArrowRight, ArrowsFullscreen,
   // eslint-disable-next-line import/no-extraneous-dependencies
 } from '@styled-icons/bootstrap';
+
+import {
+  ArrowDown,
+  // eslint-disable-next-line import/no-extraneous-dependencies
+} from '@styled-icons/evaicons-solid';
 
 export const Slider = styled.div`
   position:relative;
