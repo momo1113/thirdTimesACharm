@@ -48,13 +48,15 @@ class ReviewApp extends React.Component {
   }
 
   getSort(val) {
-    // this.setState({
-    //   sort: val,
-    // });
-    this.helpfulSort();
+    if (val === 'helpful') {
+      this.sortReviews('help');
+    }
+    if (val === 'newest') {
+      this.sortReviews('date');
+    }
   }
 
-  helpfulSort() {
+  sortReviews(sort) {
     const sortedRevs = [];
     const currRevs = this.state.reviews;
 
@@ -66,9 +68,16 @@ class ReviewApp extends React.Component {
         let entered = false;
         for (let j = 0; j < sortedRevs.length; j += 1) {
           const sortedRev = sortedRevs[j];
-          if (review.helpfulness > sortedRev.helpfulness && !entered) {
-            sortedRevs.splice(j, 0, review);
-            entered = true;
+          if (sort === 'help') {
+            if (review.helpfulness > sortedRev.helpfulness && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
+          } else if (sort === 'date') {
+            if (review.date < sortedRev.date && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
           }
         }
         if (!entered) {
@@ -88,14 +97,12 @@ class ReviewApp extends React.Component {
     });
   }
 
-
-
   render() {
     if (this.state.loaded) {
       const allReviews = this.state.reviews
       const reviews = this.state.displayedReviews
       const reviewCount = this.state.reviewCount
-
+      console.log(reviews)
       return (
         <div>
           <SortForm reviewCount={allReviews.length} getSort={this.getSort}/>
