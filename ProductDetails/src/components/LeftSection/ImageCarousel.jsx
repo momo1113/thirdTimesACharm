@@ -49,8 +49,9 @@ const ImageCarousel = ({ styles }) => {
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>
         {thumbnailUrl}
+        <DownArrow />
       </ThumbnailWrapper>
-      <DownArrow />
+
     </Slider>
 
   );

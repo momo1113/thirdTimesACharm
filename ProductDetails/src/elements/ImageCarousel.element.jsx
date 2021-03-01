@@ -20,8 +20,12 @@ width:600px;
 height:600px;
 `;
 export const ThumbnailWrapper = styled.div`
-  z-index:9
+  position:absolute;
+top:10%;
+  z-index:9;
+  left:10%;
 `;
+
 export const Thumbnail = styled.img`
  display: block;
  z-index:9;
@@ -66,7 +70,6 @@ export const FullscreenArrow = styled(ArrowsFullscreen)`
 export const DownArrow = styled(ArrowDown)`
  position:absolute;
  width:40px;
-  bottom:20%;
   left:10%;
   font-size:3rem;
   z-index:10;
