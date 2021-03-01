@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 
 const ReviewTop = ({ review }) => (
   <div>
-    <div>
-      {review.rating}
-      stars
-      {review.reviewer_name}, {review.date}
-    </div>
+    {review.rating}
+    stars
+    {review.reviewer_name}, {review.date}
   </div>
+
 );
 
 // ReviewTop.propTypes = {
