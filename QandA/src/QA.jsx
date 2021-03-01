@@ -87,16 +87,16 @@ const QA = () => {
 
   return (
     <div>
-      {console.log(questions)}
+      {questions[product] !== undefined && console.log(questions[product])}
       <h1>Questions & Answers</h1>
-      {questions.length > 0
+      {questions[product] !== undefined
         ? <SearchQuestions />
-        : <div>No questions</div>
+        : <div>Loading...</div>
       }
       <br />
-      {questions.length > 0
+      {questions[product] !== undefined
         ? <QuestionsList questions={questions[product]} />
-        : <div>No questions passed</div>
+        : <div>Loading...</div>
       }
     </div>
   );

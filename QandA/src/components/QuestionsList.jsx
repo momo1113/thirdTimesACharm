@@ -4,9 +4,8 @@ import Question from './Question.jsx';
 const QuestionsList = ({ questions }) => (
   <div>
     {console.log(questions)}
-    <h1>Hello</h1>
     {questions.map((question) => (
-      <Question question={question} />
+      <Question key={question.question_id} question={question} />
     ))}
   </div>
 );
