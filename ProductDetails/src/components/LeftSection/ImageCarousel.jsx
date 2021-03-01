@@ -1,44 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styled from 'styled-components';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowsFullscreen } from '@styled-icons/bootstrap'
-
-const Slider = styled.div`
-  position:relative;
-  display:flex;
-  height:100vh;
-  justify-content:center;
-  align-items:center;
-`;
-
-const Image = styled.img`
-position: absolute;
-width:1000px;
-height:600px;
-border-radius:10px;
-`;
-
-const LeftArrow = styled(ArrowLeft)`
-  position:absolute;
-  width:50px;
-  top:50%;
-  left:150px;
-  font-size:3rem;
-  z-index:10;
-  cursor:pointer;
-  user-select: none;
-`;
-const RightArrow = styled(ArrowRight)`
-  position:absolute;
-  width:50px;
-  top:50%;
-  right:10px;
-  font-size:3rem;
-  z-index:10;
-  cursor:pointer;
-  user-select: none;
-`;
+import { LeftArrow, RightArrow, Image, Slider, FullscreenArrow, DownArrow } from '../../elements/ImageCarousel.element.jsx';
 
 
 const ImageCarousel = ({ styles }) => {
@@ -62,12 +25,13 @@ const ImageCarousel = ({ styles }) => {
 
   return (
     <Slider>
-      <ArrowsFullscreen />
+      <FullscreenArrow />
       <LeftArrow />
       <RightArrow />
-      {imageUrl}
-      <ArrowDown />
+      { imageUrl}
+
       {/* {thumbnailUrl} */}
+      <DownArrow />
     </Slider>
 
   );
