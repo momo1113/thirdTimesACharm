@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import {
-    ArrowDown, ArrowLeft, ArrowRight, ArrowsFullscreen,
-    // eslint-disable-next-line import/no-extraneous-dependencies
+  ArrowDown, ArrowLeft, ArrowRight, ArrowsFullscreen,
+  // eslint-disable-next-line import/no-extraneous-dependencies
 } from '@styled-icons/bootstrap';
 
 export const Slider = styled.div`
   position:relative;
   display:flex;
   height:100vh;
+  //margin:10%;
   justify-content:center;
   align-items:center;
 `;
@@ -17,6 +18,15 @@ position: absolute;
 width:1000px;
 height:600px;
 border-radius:10px;
+`;
+export const ThumbnailWrapper = styled.div`
+  z-index:9
+`;
+export const Thumbnail = styled.img`
+ display: block;
+ z-index:9;
+ width:150px;
+ margin:10px;
 `;
 
 export const LeftArrow = styled(ArrowLeft)`
@@ -29,6 +39,7 @@ export const LeftArrow = styled(ArrowLeft)`
   cursor:pointer;
   user-select: none;
 `;
+
 export const RightArrow = styled(ArrowRight)`
   position:absolute;
   width:50px;
@@ -44,7 +55,7 @@ export const FullscreenArrow = styled(ArrowsFullscreen)`
   position:absolute;
   width:30px;
   top:20%;
-  right:10px;
+  right:-10px;
   font-size:3rem;
   z-index:10;
   cursor:pointer;

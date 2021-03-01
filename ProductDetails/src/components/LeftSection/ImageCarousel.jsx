@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import {
-  LeftArrow, RightArrow, Image, Slider, FullscreenArrow, DownArrow,
+  LeftArrow, RightArrow, Image, Thumbnail, ThumbnailWrapper, Slider, FullscreenArrow, DownArrow,
   // eslint-disable-next-line import/extensions
 } from '../../elements/ImageCarousel.element.jsx';
 
@@ -18,29 +18,25 @@ const ImageCarousel = ({ styles }) => {
     setCurrent(current === length ? 0 : current + 1);
   };
 
-  let imageUrl = '';
-  let thumbnailUrl = '';
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
 
-  if (styles.length !== 0) {
-    imageUrl = styles.map((item, index) => {
-      const { url } = item.photos[0];
-      return (
-        index === current && (
-          <Image key={index} src={url} alt="Women dress" />)
-      );
-    });
+  const imageUrl = styles.map((item, index) => {
+    const { url } = item.photos[0];
+    return (
+      index === current && (
+        <Image key={index} src={url} alt="Women dress" />)
+    );
+  });
 
-    thumbnailUrl = styles.map((item, index) => {
-      // eslint-disable-next-line camelcase
-      const { thumbnail_url } = item.photos[0];
-      // eslint-disable-next-line react/no-array-index-key
-      // eslint-disable-next-line camelcase
-      return <img key={index} src={thumbnail_url} alt="Women dress" />;
-    });
-  }
+  const thumbnailUrl = styles.map((item, index) => {
+    // eslint-disable-next-line camelcase
+    const { thumbnail_url } = item.photos[0];
+    return (
+      <Thumbnail key={index} src={thumbnail_url} alt="Women dress" />
+    );
+  });
 
   return (
     <Slider>
@@ -49,6 +45,9 @@ const ImageCarousel = ({ styles }) => {
       <RightArrow onClick={nextSlide} />
       {imageUrl}
       {/* {thumbnailUrl} */}
+      <ThumbnailWrapper>
+        {thumbnailUrl}
+      </ThumbnailWrapper>
       <DownArrow />
     </Slider>
 
