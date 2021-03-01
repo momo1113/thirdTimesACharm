@@ -6,20 +6,20 @@ import ImageCarousel from './ImageCarousel.jsx';
 
 // eslint-disable-next-line react/prop-types
 const ImageGallery = ({ getStyles }) => {
-  const [styles, useStyles] = useState([]);
+  const [styles, setStyles] = useState([]);
 
   useEffect(() => {
     // why /products/:${id}/styles doesn't work
-    const id = 14807;
+    const id = 14932;
     axios.get(`/products/${id}/styles`)
       .then((response) => {
         const { results } = response.data;
-        useStyles(results);
+        setStyles(results);
         getStyles(results);
       })
       .catch((err) => console.log(err));
   }, []);
- 
+
   return (
     <div className="image_gallery">
       <ImageCarousel styles={styles} />

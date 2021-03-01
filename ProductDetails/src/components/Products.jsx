@@ -46,7 +46,7 @@ class Products extends React.Component {
   }
 
   componentDidMount() {
-    const id = 14807;
+    const id = 14932;
     axios.get(`/products/${id}`)
       .then((response) => {
         const { data } = response;
