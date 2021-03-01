@@ -89,6 +89,40 @@ class ReviewApp extends React.Component {
     });
   }
 
+  sortRelevant() {
+    const sortedRevs = [];
+    const currRevs = this.state.reviews;
+
+    for (let i = 0; i < currRevs.length; i += 1) {
+      const review = currRevs[i];
+      if (!sortedRevs.length) {
+        sortedRevs.push(review);
+      } else {
+        let entered = false;
+        for (let j = 0; j < sortedRevs.length; j += 1) {
+          const sortedRev = sortedRevs[j];
+
+            if (review.helpfulness > sortedRev.helpfulness && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
+          } else if (sort === 'date') {
+            if (review.date < sortedRev.date && !entered) {
+              sortedRevs.splice(j, 0, review);
+              entered = true;
+            }
+          }
+        }
+        if (!entered) {
+          sortedRevs.push(review);
+        }
+      }
+    }
+    this.setState({
+      displayedReviews: sortedRevs,
+    });
+  }
+
   seeMoreReviews() {
     const newCount = this.state.reviewCount + 2;
     this.setState({
