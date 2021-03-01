@@ -20,4 +20,6 @@ img {
 .list {
   overflow: scroll;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

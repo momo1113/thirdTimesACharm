@@ -1,6 +1,6 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import MainApp from './MainApp.jsx';
+import MainApp from '../Components/MainApp.jsx';
 
 test('h1 tag has text', () => {
   const wrapper = shallow(<MainApp />);
