@@ -11,6 +11,7 @@ class Card extends React.Component {
       category: 'category',
       price: 0,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +28,6 @@ class Card extends React.Component {
     axios.get(`/products/${id}/styles`)
       .then((res) => {
         const imgs = res.data.results[0].photos[0].thumbnail_url;
-        console.log(imgs)
         if (imgs) {
           this.setState({
             imgs: res.data.results[0].photos,
@@ -36,10 +36,16 @@ class Card extends React.Component {
       });
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    this.props.handleClick(this.props.id);
+  }
+
   render() {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
     return (
       <div className="card">
+        <button onClick={this.handleClick}>Remove</button>
         <img src={imgSrc} alt="./img/img-test.png"></img>
         <div className="category">{this.state.category}</div>
         <div className="product-name">{this.state.name}</div>

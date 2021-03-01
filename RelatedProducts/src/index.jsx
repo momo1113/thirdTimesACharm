@@ -2,23 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import RelatedList from './components/RelatedList.jsx';
+import OutfitList from './components/OutfitList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: {},
+      currentProductId: 14034,
       relatedList: [],
       outfitList: [],
-      style: {},
     };
+    this.addToList = this.addToList.bind(this);
+    this.removeFromList = this.removeFromList.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/products/14034')
-      .then((res) => {
-        this.setState({ currentProduct: res.data });
-      });
     axios.get('/products/14034/related')
       .then((res) => {
         this.setState({ relatedList: res.data });
@@ -27,18 +25,29 @@ class App extends React.Component {
       .then((res) => {
         this.setState({ style: res.data });
       });
-    localStorage.setItem('outfitList', [14036, 14807]);
     const outfitList = localStorage.getItem('outfitList').split(',');
     this.setState({ outfitList });
   }
 
+  addToList() {
+    let outfitList = localStorage.getItem('outfitList').split(',');
+    outfitList.push(this.state.currentProductId.toString());
+    localStorage.setItem('outfitList', outfitList);
+    this.setState({ outfitList });
+  }
+
+  removeFromList(id) {
+    let outfitList = localStorage.getItem('outfitList').split(',');
+    const newList = outfitList.filter((element) => element !== id);
+    localStorage.setItem('outfitList', newList);
+    this.setState({ outfitList: newList });
+  }
+
   render() {
-    console.log(this.state.relatedList)
-    console.log(this.state.outfitList)
     return (
       <div>
         <RelatedList relatedList={this.state.relatedList} />
-        <RelatedList relatedList={this.state.outfitList} />
+        <OutfitList removeFromList={this.removeFromList} addToList={this.addToList} outfitList={this.state.outfitList} />
       </div>
     );
   }
