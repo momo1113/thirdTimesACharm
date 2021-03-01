@@ -18,7 +18,6 @@ export const Image = styled.img`
 position: absolute;
 width:600px;
 height:600px;
-border-radius:10px;
 `;
 export const ThumbnailWrapper = styled.div`
   z-index:9
