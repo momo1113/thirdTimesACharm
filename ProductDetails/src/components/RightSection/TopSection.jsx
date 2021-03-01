@@ -6,6 +6,7 @@ const TopSection = ({ product }) => (
   <div className="top_section">
     <div className="rating_reviews">
       <div className="rating" />
+      <p>3.5 stars</p>
       <p>Read all reviews</p>
     </div>
     <div className="category">
