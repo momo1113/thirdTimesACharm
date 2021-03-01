@@ -1,15 +1,25 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import {
   LeftArrow, RightArrow, Image, Slider, FullscreenArrow, DownArrow,
   // eslint-disable-next-line import/extensions
 } from '../../elements/ImageCarousel.element.jsx';
 
 const ImageCarousel = ({ styles }) => {
+  const [current, setCurrent] = useState(0);
+  const length = styles.length - 1;
+
+  const preSlide = () => {
+    setCurrent(current === 0 ? length : current - 1);
+  };
+
+  const nextSlide = () => {
+    setCurrent(current === length ? 0 : current + 1);
+  };
+
   let imageUrl = '';
   let thumbnailUrl = '';
-
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
@@ -17,7 +27,10 @@ const ImageCarousel = ({ styles }) => {
   if (styles.length !== 0) {
     imageUrl = styles.map((item, index) => {
       const { url } = item.photos[0];
-      return <Image key={index} src={url} alt="Women dress" />;
+      return (
+        index === current && (
+          <Image key={index} src={url} alt="Women dress" />)
+      );
     });
 
     thumbnailUrl = styles.map((item, index) => {
@@ -32,10 +45,9 @@ const ImageCarousel = ({ styles }) => {
   return (
     <Slider>
       <FullscreenArrow />
-      <LeftArrow />
-      <RightArrow />
-      { imageUrl}
-
+      <LeftArrow onClick={preSlide} />
+      <RightArrow onClick={nextSlide} />
+      {imageUrl}
       {/* {thumbnailUrl} */}
       <DownArrow />
     </Slider>
