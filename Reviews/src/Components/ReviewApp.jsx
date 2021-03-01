@@ -10,6 +10,8 @@ class ReviewApp extends React.Component {
       productId: this.props.productId,
       reviews: [],
       reviewCount: 2,
+      ratings: {},
+      loaded: false
     };
 
     this.seeMoreReviews = this.seeMoreReviews.bind(this);
@@ -27,6 +29,17 @@ class ReviewApp extends React.Component {
           reviews: data.data.results,
         });
       });
+    axios({
+      method: 'get',
+      url: '/meta',
+      params: { id: prodId },
+    })
+      .then((data) => {
+        this.setState({
+          ratings: data.data,
+          loaded: true
+        });
+      });
   }
 
   seeMoreReviews() {
@@ -37,14 +50,22 @@ class ReviewApp extends React.Component {
   }
 
   render() {
-    const reviews = this.state.reviews
-    const reviewCount = this.state.reviewCount
+    if (this.state.loaded) {
+      const reviews = this.state.reviews
+      const reviewCount = this.state.reviewCount
+      return (
+        <div>
+          <ReviewList
+            seeMoreReviews={this.seeMoreReviews}
+            reviewCount={reviewCount}
+            reviews={reviews}
+          />
+          <RatingBreakdown ratings={this.state.ratings} />
+        </div>
+      );
+    }
     return (
-      <ReviewList
-        seeMoreReviews={this.seeMoreReviews}
-        reviewCount={reviewCount}
-        reviews={reviews}
-      />
+      <div>Loading</div>
     );
   }
 }
