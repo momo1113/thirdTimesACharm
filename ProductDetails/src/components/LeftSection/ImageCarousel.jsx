@@ -1,12 +1,18 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { LeftArrow, RightArrow, Image, Slider, FullscreenArrow, DownArrow } from '../../elements/ImageCarousel.element.jsx';
-
+import {
+  LeftArrow, RightArrow, Image, Slider, FullscreenArrow, DownArrow,
+  // eslint-disable-next-line import/extensions
+} from '../../elements/ImageCarousel.element.jsx';
 
 const ImageCarousel = ({ styles }) => {
   let imageUrl = '';
   let thumbnailUrl = '';
+
+  if (!Array.isArray(styles) || styles.length <= 0) {
+    return null;
+  }
 
   if (styles.length !== 0) {
     imageUrl = styles.map((item, index) => {

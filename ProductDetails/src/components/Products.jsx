@@ -3,37 +3,14 @@
 import React from 'react';
 import axios from 'axios';
 
-import styled from 'styled-components';
 import ImageGallery from './LeftSection/ImageGallery.jsx';
 
 import ProductDetails from './RightSection/ProductDetails.jsx';
 
 import ProductInfo from './BottomSection/ProductInfo.jsx';
-
-const Wrapper = styled.div`
-display:grid;
-grid-template-columns:60% auto;
-grid-template-rows: 60px auto 90px;
-grid-template-areas: "hd hd"
-                      "image detail"
-                      "info info"
-`;
-
-const Header = styled.div`
-grid-area:hd;
-`;
-
-const Image = styled.div`
-grid-area:image;
-`;
-
-const Detail = styled.div`
-grid-area:detail;
-`;
-
-const Info = styled.div`
-grid-area:info;
-`;
+import {
+  Wrapper, Header, Image, Detail, Info,
+} from '../elements/Products.element.jsx';
 
 class Products extends React.Component {
   constructor() {
