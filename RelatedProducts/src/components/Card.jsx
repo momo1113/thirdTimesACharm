@@ -46,7 +46,9 @@ class Card extends React.Component {
     return (
       <div className="card">
         <button onClick={this.handleClick}>Remove</button>
-        <img src={imgSrc} alt="./img/img-test.png"></img>
+        <div className="frame">
+          <img src={imgSrc} alt="product image"></img>
+        </div>
         <div className="category">{this.state.category}</div>
         <div className="product-name">{this.state.name}</div>
         <div className="price">$ {this.state.price}</div>

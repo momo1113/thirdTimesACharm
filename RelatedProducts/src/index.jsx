@@ -28,7 +28,6 @@ class App extends React.Component {
       });
 
     if (localStorage.getItem('outfitList')) {
-      // localStorage.setItem('outfitList', []);
       const outfitList = localStorage.getItem('outfitList').split(',');
       this.setState({ outfitList });
     }
