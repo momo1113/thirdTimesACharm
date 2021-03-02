@@ -18,7 +18,7 @@ class Products extends React.Component {
     this.state = {
       product: {},
       styles: [],
-      seletedStyleId: '',
+      seletedStyleName: "Fuchsia",
     };
     this.getStyles = this.getStyles.bind(this);
   }
@@ -58,7 +58,7 @@ class Products extends React.Component {
           <ImageGallery getStyles={this.getStyles} />
         </Image>
         <Detail>
-          <ProductDetails product={this.state.product} styles={this.state.styles} />
+          <ProductDetails product={this.state.product} styles={this.state.styles} seletedStyleName={this.state.seletedStyleName} />
         </Detail>
         <Info>
           <ProductInfo product={this.state.product} />

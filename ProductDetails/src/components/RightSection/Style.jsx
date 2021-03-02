@@ -6,7 +6,7 @@ import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
 import { SelectedStyled } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
-const Style = ({ style }) => {
+const Style = ({ style, seletedStyleName }) => {
   // eslint-disable-next-line react/prop-types
   const { skus } = style;
 
@@ -22,10 +22,13 @@ const Style = ({ style }) => {
     // console.log(skus[item])
     <Size key={index} size={skus[item].size} />);
 
+  const getSelectedStyles = (styleName) => {
+    console.log('HI');
+  }
   return (
     <>
-      <SelectedStyled color={style.name}>
-        <h5>{}</h5>
+      <SelectedStyled color={style.name} onClick={getSelectedStyles(style.name)}>
+        <h5>{style.name}</h5>
       </SelectedStyled>
 
       {/* <div className="quantiåty_size">
