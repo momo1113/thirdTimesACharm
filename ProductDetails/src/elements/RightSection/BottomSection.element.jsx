@@ -10,8 +10,13 @@ width:49.781px;
 border: 1px solid black;
 &::after{
   ${((props) => props.check && 'content:"√"')
-};
+  };
   margin:30px;
   margin-bottom:10px;
 }
+`;
+
+
+export const QuantitySize = styled.div`
+
 `;
