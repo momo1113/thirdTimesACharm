@@ -125,9 +125,12 @@ class ReviewApp extends React.Component {
       const allReviews = this.state.reviews
       const reviews = this.state.displayedReviews
       const reviewCount = this.state.reviewCount
+      const factors = Object.keys(this.state.ratings.characteristics).map((key) => (
+        [key, this.state.ratings.characteristics[key].id]
+      ));
       return (
         <div>
-          <SortForm reviewCount={allReviews.length} getSort={this.getSort}/>
+          <SortForm reviewCount={allReviews.length} getSort={this.getSort} />
           <ReviewList
             seeMoreReviews={this.seeMoreReviews}
             reviewCount={reviewCount}
@@ -140,7 +143,11 @@ class ReviewApp extends React.Component {
           >
             Add Review
           </button>
-          <NewReview close={this.showModal} show={this.state.newReview} />
+          <NewReview
+            factors={factors}
+            close={this.showModal}
+            show={this.state.newReview}
+          />
           <RatingBreakdown ratings={this.state.ratings} />
 
         </div>
