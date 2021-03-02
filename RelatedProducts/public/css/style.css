@@ -2,12 +2,9 @@
 .frame img {
   position: absolute;
   width: 100%;
-  height: auto;
-  top: 50%;
-  left: 50%;
+  height: 300px;
   object-fit: cover;
   overflow: hidden;
-  transform: translate( -50%, -50%);
 }
 .frame {
   position: relative;
@@ -33,6 +30,7 @@
   display: grid;
   grid-template-columns: 2% 90% 2%;
   grid-gap: 1em;
+  margin-bottom: 20px;
 }
 
 .list::-webkit-scrollbar{
@@ -42,4 +40,5 @@
   border: 1px solid black;
   display: flex;
   overflow-x: scroll;
+  scroll-behavior: smooth;
 }

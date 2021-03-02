@@ -54,11 +54,11 @@ class App extends React.Component {
     const scrollList = document.getElementById(list);
     switch (id) {
       case 'left':
-        scrollList.scrollLeft -= 80;
+        scrollList.scrollLeft -= 380;
         break;
 
       case 'right':
-        scrollList.scrollLeft += 80;
+        scrollList.scrollLeft += 380;
         break;
     }
   }
