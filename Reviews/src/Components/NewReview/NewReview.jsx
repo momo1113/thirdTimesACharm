@@ -20,6 +20,7 @@ class NewReview extends React.Component {
     };
 
     this.updateState = this.updateState.bind(this);
+    this.updateCharacteristics = this.updateCharacteristics.bind(this);
   }
   // this.props.factors for fit, width, etc
 
@@ -27,17 +28,30 @@ class NewReview extends React.Component {
     this.setState(obj);
   }
 
+  updateCharacteristics(arr) {
+    const updateChar = this.state.characteristics;
+    const key = arr[0];
+    const val = arr[1];
+    updateChar[key] = val;
+
+    this.setState({
+      characteristics: updateChar,
+    });
+  }
+
   render() {
     console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
-    console.log(this.props.factors)
+    console.log(this.props.factors);
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
-          hello!
-        <Rating updateState={this.updateState} updateState={this.updateState} />
-        <Recommend updateState={this.updateState} updateState={this.updateState} />
-        <Characteristics factors={this.props.factors} updateState={this.updateState} updateState={this.updateState} />
+          <Rating updateState={this.updateState} />
+          <Recommend updateState={this.updateState} />
+          <Characteristics
+            factors={this.props.factors}
+            updateCharacteristics={this.updateCharacteristics}
+          />
         </section>
       </div>
     );
