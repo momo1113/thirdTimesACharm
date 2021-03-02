@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const CharItem = (props) => {
-
+  console.log(props)
   return (
     <>
       {props.name}

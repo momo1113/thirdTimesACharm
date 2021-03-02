@@ -24,12 +24,6 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
-    // loaders: [
-    //   { test: /\.css$/, loader: "style-loader!css-loader" },
-    // ],
-  //   rules:[
-  //     { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] }
-  // ],
   },
   mode: 'development',
 };
