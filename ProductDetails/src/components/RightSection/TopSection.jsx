@@ -1,19 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
-
-const Reviews = styled.div`
-  margin-right:1%;
-  &::after{
-    content:"Read all reviews";
-    padding:5px;
-    text-decoration:underline;
-    font-size:14px;
-
-  }
-`;
+import {
+  Reviews, Category, Name, Price,
+} from '../../elements/RightSection/TopSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const TopSection = ({ product, styles }) => {
@@ -41,16 +32,12 @@ const TopSection = ({ product, styles }) => {
           name="rating"
         />
       </Reviews>
-      <div className="category">
-        {product.category}
-        <p>{product.name}</p>
-      </div>
-      <div className="price">
-        <p>{product.default_price}</p>
-        {
-          product.sale_price !== null ? <p>{product.sale_price}</p> : null
-        }
-      </div>
+      <Category>{product.category}</Category>
+      <Name>{product.name}</Name>
+      <Price>
+        $
+        {product.default_price}
+      </Price>
     </div>
   );
 };
