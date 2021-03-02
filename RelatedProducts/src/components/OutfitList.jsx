@@ -30,7 +30,7 @@ class OutfitList extends React.Component {
         <div className="list" id="outfitList">
           <button onClick={this.addToList}>Add to list</button>
           {this.props.outfitList.map(
-            item => <Card handleClick={this.removeFromList} key={item} id={item} />
+            item => <Card handleClick={this.removeFromList} key={item} id={item} list="outfitList"/>
           )}
         </div>
         <button onClick={this.handleScroll} id="right">&gt; &gt; </button>

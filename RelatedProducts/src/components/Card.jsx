@@ -45,7 +45,8 @@ class Card extends React.Component {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
     return (
       <div className="card">
-        <button onClick={this.handleClick}>Remove</button>
+        {this.props.list === 'outfitList' ? <button onClick={this.handleClick}>Remove</button> : <button onClick={this.handleClick}>Compare</button>}
+
         <div className="frame">
           <img src={imgSrc} alt="product image"></img>
         </div>
