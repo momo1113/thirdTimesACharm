@@ -38,7 +38,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
           {selectedStyleName}
         </span>
       </h4>
-      <div className="style" style={{ display: 'flex', height: 50 }}>
+      <div className="style" style={{ display: 'flex', height: 50, flexWrap: 'wrap' }}>
         {styledThumbnails}
       </div>
       {styledQuanityAndSize}

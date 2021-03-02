@@ -8,7 +8,7 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const TopSection = ({ product, styles, selectedStyleName }) => {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState('');
 
   useEffect(() => {
     const id = 14932;
@@ -39,8 +39,8 @@ const TopSection = ({ product, styles, selectedStyleName }) => {
               rating={Number(rating)}
               starRatedColor="RGB(253, 204, 13)"
               numberOfStars={5}
-              starDimension={18}
-              starSpacing={1}
+              starDimension="18px"
+              starSpacing="1px"
               name="rating"
             />
           </Reviews>

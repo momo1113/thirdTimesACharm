@@ -6,16 +6,10 @@ border-radius: 50%;
 margin:auto 10px;
 height:50px;
 width:49.781px;
-border: 1px solid black;
+cursor:pointer;
 &::after{
-  ${((props) => props.check && 'content:"√"')
-  };
-  margin:30px;
-  margin-bottom:10px;
-}
+  ${((props) => props.check && 'content:"√"')}; 
 `;
-
-
 export const QuantitySize = styled.div`
 display:flex;
 `;
