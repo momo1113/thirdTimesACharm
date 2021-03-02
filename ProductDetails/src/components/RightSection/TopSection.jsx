@@ -2,9 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
-import {
-  Reviews, Category, Name, Price,
-} from '../../elements/RightSection/TopSection.element.jsx';
+import { Reviews, Category, Name, Price } from '../../elements/RightSection/TopSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const TopSection = ({ product, styles }) => {
@@ -34,10 +32,7 @@ const TopSection = ({ product, styles }) => {
       </Reviews>
       <Category>{product.category}</Category>
       <Name>{product.name}</Name>
-      <Price>
-        $
-        {product.default_price}
-      </Price>
+      <Price>'${product.default_price}</Price>
     </div>
   );
 };

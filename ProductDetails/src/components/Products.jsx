@@ -19,7 +19,7 @@ class Products extends React.Component {
     this.state = {
       product: {},
       styles: [],
-      selectedStyleName: '',
+      selectedStyleName: 'Fuchsia',
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
@@ -39,7 +39,9 @@ class Products extends React.Component {
           },
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
   }
 
   getStyles(styles) {
@@ -60,7 +62,7 @@ class Products extends React.Component {
           <ImageGallery getStyles={this.getStyles} />
         </Image>
         <Detail>
-          <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} />
+          <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleName={this.state.selectedStyleName} />
         </Detail>
         <Info>
           <ProductInfo product={this.state.product} />

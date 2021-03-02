@@ -4,9 +4,9 @@
 import React from 'react';
 import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
-import { SelectedStyled } from '../../elements/RightSection/BottomSection.element.jsx';
+import { SelectedStyled, CircleCheckMark } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
-const Style = ({ style, getSelectedStyle }) => {
+const Style = ({ style, getSelectedStyle, selectedStyleName }) => {
   // eslint-disable-next-line react/prop-types
   const { skus } = style;
 
@@ -25,6 +25,11 @@ const Style = ({ style, getSelectedStyle }) => {
 
   return (
     <>
+      {
+        selectedStyleName === style.name ? (
+          <CircleCheckMark />
+        ) : null
+      }
       <SelectedStyled color={style.name} onClick={() => getSelectedStyle(style.name)}>
         <h5>{style.name}</h5>
       </SelectedStyled>

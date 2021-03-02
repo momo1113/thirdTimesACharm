@@ -5,14 +5,14 @@ import Style from './Style.jsx'
 
 
 // eslint-disable-next-line react/prop-types
-const BottomSection = ({ styles, getSelectedStyle }) => {
+const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
 
   const style = styles.map((item, index) => {
-    return <Style key={index} style={item} getSelectedStyle={getSelectedStyle} />
+    return <Style key={index} style={item} getSelectedStyle={getSelectedStyle} selectedStyleName={selectedStyleName} />
   })
 
   return (
