@@ -33,10 +33,6 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
       }
     }
   }, [sizeValue]);
-
-  console.log(sizeValue);
-  console.log(quantityValue);
-
   return (
     <>
       {

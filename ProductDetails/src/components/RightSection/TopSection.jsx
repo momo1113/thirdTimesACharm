@@ -7,8 +7,14 @@ import {
 } from '../../elements/RightSection/TopSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
-const TopSection = ({ product, styles }) => {
+const TopSection = ({ product, styles, selectedStyleName }) => {
+  console.log(styles);
+
   const [rating, setRating] = useState(0);
+  const [salePrice, setSalePrice] = useState(0);
+
+
+
 
   useEffect(() => {
     const id = 14932;
@@ -20,20 +26,28 @@ const TopSection = ({ product, styles }) => {
       .catch((err) => console.log(err));
   }, []);
 
+
+  useEffect(() => {
+    styles.map((style) => {
+      console.log('style.name')((style.name === selectedStyleName) && style.sale_price) ? setSalePrice(style.sale_price) : null;
+    });
+  }, [salePrice]);
+
+  console.log('1');
   return (
     <div className="top_section">
       {
         Number(rating) > 0 && (
-        <Reviews>
-          <StarRatings
-            rating={Number(rating)}
-            starRatedColor="RGB(253, 204, 13)"
-            numberOfStars={5}
-            starDimension={18}
-            starSpacing={1}
-            name="rating"
-          />
-        </Reviews>
+          <Reviews>
+            <StarRatings
+              rating={Number(rating)}
+              starRatedColor="RGB(253, 204, 13)"
+              numberOfStars={5}
+              starDimension={18}
+              starSpacing={1}
+              name="rating"
+            />
+          </Reviews>
         )
       }
 
