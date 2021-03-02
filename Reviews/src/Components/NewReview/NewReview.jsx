@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import css from './NewReview.css';
 import Rating from './Rating.jsx';
 import Recommend from './Recommend.jsx';
+import Characteristics from './Characteristics.jsx';
 
 class NewReview extends React.Component {
   constructor(props) {
@@ -29,12 +30,14 @@ class NewReview extends React.Component {
   render() {
     console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
+    console.log(this.props.factors)
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
           hello!
         <Rating updateState={this.updateState} updateState={this.updateState} />
         <Recommend updateState={this.updateState} updateState={this.updateState} />
+        <Characteristics factors={this.props.factors} updateState={this.updateState} updateState={this.updateState} />
         </section>
       </div>
     );
