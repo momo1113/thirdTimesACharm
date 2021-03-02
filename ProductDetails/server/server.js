@@ -9,7 +9,7 @@ const router = require('./routes/productRoutes');
 const PORT = 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/products', router);
+app.use(router);
 
 app.listen(PORT, (err) => {
   if (err) {
