@@ -4,6 +4,8 @@ import css from './NewReview.css';
 import Rating from './Rating.jsx';
 import Recommend from './Recommend.jsx';
 import Characteristics from './Characteristics.jsx';
+import ReviewSummary from './ReviewSummary.jsx'
+import ReviewBody from './ReviewBody.jsx'
 
 class NewReview extends React.Component {
   constructor(props) {
@@ -52,6 +54,8 @@ class NewReview extends React.Component {
             factors={this.props.factors}
             updateCharacteristics={this.updateCharacteristics}
           />
+          <ReviewSummary updateState={this.updateState} />
+          <ReviewBody updateState={this.updateState} />
         </section>
       </div>
     );
