@@ -14,13 +14,12 @@ const Style = ({ style, getSelectedStyle, selectedStyleName }) => {
   const quantitySize = Object.keys(skus);
 
   // eslint-disable-next-line max-len
-  const quantity = quantitySize.map((item, index) =>
-    // console.log(skus[item])
-    <Quantity key={index} quantity={skus[item].quantity} />);
+  const quantity = quantitySize.map((item, index) => style.name === selectedStyleName && <Quantity key={index} quantity={skus[item].quantity} />);
 
-  const size = quantitySize.map((item, index) =>
-    // console.log(skus[item])
-    <Size key={index} size={skus[item].size} />);
+  const size = quantitySize.map(
+    (item, index) => style.name === selectedStyleName
+      && <Size key={index} size={skus[item].size} />,
+  );
 
   return (
     <>
@@ -30,10 +29,10 @@ const Style = ({ style, getSelectedStyle, selectedStyleName }) => {
         check={selectedStyleName === style.name}
       />
 
-      {/* <div className="quantiåty_size">
+      <div className="quantiåty_size">
         {quantity}
         {size}
-      </div> */}
+      </div>
     </>
 
   );

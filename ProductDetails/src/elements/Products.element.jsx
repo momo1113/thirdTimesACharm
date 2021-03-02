@@ -22,7 +22,6 @@ grid-area:image;
 
 export const Detail = styled.div`
 grid-area:detail;
-align-self:center;
 justify-self: start;
 `;
 
