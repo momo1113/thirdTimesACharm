@@ -1,8 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const SelectedStyled = styled.div`
-background-color:${(props) => props.color};
+export const SelectedStyled = styled.img`
 border-radius: 50%;
 margin:auto 10px;
 height:50px;
