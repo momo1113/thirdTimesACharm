@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReviewList from './ReviewList/ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 import SortForm from './ReviewList/SortForm.jsx';
+import NewReview from './NewReview/NewReview.jsx';
 
 class ReviewApp extends React.Component {
   constructor(props) {
@@ -14,10 +15,12 @@ class ReviewApp extends React.Component {
       ratings: {},
       loaded: false,
       displayedReviews: [],
+      newReview: false,
     };
 
     this.seeMoreReviews = this.seeMoreReviews.bind(this);
     this.getSort = this.getSort.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
@@ -104,6 +107,12 @@ class ReviewApp extends React.Component {
     });
   }
 
+  showModal() {
+    this.setState({
+      newReview: !this.state.newReview
+    });
+  };
+
   seeMoreReviews() {
     const newCount = this.state.reviewCount + 2;
     this.setState({
@@ -124,7 +133,16 @@ class ReviewApp extends React.Component {
             reviewCount={reviewCount}
             reviews={reviews}
           />
+          <button type="button" onClick={this.seeMoreReviews}>More Reviews</button>
+          <button
+            type="button"
+            onClick={() => { this.showModal(); }}
+          >
+            Add Review
+          </button>
+          <NewReview close={this.showModal} show={this.state.newReview} />
           <RatingBreakdown ratings={this.state.ratings} />
+
         </div>
       );
     }

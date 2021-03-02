@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
@@ -18,7 +19,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
+    // loaders: [
+    //   { test: /\.css$/, loader: "style-loader!css-loader" },
+    // ],
+  //   rules:[
+  //     { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] }
+  // ],
   },
   mode: 'development',
 };
