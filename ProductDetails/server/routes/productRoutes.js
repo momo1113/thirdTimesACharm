@@ -7,9 +7,6 @@ const api = require('../../config');
 
 router.get('/products/:id', (req, res) => {
   const { id } = req.params;
-  console.log(`${api.api}/products/${id}`)
-  console.log(api.TOKEN)
-
   axios.get(`${api.api}/products/${id}`, {
     headers: {
       Authorization: api.TOKEN,

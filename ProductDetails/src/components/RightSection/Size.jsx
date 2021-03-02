@@ -3,9 +3,7 @@ import React from 'react';
 
 const Size = ({ size }) => (
 
-  <div className="size">
-    {size}
-  </div>
+  <option value={size}>{size}</option>
 );
 
 export default Size;

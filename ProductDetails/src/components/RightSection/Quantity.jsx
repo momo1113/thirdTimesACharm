@@ -2,9 +2,8 @@
 import React from 'react';
 
 const Quantity = ({ quantity }) => (
-  <div className="quantity">
-    {quantity}
-  </div>
+
+  <option value={quantity}>{quantity}</option>
 );
 
 export default Quantity;
