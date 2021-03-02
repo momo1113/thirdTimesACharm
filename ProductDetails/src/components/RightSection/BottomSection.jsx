@@ -20,7 +20,7 @@ const BottomSection = ({ styles }) => {
         <h4> STYLE ><span style={{ fontWeight: 'normal' }}> SELECTED STYLE</span> </h4>
 
       </div>
-      <div className="style" style={{ display: 'flex' }}>
+      <div className="style" style={{ display: 'flex', height: 50 }}>
         {style}
       </div>
       <div className="add_to_bag">

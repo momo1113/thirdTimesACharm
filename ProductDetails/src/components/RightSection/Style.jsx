@@ -25,7 +25,7 @@ const Style = ({ style }) => {
   return (
     <>
       <SelectedStyled color={style.name}>
-        {style.name}
+        <h5>{}</h5>
       </SelectedStyled>
 
       {/* <div className="quantiåty_size">
