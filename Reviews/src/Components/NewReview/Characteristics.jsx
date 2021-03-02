@@ -6,7 +6,6 @@ class Characteristics extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.onChangeValue = this.onChangeValue.bind(this);
 
     this.chars = {
       Fit: {
@@ -52,11 +51,6 @@ class Characteristics extends React.Component {
         5: 'Too wide',
       },
     };
-  }
-
-  onChangeValue(event) {
-    var charObj = { characteristics: this.state }
-    this.props.updateState(charObj);
   }
 
   render() {

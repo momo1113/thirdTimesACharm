@@ -6,6 +6,7 @@ import Recommend from './Recommend.jsx';
 import Characteristics from './Characteristics.jsx';
 import ReviewSummary from './ReviewSummary.jsx'
 import ReviewBody from './ReviewBody.jsx'
+import AddPhoto from './AddPhoto.jsx'
 
 class NewReview extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class NewReview extends React.Component {
       email: '',
       photos: [],
       characteristics: {},
+      newReview: false,
     };
 
     this.updateState = this.updateState.bind(this);
@@ -41,6 +43,12 @@ class NewReview extends React.Component {
     });
   }
 
+  showModal() {
+    this.setState({
+      newReview: !this.state.newReview
+    });
+  };
+
   render() {
     console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
@@ -56,6 +64,14 @@ class NewReview extends React.Component {
           />
           <ReviewSummary updateState={this.updateState} />
           <ReviewBody updateState={this.updateState} />
+          <br />
+          <button
+            type="button"
+            onClick={() => { this.showModal(); }}
+          >
+            Add Photo
+          </button>
+          <AddPhoto updateState={this.updateState} show={this.state.newReview}/>
         </section>
       </div>
     );
