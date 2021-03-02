@@ -8,10 +8,10 @@ import BottomSection from './BottomSection.jsx';
 import TopSection from './TopSection.jsx';
 
 
-const ProductDetails = ({ product, styles, seletedStyleName }) => (
+const ProductDetails = ({ product, styles, getSelectedStyle }) => (
   <>
     <TopSection product={product} styles={styles} />
-    <BottomSection styles={styles} seletedStyleName={seletedStyleName} />
+    <BottomSection styles={styles} getSelectedStyle={getSelectedStyle} />
   </>
 );
 

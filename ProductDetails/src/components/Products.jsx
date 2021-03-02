@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/extensions */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
@@ -18,9 +19,10 @@ class Products extends React.Component {
     this.state = {
       product: {},
       styles: [],
-      seletedStyleName: "Fuchsia",
+      selectedStyleName: '',
     };
     this.getStyles = this.getStyles.bind(this);
+    this.getSelectedStyle = this.getSelectedStyle.bind(this);
   }
 
   componentDidMount() {
@@ -44,8 +46,8 @@ class Products extends React.Component {
     this.setState({ styles });
   }
 
-  getSelectedStyle(selectedStyleId) {
-    this.setState({ selectedStyleId });
+  getSelectedStyle(styleName) {
+    this.setState({ selectedStyleName: styleName });
   }
 
   render() {
@@ -58,7 +60,7 @@ class Products extends React.Component {
           <ImageGallery getStyles={this.getStyles} />
         </Image>
         <Detail>
-          <ProductDetails product={this.state.product} styles={this.state.styles} seletedStyleName={this.state.seletedStyleName} />
+          <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} />
         </Detail>
         <Info>
           <ProductInfo product={this.state.product} />
