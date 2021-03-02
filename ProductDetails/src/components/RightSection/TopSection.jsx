@@ -32,7 +32,7 @@ const TopSection = ({ product, styles }) => {
       </Reviews>
       <Category>{product.category}</Category>
       <Name>{product.name}</Name>
-      <Price>'${product.default_price}</Price>
+      <Price>${product.default_price}</Price>
     </div>
   );
 };

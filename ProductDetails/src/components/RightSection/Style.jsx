@@ -4,7 +4,7 @@
 import React from 'react';
 import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
-import { SelectedStyled, CircleCheckMark } from '../../elements/RightSection/BottomSection.element.jsx';
+import { SelectedStyled } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const Style = ({ style, getSelectedStyle, selectedStyleName }) => {
   // eslint-disable-next-line react/prop-types
@@ -22,17 +22,13 @@ const Style = ({ style, getSelectedStyle, selectedStyleName }) => {
     // console.log(skus[item])
     <Size key={index} size={skus[item].size} />);
 
-
   return (
     <>
-      {
-        selectedStyleName === style.name ? (
-          <CircleCheckMark />
-        ) : null
-      }
-      <SelectedStyled color={style.name} onClick={() => getSelectedStyle(style.name)}>
-        <h5>{style.name}</h5>
-      </SelectedStyled>
+      <SelectedStyled
+        color={style.name}
+        onClick={() => getSelectedStyle(style.name)}
+        check={selectedStyleName === style.name}
+      />
 
       {/* <div className="quantiåty_size">
         {quantity}
