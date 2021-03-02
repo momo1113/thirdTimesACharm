@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import StarRatings from 'react-star-ratings';
 
 const Reviews = styled.div`
   margin-right:1%;
@@ -9,7 +10,7 @@ const Reviews = styled.div`
     content:"Read all reviews";
     padding:5px;
     text-decoration:underline;
-    font-size:15px;
+    font-size:14px;
 
   }
 `;
@@ -30,7 +31,16 @@ const TopSection = ({ product, styles }) => {
 
   return (
     <div className="top_section">
-      <Reviews>{rating}</Reviews>
+      <Reviews>
+        <StarRatings
+          rating={Number(rating)}
+          starRatedColor="RGB(253, 204, 13)"
+          numberOfStars={5}
+          starDimension={18}
+          starSpacing={1}
+          name="rating"
+        />
+      </Reviews>
       <div className="category">
         {product.category}
         <p>{product.name}</p>
