@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Size = ({ size, key }) => (
+const Size = ({
+  size
+}) => {
 
-  <option value={key + 1}>{size}</option>
-);
+  return (<option value={size}>{size}</option>);
+};
 
 export default Size;

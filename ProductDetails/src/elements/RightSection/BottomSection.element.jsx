@@ -18,5 +18,5 @@ border: 1px solid black;
 
 
 export const QuantitySize = styled.div`
-
+display:flex;
 `;

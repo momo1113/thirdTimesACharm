@@ -3,8 +3,6 @@ import Style from './Style.jsx'
 import StyledQuanityAndSize from './StyledQuanityAndSize.jsx'
 
 
-
-
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
 
