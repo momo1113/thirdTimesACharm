@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './NewReview.css';
 import Rating from './Rating.jsx';
+import Recommend from './Recommend.jsx';
 
 class NewReview extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class NewReview extends React.Component {
         <section className="modal-main">
           hello!
         <Rating updateState={this.updateState} updateState={this.updateState} />
+        <Recommend updateState={this.updateState} updateState={this.updateState} />
         </section>
       </div>
     );
