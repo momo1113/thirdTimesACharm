@@ -15,7 +15,7 @@ const ReviewList = ({ reviews, reviewCount, seeMoreReviews }) => {
   return (
     <div>
       {useTheseReviews.map((review, index) => <ReviewListItem review={review} key={index} />)}
-      <button type="button" onClick={() => { seeMoreReviews(); }}>More Reviews</button>
+      {/* <button type="button" onClick={() => { seeMoreReviews(); }}>More Reviews</button> */}
     </div>
   );
 };

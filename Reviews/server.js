@@ -20,7 +20,7 @@ app.get('/reviews', (req, res) => {
   const prodId = req.query.id;
   axios({
     method: 'get',
-    url: `${keys.api}/reviews/?product_id=${prodId}`,
+    url: `${keys.api}/reviews/?product_id=${prodId}&count=10&sort=relevant`,
     headers: {
       Authorization: keys.TOKEN,
     },

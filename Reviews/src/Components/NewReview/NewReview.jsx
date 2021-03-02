@@ -20,11 +20,12 @@ class NewReview extends React.Component {
       email: '',
       photos: [],
       characteristics: {},
-      newReview: false,
+      addPhotos: false,
     };
 
     this.updateState = this.updateState.bind(this);
     this.updateCharacteristics = this.updateCharacteristics.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
   // this.props.factors for fit, width, etc
 
@@ -45,7 +46,7 @@ class NewReview extends React.Component {
 
   showModal() {
     this.setState({
-      newReview: !this.state.newReview
+      addPhotos: !this.state.addPhotos
     });
   };
 
@@ -71,7 +72,11 @@ class NewReview extends React.Component {
           >
             Add Photo
           </button>
-          <AddPhoto updateState={this.updateState} show={this.state.newReview}/>
+          <AddPhoto
+            hide={this.showModal}
+            updateState={this.updateState}
+            show={this.state.addPhotos}
+          />
         </section>
       </div>
     );

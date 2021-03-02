@@ -9,19 +9,28 @@ class AddPhoto extends React.Component {
       photos: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.sendPhotos = this.sendPhotos.bind(this);
   }
 
   handleChange(event) {
     const photoArr = this.state.photos
-    photoArr[event.target.name] = event.target.value
+    photoArr[event.target.name] = event.target.value;
     this.setState({ photos: photoArr });
   }
 
-  handleSubmit(event) {
+  sendPhotos() {
+    // debugger
     this.props.updateState(this.state);
-    event.preventDefault();
+    // debugger
+    // console.log('hi')
+    this.props.hide();
   }
+
+  // handleSubmit(event) {
+  //   this.props.updateState(this.state);
+  //   event.preventDefault();
+  // }
 
   render() {
     console.log(this.state);
@@ -67,7 +76,7 @@ class AddPhoto extends React.Component {
             </label>
             <br />
             <label>
-              Photo :
+              Photo 5:
               <input
                 name="4"
                 type="text"
@@ -75,8 +84,9 @@ class AddPhoto extends React.Component {
               />
             </label>
             <br />
-            <input type="submit" value="Submit" />
+            {/* <input type="submit" value="Submit" /> */}
           </form>
+          <button onClick={this.sendPhotos}>Button</button>
         </section>
       </div>
     );

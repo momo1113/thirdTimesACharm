@@ -136,13 +136,26 @@ class ReviewApp extends React.Component {
             reviewCount={reviewCount}
             reviews={reviews}
           />
-          <button type="button" onClick={this.seeMoreReviews}>More Reviews</button>
-          <button
-            type="button"
-            onClick={() => { this.showModal(); }}
-          >
-            Add Review
-          </button>
+          {allReviews.length >= reviewCount
+            ? (
+              <>
+                <button type="button" onClick={this.seeMoreReviews}>More Reviews</button>
+                <button
+                  type="button"
+                  onClick={() => { this.showModal(); }}
+                >
+                  Add Review
+                </button>
+              </>
+            )
+            : (
+              <button
+                type="button"
+                onClick={() => { this.showModal(); }}
+              >
+                Add Review
+              </button>
+            )}
           <NewReview
             factors={factors}
             close={this.showModal}
