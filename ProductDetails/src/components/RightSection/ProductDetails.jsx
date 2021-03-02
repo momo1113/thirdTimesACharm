@@ -7,16 +7,12 @@ import BottomSection from './BottomSection.jsx';
 // eslint-disable-next-line import/extensions
 import TopSection from './TopSection.jsx';
 
-const RightSideWrapper = styled.div`
-  margin-top:15%;
-`;
 
 const ProductDetails = ({ product, styles }) => (
-  <RightSideWrapper>
+  <>
     <TopSection product={product} styles={styles} />
     <BottomSection styles={styles} />
-
-  </RightSideWrapper>
+  </>
 );
 
 export default ProductDetails;

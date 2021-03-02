@@ -4,7 +4,7 @@
 import React from 'react';
 import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
-
+import { SelectedStyled } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const Style = ({ style }) => {
   // eslint-disable-next-line react/prop-types
@@ -23,17 +23,16 @@ const Style = ({ style }) => {
     <Size key={index} size={skus[item].size} />);
 
   return (
-    <div className="style">
-      <div className="name">
+    <>
+      <SelectedStyled color={style.name}>
         {style.name}
-      </div>
-      <p>below if all the quantity </p>
-      <div className="quantity_size">
+      </SelectedStyled>
+
+      {/* <div className="quantiåty_size">
         {quantity}
-        <p>below if all the size </p>
         {size}
-      </div>
-    </div>
+      </div> */}
+    </>
 
   );
 };
