@@ -18,6 +18,7 @@ class Products extends React.Component {
     this.state = {
       product: {},
       styles: [],
+      seletedStyleId: '',
     };
     this.getStyles = this.getStyles.bind(this);
   }
@@ -41,6 +42,10 @@ class Products extends React.Component {
 
   getStyles(styles) {
     this.setState({ styles });
+  }
+
+  getSelectedStyle(selectedStyleId) {
+    this.setState({ selectedStyleId });
   }
 
   render() {

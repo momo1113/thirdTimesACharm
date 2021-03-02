@@ -9,7 +9,6 @@ const ImageGallery = ({ getStyles }) => {
   const [styles, setStyles] = useState([]);
 
   useEffect(() => {
-    // why /products/:${id}/styles doesn't work
     const id = 14932;
     axios.get(`/products/${id}/styles`)
       .then((response) => {
@@ -19,8 +18,8 @@ const ImageGallery = ({ getStyles }) => {
       })
       .catch((err) => console.log(err));
   }, []);
-
   return (
+
     <div className="image_gallery">
       <ImageCarousel styles={styles} />
     </div>
