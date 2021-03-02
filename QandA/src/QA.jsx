@@ -4,57 +4,6 @@ import axios from 'axios';
 import QuestionsList from './components/QuestionsList.jsx';
 import SearchQuestions from './components/SearchQuestions.jsx';
 
-// class QA extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       products: {},
-//     };
-//     this.randomProduct = this.randomProduct.bind(this);
-//   }
-
-//   componentDidMount() {
-//     axios.get('/products')
-//       .then((response) => {
-//         this.setState({
-//           products: response.data,
-//         });
-//         const random = this.randomProduct(response.data);
-//         this.setState({
-//           product: random,
-//         });
-//         axios.get(`/questions/${random}`)
-//           .then((res) => {
-//             this.setState({
-//               questions: res.data,
-//             });
-//           })
-//           .catch((err) => {
-//             throw (err);
-//           });
-//       })
-//       .catch((err) => {
-//         throw (err);
-//       });
-//   }
-
-//   randomProduct(productsList) {
-//     return productsList[(Math.floor(Math.random() * productsList.length))].id;
-//   }
-
-//   render() {
-//     const { questions, product } = this.state;
-//     return (
-//       <div>
-//         <h1>Questions and Answers</h1>
-//         <SearchQuestions />
-//         <br />
-//         <QuestionsList questions={questions} product={product} />
-//       </div>
-//     );
-//   }
-// }
-
 const QA = () => {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState(null);
@@ -83,11 +32,9 @@ const QA = () => {
       });
   }, []);
 
-  // console.log(questions);
-
   return (
     <div>
-      {questions[product] !== undefined && console.log(questions[product])}
+      {/* {questions[product] !== undefined && console.log(questions[product])} */}
       <h1>Questions & Answers</h1>
       {questions[product] !== undefined
         ? <SearchQuestions />
