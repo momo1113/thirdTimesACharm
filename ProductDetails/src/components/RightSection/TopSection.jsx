@@ -3,18 +3,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
 import {
-  Reviews, Category, Name, Price,
+  Reviews, Category, Name, OriginalPrice, SalePrice
 } from '../../elements/RightSection/TopSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const TopSection = ({ product, styles, selectedStyleName }) => {
-  console.log(styles);
-
   const [rating, setRating] = useState(0);
-  const [salePrice, setSalePrice] = useState(0);
-
-
-
 
   useEffect(() => {
     const id = 14932;
@@ -26,14 +20,16 @@ const TopSection = ({ product, styles, selectedStyleName }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  let salePrice = 0;
+  let originalPrice = product.default_price;
+  const saleProductResult = styles.filter(
+    (style) => (style.name === selectedStyleName) && style.sale_price
+  );
+  if (saleProductResult && (saleProductResult[0] !== undefined)) {
+    salePrice = saleProductResult[0].sale_price;
+    originalPrice = saleProductResult[0].original_price;
+  }
 
-  useEffect(() => {
-    styles.map((style) => {
-      console.log('style.name')((style.name === selectedStyleName) && style.sale_price) ? setSalePrice(style.sale_price) : null;
-    });
-  }, [salePrice]);
-
-  console.log('1');
   return (
     <div className="top_section">
       {
@@ -53,10 +49,18 @@ const TopSection = ({ product, styles, selectedStyleName }) => {
 
       <Category>{product.category}</Category>
       <Name>{product.name}</Name>
-      <Price>
+      <OriginalPrice checkSale={salePrice !== 0}>
         $
-        {product.default_price}
-      </Price>
+        {originalPrice}
+      </OriginalPrice>
+      {
+        salePrice !== 0 ? (
+          <SalePrice>
+            $
+            {salePrice}
+          </SalePrice>
+        ) : null
+      }
     </div>
   );
 };

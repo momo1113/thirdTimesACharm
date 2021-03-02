@@ -22,7 +22,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
 
   return (
     <div className="styles_info">
-      <h4> STYLE ><span style={{ fontWeight: 'normal' }}> SELECTED STYLE</span> </h4>
+      <h4> Color:<span style={{ fontWeight: 'normal' }}> {selectedStyleName}</span> </h4>
       <div className="style" style={{ display: 'flex', height: 50 }}>
         {styledColor}
 
