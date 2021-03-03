@@ -1,10 +1,10 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import MainApp from '../Components/MainApp.jsx';
+import ReviewApp from '../Components/ReviewApp.jsx';
 
-test('h1 tag has text', () => {
-  const wrapper = shallow(<MainApp />);
-  expect(wrapper.find('h1').text()).toContain('Hello123456');
+test('has loading screen', () => {
+  const wrapper = shallow(<ReviewApp />);
+  expect(wrapper.find('div').text()).toContain('Loading');
 });
 
 // import { shallow, mount, render } from 'enzyme';
