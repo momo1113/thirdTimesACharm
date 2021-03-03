@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Style from './Style.jsx';
 import StyledQuanityAndSize from './StyledQuanityAndSize.jsx';
 import { AddToBag, Bag, StarButton, AddPlus, FavStar } from '../../elements/RightSection/BottomSection.element.jsx';;
 
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
+
+  const [clicked, setClicked] = useState(false);
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
@@ -27,6 +29,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
         style={item}
         getSelectedStyle={getSelectedStyle}
         selectedStyleName={selectedStyleName}
+        clicked={clicked}
       />
     ),
   );
@@ -44,8 +47,8 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
       </div>
       { styledQuanityAndSize}
       <AddToBag >
-        <Bag> ADD TO BAG<AddPlus /></Bag>
-        <StarButton> <FavStar /></StarButton>
+        <Bag onClick={() => setClicked(true)}> ADD TO BAG<AddPlus /></Bag>
+        <StarButton > <FavStar /></StarButton>
       </AddToBag >
     </div >
   );

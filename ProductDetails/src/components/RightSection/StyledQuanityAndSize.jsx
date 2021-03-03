@@ -6,13 +6,14 @@ import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
 import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
-const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
-  // eslint-disable-next-line react/prop-types
-  const [sizeValue, setSizeValue] = useState('');
+const StyledQuanityAndSize = ({ style, selectedStyleName, clicked }) => {
+  const [sizeValue, setSizeValue] = useState(0);
   const [quantityValue, setQuantityValue] = useState(0);
   const { skus } = style;
   const listOfQuantityAndSize = Object.keys(skus);
 
+  console.log(`defaultName${sizeValue}`);
+  console.log(`after click${clicked}`);
   const size = listOfQuantityAndSize.map(
     (item, index) => (
       style.name === selectedStyleName) && skus[item].quantity !== 0
@@ -77,7 +78,13 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
       {
         style.name === selectedStyleName && (
           <QuantitySize>
-            <SizeSelect name="size" onChange={(e) => setSizeValue(e.target.value)} value={sizeValue}>
+            <SizeSelect
+              name="size"
+              onChange={(e) => setSizeValue(e.target.value)}
+              value={sizeValue}
+              clicked={clicked === true}
+              sizeValue={sizeValue === 0}
+            >
               <option value="0">  SELECT SIZE</option>
               {size}
             </SizeSelect>

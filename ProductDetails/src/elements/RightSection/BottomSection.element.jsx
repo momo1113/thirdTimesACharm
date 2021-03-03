@@ -32,7 +32,10 @@ font-weight:300;
 text-align:start;
 appearance: none;
 &:focus {
-  outline: none;
+  outline: 2px blue;
+}
+&:focus:active {
+  
 }
 `;
 
