@@ -1,20 +1,21 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import { Checkmark } from '@styled-icons/icomoon';
+import { Plus, Star } from '@styled-icons/boxicons-regular';
 
 export const SelectedStyled = styled.img`
-position:relative;
+
 border-radius: 50%;
 margin:auto 10px;
-height:50px;
-width:49.781px;
+height:75px;
+width:75px;
 cursor:pointer;
 `;
 
 export const QuantitySize = styled.div`
 display:flex;
 flex-wrap: wrap;
-margin-top:20px;
+margin-top:15%;
 `;
 
 export const SizeSelect = styled.select`
@@ -29,6 +30,7 @@ padding:15px 12px;
 text-decoration:none;
 font-weight:300;
 text-align:start;
+appearance: none;
 &:focus {
   outline: none;
 }
@@ -43,16 +45,10 @@ cursor: pointer;
 border-radius: 2px;
 text-align: center;
 text-align-last: center;
+appearance: none;
 &:focus {
   outline: none;
 }
-`;
-
-export const CheckMark = styled(Checkmark)`
-position:'absolute';
-margin-bottom:15px;
-height:15px;
-  color: red;
 `;
 
 export const AddToBag = styled.div`
@@ -62,7 +58,7 @@ margin-top:20px;
 `;
 
 export const Bag = styled.button`
-flex: 9;
+flex: 7;
 margin-right:10px;
 padding:15px 12px;
 text-decoration:none;
@@ -77,10 +73,28 @@ background-color:white;
 
 `;
 
-export const Star = styled.button`
+export const StarButton = styled.button`
 flex: 1;
 background-color:white;
 border-color:coral;
 outline:none;
 cursor: pointer;
+`;
+
+
+export const CheckMark = styled(Checkmark)`
+position:'absolute';
+margin-bottom:15px;
+height:15px;
+  color: red;
+`;
+
+export const AddPlus = styled(Plus)`
+height:17px;
+margin-left:50%;
+margin-bottom:4px;
+`;
+
+export const FavStar = styled(Star)`
+height:16px;
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './Style.jsx';
 import StyledQuanityAndSize from './StyledQuanityAndSize.jsx';
-import { AddToBag, Bag, Star } from '../../elements/RightSection/BottomSection.element.jsx';;
+import { AddToBag, Bag, StarButton, AddPlus, FavStar } from '../../elements/RightSection/BottomSection.element.jsx';;
 
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
@@ -45,8 +45,8 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
 
       { styledQuanityAndSize}
       <AddToBag >
-        <Bag> ADD TO BAG</Bag>
-        <Star> star </Star>
+        <Bag> ADD TO BAG<AddPlus /></Bag>
+        <StarButton> <FavStar /></StarButton>
       </AddToBag >
     </div >
   );
