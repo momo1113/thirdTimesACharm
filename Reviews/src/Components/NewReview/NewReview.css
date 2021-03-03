@@ -31,3 +31,32 @@ label {
   padding: 0 1em;
   text-align: center;
 }
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.dialog {
+  box-shadow: 0 8px 6px -6px black;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.image {
+  width: 400px;
+}
