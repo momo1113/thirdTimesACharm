@@ -40,9 +40,10 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
       for (let i = 1; i < quantityValue; ++i) {
         array.push(i);
       }
-      quantity = array.map((num) => (
+      quantity = array.map((num, index) => (
         <Quantity
           value={num}
+          key={index}
         />
       ));
     } else {
@@ -51,9 +52,10 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
         array.push(i);
         i++;
       }
-      quantity = array.map((num) => (
+      quantity = array.map((num, index) => (
         <Quantity
           value={num}
+          key={index}
         />
       ));
     }
@@ -65,14 +67,11 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
           <Quantity
             key={index}
             value={skus[item].quantity}
-            quantityValue={quantityValue}
-            skusId={item}
           />
         )
       ),
     );
   }
-
   return (
     <>
       {
@@ -82,7 +81,10 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
               <option value="0">  SELECT SIZE</option>
               {size}
             </SizeSelect>
-            <QuanitySelect name="quantity">
+            <QuanitySelect name="quantity" disabled={quantityValue === 0}>
+              {
+                quantityValue === 0 && <option value="0">  - </option>
+              }
               {quantity}
             </QuanitySelect>
           </QuantitySize>
