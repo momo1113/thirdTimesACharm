@@ -1,6 +1,7 @@
 import React from 'react';
 import Style from './Style.jsx';
 import StyledQuanityAndSize from './StyledQuanityAndSize.jsx';
+import { AddToBag, Bag, Star } from '../../elements/RightSection/BottomSection.element.jsx';;
 
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
@@ -34,7 +35,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
     <div className="styles_info">
       <h4>
         Style >
-        <span style={{ fontWeight: 'normal',paddingLeft:10 }}>
+        <span style={{ fontWeight: 'normal', paddingLeft: 10 }}>
           {selectedStyleName}
         </span>
       </h4>
@@ -42,11 +43,11 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
         {styledThumbnails}
       </div>
 
-      { styledQuanityAndSize }
-  <div className="add_to_bag">
-    <p> ADD TO BAG</p>
-    <span> star </span>
-  </div>
+      { styledQuanityAndSize}
+      <AddToBag >
+        <Bag> ADD TO BAG</Bag>
+        <Star> star </Star>
+      </AddToBag >
     </div >
   );
 };
