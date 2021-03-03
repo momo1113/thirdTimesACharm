@@ -80,7 +80,7 @@ class ReviewApp extends React.Component {
               entered = true;
             }
           } else if (sort === 'date') {
-            if (review.date < sortedRev.date && !entered) {
+            if (review.date > sortedRev.date && !entered) {
               sortedRevs.splice(j, 0, review);
               entered = true;
             }
@@ -90,9 +90,9 @@ class ReviewApp extends React.Component {
             const today = new Date();
             const reviewDif = today - reviewDate;
             const sortedDif = today - sortedRevDate;
-            const reviewRel = reviewDif / review.helpfulness
+            const reviewRel = reviewDif / review.helpfulness;
             const sortedRel = sortedDif / sortedRev.helpfulness;
-            if (reviewRel > sortedRel && !entered) {
+            if (reviewRel < sortedRel && !entered) {
               sortedRevs.splice(j, 0, review);
               entered = true;
             }

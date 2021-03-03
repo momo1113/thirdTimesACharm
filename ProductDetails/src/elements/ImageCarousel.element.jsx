@@ -16,28 +16,45 @@ export const Slider = styled.div`
   //margin:10%;
   justify-content:center;
   align-items:center;
-  margin-left:20%;
+  margin-left:10%;
 `;
 
 export const Image = styled.img`
 position: absolute;
-width:600px;
-height:600px;
+width:700px;
+height:550px;
 `;
 export const ThumbnailWrapper = styled.div`
   position:absolute;
-top:10%;
+  top:15%;
   z-index:9;
-  left:10%;
+  left:5%;
 `;
 
 export const Thumbnail = styled.img`
+&::after{
+  content:" 🦄";
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:5px;
+  width:10005px;
+  background:red;
+
+};
  display: block;
- z-index:9;
  width:75px;
  height:75px;
  margin:10px;
+ border: 1px solid black; 
 `;
+
+export const DownArrow = styled(ArrowDown)`
+   width:40px;
+   padding-left: 30%;
+`;
+
+
 
 export const LeftArrow = styled(ArrowLeft)`
   position:absolute;
@@ -64,18 +81,8 @@ export const RightArrow = styled(ArrowRight)`
 export const FullscreenArrow = styled(ArrowsFullscreen)`
   position:absolute;
   width:15px;
-  top:10%;
+  top:15%;
   right:10%;
-  font-size:3rem;
-  z-index:10;
-  cursor:pointer;
-  user-select: none;
-`;
-
-export const DownArrow = styled(ArrowDown)`
- position:absolute;
- width:40px;
-  left:10%;
   font-size:3rem;
   z-index:10;
   cursor:pointer;

@@ -1,17 +1,11 @@
 import React from 'react';
+import Question from './Question.jsx';
 
-const QuestionsList = () => (
+const QuestionsList = ({ questions }) => (
   <div>
-    Test
-    <div>
-      Question 1:
-      <div>Answers:</div>
-    </div>
-    <br />
-    <div>
-      Question 2
-      <div>Answers:</div>
-    </div>
+    {questions.map((question) => (
+      <Question key={question.question_id} question={question} />
+    ))}
   </div>
 );
 
