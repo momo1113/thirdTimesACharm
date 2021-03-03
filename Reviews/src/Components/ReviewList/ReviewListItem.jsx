@@ -4,12 +4,12 @@ import ReviewTop from './ReviewTop.jsx'
 import ReviewBody from './ReviewBody.jsx'
 import ReviewHelpful from './ReviewHelpful.jsx'
 
-const ReviewListItem = ({ review }) => (
+const ReviewListItem = ({ review, markAsHelpful }) => (
 
   <div>
     <ReviewTop review={review} />
     <ReviewBody review={review} />
-    <ReviewHelpful review={review} />
+    <ReviewHelpful markAsHelpful={markAsHelpful} review={review} />
   </div>
 
 );

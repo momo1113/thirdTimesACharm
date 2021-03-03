@@ -22,6 +22,7 @@ class ReviewApp extends React.Component {
     this.getSort = this.getSort.bind(this);
     this.showModal = this.showModal.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
+    this.markAsHelpful = this.markAsHelpful.bind(this);
   }
 
   componentDidMount() {
@@ -130,6 +131,11 @@ class ReviewApp extends React.Component {
       });
   }
 
+  markAsHelpful(revId) {
+    // console.log(revId)
+    axios.put('/helpful', {id: revId})
+  }
+
   render() {
     if (this.state.loaded) {
       const allReviews = this.state.reviews
@@ -145,6 +151,7 @@ class ReviewApp extends React.Component {
             seeMoreReviews={this.seeMoreReviews}
             reviewCount={reviewCount}
             reviews={reviews}
+            markAsHelpful={this.markAsHelpful}
           />
           {allReviews.length > reviewCount
             ? (
