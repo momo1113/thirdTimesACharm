@@ -45,11 +45,11 @@ class Card extends React.Component {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
     return (
       <div className="card">
-        {this.props.list === 'outfitList' ? <button onClick={this.handleClick}>Remove</button> : <button onClick={this.handleClick}>Compare</button>}
 
         <div className="frame">
           <img src={imgSrc} alt="product image"></img>
         </div>
+        {this.props.list === 'outfitList' ? <div className="action" onClick={this.handleClick}>Remove</div> : <div className="action" onClick={this.handleClick}>Compare</div>}
         <div className="category">{this.state.category}</div>
         <div className="product-name">{this.state.name}</div>
         <div className="price">$ {this.state.price}</div>

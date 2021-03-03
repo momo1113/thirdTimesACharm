@@ -25,6 +25,21 @@
   opacity: 1;
   transition: 0.8s ease;
   cursor: pointer;
+  top: 0;
+}
+
+.action{
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  opacity: 0;
+}
+.card:hover .action{
+  opacity: 1;
+  transition: 0.8s ease;
 }
 
 .addList > div:last-child {
@@ -32,10 +47,11 @@
   color: black;
   font-weight: bold;
   font-size: 230;
-  grid-row: 3/4;
+  grid-row: 1/4;
   position: absolute;
+  top: 10px;
   text-align: center;
-  padding: 20px 45px;
+  padding: 10px 45px;
 }
 .addList > div:first-child {
   grid-row: 0/3;
@@ -51,11 +67,12 @@
 
 .container .card{
   min-width: 230px;
+  position: relative;
   height: 400px;
   margin-right: 5px;
   border: 1px solid black;
   display: grid;
-  grid-template-rows: 1fr 10fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
 }
 .category {
   color: #888;
