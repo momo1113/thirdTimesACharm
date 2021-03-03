@@ -15,12 +15,12 @@ class ImageComponent extends React.Component {
 
   render() {
     return (
-   <>
+      <>
         <img
           className="small"
           src={this.props.src}
           onClick={this.handleShowDialog}
-          alt="no image"
+          alt="small image"
           width="50px"
         />
         {this.state.isOpen && (
@@ -34,11 +34,11 @@ class ImageComponent extends React.Component {
               className="image"
               src={this.props.src}
               onClick={this.handleShowDialog}
-              alt="no image"
+              alt="big image"
             />
           </dialog>
         )}
-</>
+      </>
     );
   }
 }
