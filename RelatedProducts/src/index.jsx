@@ -11,6 +11,7 @@ class App extends React.Component {
       currentProductId: 14034,
       relatedList: [],
       outfitList: [],
+      currentImg: '',
     };
     this.addToList = this.addToList.bind(this);
     this.removeFromList = this.removeFromList.bind(this);
@@ -24,30 +25,13 @@ class App extends React.Component {
       });
     axios.get('/products/14034/styles')
       .then((res) => {
-        this.setState({ style: res.data });
+        this.setState({ currentImg: res.data.results[0].photos[0].thumbnail_url });
       });
 
     if (localStorage.getItem('outfitList')) {
       const outfitList = localStorage.getItem('outfitList').split(',');
       this.setState({ outfitList });
     }
-  }
-
-  addToList(){
-    let outfitList = [];
-    if (localStorage.getItem('outfitList')) {
-      outfitList = localStorage.getItem('outfitList').split(',');
-    }
-    outfitList.push(this.state.currentProductId.toString());
-    localStorage.setItem('outfitList', outfitList);
-    this.setState({ outfitList });
-  }
-
-  removeFromList(id) {
-    let outfitList = localStorage.getItem('outfitList').split(',');
-    const newList = outfitList.filter((element) => element !== id);
-    localStorage.setItem('outfitList', newList);
-    this.setState({ outfitList: newList });
   }
 
   handleScroll(list, id) {
@@ -63,11 +47,39 @@ class App extends React.Component {
     }
   }
 
+  removeFromList(id) {
+    const outfitList = localStorage.getItem('outfitList').split(',');
+    const newList = outfitList.filter((element) => element !== id);
+    localStorage.setItem('outfitList', newList);
+    this.setState({ outfitList: newList });
+  }
+
+  addToList() {
+    let outfitList = [];
+    const { currentProductId } = this.state;
+    if (localStorage.getItem('outfitList')) {
+      outfitList = localStorage.getItem('outfitList').split(',');
+    }
+    outfitList.push(currentProductId.toString());
+    localStorage.setItem('outfitList', outfitList);
+    this.setState({ outfitList });
+  }
+
   render() {
+    const { relatedList, outfitList, currentImg } = this.state;
     return (
       <div>
-        <RelatedList handleScroll={this.handleScroll} relatedList={this.state.relatedList} />
-        <OutfitList handleScroll={this.handleScroll} removeFromList={this.removeFromList} addToList={this.addToList} outfitList={this.state.outfitList} />
+        <RelatedList
+          handleScroll={this.handleScroll}
+          relatedList={relatedList}
+        />
+        <OutfitList
+          handleScroll={this.handleScroll}
+          removeFromList={this.removeFromList}
+          addToList={this.addToList}
+          outfitList={outfitList}
+          currentImg={currentImg}
+        />
       </div>
     );
   }

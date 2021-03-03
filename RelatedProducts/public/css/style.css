@@ -11,11 +11,47 @@
   min-width: 230px;
   width: 230px;
   height: 300px;
+}
 
+.addList{
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  height: 400px;
+  place-items: center;
+  opacity: 0.5;
+  /* filter: alpha(opacity=50); */
+}
+.addList:hover{
+  opacity: 1;
+  transition: 0.8s ease;
+  cursor: pointer;
+}
+
+.addList > div:last-child {
+  /* font-size: 140; */
+  color: black;
+  font-weight: bold;
+  font-size: 230;
+  grid-row: 3/4;
+  position: absolute;
+  text-align: center;
+  padding: 20px 45px;
+}
+.addList > div:first-child {
+  grid-row: 0/3;
+
+}
+.addList > div:nth-child(2) {
+
+  font-weight: bold;
+  font-size: 20;
+  text-align: center;
+  grid-row: 2/4
 }
 
 .container .card{
   min-width: 230px;
+  height: 400px;
   margin-right: 5px;
   border: 1px solid black;
   display: grid;
