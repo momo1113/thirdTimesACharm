@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614797888524" clover="3.2.0">
-  <project timestamp="1614797888524" name="All files">
-    <metrics statements="251" coveredstatements="31" conditionals="60" coveredconditionals="1" methods="86" coveredmethods="4" elements="397" coveredelements="36" complexity="0" loc="251" ncloc="251" packages="5" files="28" classes="28"/>
-    <package name="enzymeTests">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="sum.js" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/enzymeTests/sum.js">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.Components">
+<coverage generated="1614804519148" clover="3.2.0">
+  <project timestamp="1614804519148" name="All files">
+    <metrics statements="249" coveredstatements="39" conditionals="60" coveredconditionals="2" methods="85" coveredmethods="7" elements="394" coveredelements="48" complexity="0" loc="249" ncloc="249" packages="4" files="27" classes="27"/>
+    <package name="Components">
       <metrics statements="74" coveredstatements="12" conditionals="34" coveredconditionals="1" methods="18" coveredmethods="3"/>
       <file name="ImageComponent.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ImageComponent.jsx">
         <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -93,21 +85,21 @@
         <line num="187" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.Components.NewReview">
-      <metrics statements="110" coveredstatements="1" conditionals="24" coveredconditionals="0" methods="43" coveredmethods="0"/>
+    <package name="Components.NewReview">
+      <metrics statements="110" coveredstatements="10" conditionals="24" coveredconditionals="1" methods="43" coveredmethods="3"/>
       <file name="AddPhoto.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/NewReview/AddPhoto.jsx">
-        <metrics statements="11" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <metrics statements="11" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="2" type="stmt"/>
       </file>
       <file name="CharItem.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/NewReview/CharItem.jsx">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -239,7 +231,7 @@
         <line num="26" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.Components.RatingBreakdown">
+    <package name="Components.RatingBreakdown">
       <metrics statements="39" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="0"/>
       <file name="AvgRating.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/AvgRating.jsx">
         <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -305,14 +297,14 @@
         <line num="7" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.Components.ReviewList">
-      <metrics statements="26" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0"/>
+    <package name="Components.ReviewList">
+      <metrics statements="26" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="1"/>
       <file name="ReviewBody.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewBody.jsx">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
       </file>
       <file name="ReviewHelpful.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewHelpful.jsx">
         <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>

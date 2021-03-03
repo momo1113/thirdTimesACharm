@@ -2,6 +2,7 @@ import { shallow, mount, render } from 'enzyme';
 import React from 'react';
 import ReviewApp from '../Components/ReviewApp.jsx';
 import ReviewBody from '../Components/ReviewList/ReviewBody.jsx';
+import AddPhoto from '../Components/NewReview/AddPhoto.jsx'
 
 const sampleReview = {
   review_id: 147757,
@@ -38,6 +39,16 @@ function setup() {
   const wrapper = shallow(<ReviewApp />);
   return { wrapper, props };
 }
+
+test('adds photos', () => {
+  const wrapper = shallow(<AddPhoto />);
+  wrapper
+    .find('input')
+    .first()
+    .simulate('change', { target: { name: 0, value: 'foo' }})
+
+  expect(wrapper.state('photos')).toHaveLength(1);
+})
 
 // describe('has buttons', () => {
 //   it('Should have a button', () => {
