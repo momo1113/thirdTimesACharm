@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './NewReview.css';
+// import css from './NewReview.css';
 import Rating from './Rating.jsx';
 import Recommend from './Recommend.jsx';
 import Characteristics from './Characteristics.jsx';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './NewReview.css';
+// import css from './NewReview.css';
 
 class AddPhoto extends React.Component {
   constructor(props) {
