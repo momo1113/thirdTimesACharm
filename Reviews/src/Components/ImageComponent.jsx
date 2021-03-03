@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewReview/NewReview.css";
+// import "./NewReview/NewReview.css";
 
 class ImageComponent extends React.Component {
   constructor(props) {
