@@ -85,9 +85,11 @@ class NewReview extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     // console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
+    const allPhotos = this.state.photos;
+
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
@@ -99,12 +101,16 @@ class NewReview extends React.Component {
           />
           <ReviewSummary updateState={this.updateState} />
           <ReviewBody updateState={this.updateState} />
-          <button
-            type="button"
-            onClick={() => { this.showModal(); }}
-          >
-            Add Photo
-          </button>
+          {allPhotos.length < 5
+            ? (
+              <button
+                type="button"
+                onClick={() => { this.showModal(); }}
+              >
+                Add Photo
+              </button>
+            )
+            : <br />}
           <AddPhoto
             hide={this.showModal}
             updateState={this.updateState}
@@ -112,7 +118,7 @@ class NewReview extends React.Component {
           />
           <Nickname updateState={this.updateState} />
           <Email updateState={this.updateState} />
-          <button onClick={() => {this.submitReview()}}>Submit</button>
+          <button type="button" onClick={() => { this.submitReview(); }}>Submit</button>
         </section>
       </div>
     );
