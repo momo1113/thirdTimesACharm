@@ -15,7 +15,7 @@ class Recommend extends React.Component {
     if (event.target.value === '0') {
       rec = false;
     }
-    var ratingObj = { recommend: rec }
+    let ratingObj = { recommend: rec };
     this.props.updateState(ratingObj);
   }
 
@@ -24,13 +24,16 @@ class Recommend extends React.Component {
       <>
         Do you recommend this product?
         <div onChange={this.onChangeValue}>
-          <input type="radio" value="1" name="recommend" /> Yes
-          <input type="radio" value="0" name="recommend" /> No
+          <input type="radio" value="1" name="recommend" />
+          {' '}
+          Yes
+          <input type="radio" value="0" name="recommend" />
+          {' '}
+          No
         </div>
       </>
     );
   }
 }
-
 
 export default Recommend;

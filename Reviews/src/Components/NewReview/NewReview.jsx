@@ -76,7 +76,7 @@ class NewReview extends React.Component {
 
   submitReview() {
     if (!this.checkState()) {
-      alert('please make sure all forms are filled out')
+      alert('please make sure all forms are filled out');
     } else {
       const newReview = this.state;
       delete newReview.addPhotos;

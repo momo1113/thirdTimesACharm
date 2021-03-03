@@ -26,7 +26,7 @@ class ImageComponent extends React.Component {
         {this.state.isOpen && (
           <dialog
             className="dialog"
-            style={{ position: "absolute" }}
+            style={{ position: 'absolute' }}
             open
             onClick={this.handleShowDialog}
           >

@@ -19,19 +19,29 @@ class CharItem extends React.Component {
       <div>
         <p>{this.props.name}</p>
         <section onChange={this.onChangeValue}>
-          <label >{this.props.options[1]}<br />
+          <label >
+            {this.props.options[1]}
+            <br />
             <input type="radio" value="1" name={this.props.name} />
           </label>
-          <label >{this.props.options[2]}<br />
+          <label >
+            {this.props.options[2]}
+            <br />
             <input type="radio" value="2" name={this.props.name} />
           </label>
-          <label >{this.props.options[3]}<br />
+          <label >
+            {this.props.options[3]}
+            <br />
             <input type="radio" value="3" name={this.props.name} />
           </label>
-          <label >{this.props.options[4]}<br />
+          <label >
+            {this.props.options[4]}
+            <br />
             <input type="radio" value="4" name={this.props.name} />
           </label>
-          <label >{this.props.options[5]}<br />
+          <label >
+            {this.props.options[5]}
+            <br />
             <input type="radio" value="5" name={this.props.name} />
           </label>
         </section>

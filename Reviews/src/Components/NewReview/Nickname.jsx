@@ -13,7 +13,7 @@ class Nickname extends React.Component {
   }
 
   handleChange(event) {
-    var newName = event.target.value
+    let newName = event.target.value;
     this.setState({ name: newName });
     this.props.updateState({ name: newName });
   }

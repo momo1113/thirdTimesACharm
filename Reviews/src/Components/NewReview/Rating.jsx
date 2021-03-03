@@ -11,7 +11,7 @@ class Rating extends React.Component {
   }
 
   onChangeValue(event) {
-    var ratingObj = { rating: Number(event.target.value) }
+    let ratingObj = { rating: Number(event.target.value) };
     this.props.updateState(ratingObj);
   }
 

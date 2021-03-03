@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, './public')));
 
-// 14931
+// 14932
 app.get('/reviews', (req, res) => {
   const prodId = req.query.id;
   axios({

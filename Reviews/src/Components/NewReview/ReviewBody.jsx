@@ -29,13 +29,13 @@ class ReviewBody extends React.Component {
           Review:
           <textarea defaultValue="Why did you like the product or not?" maxLength="1000" minLength="50" value={this.state.value} onChange={this.handleChange} />
           {this.state.body.length < 50
-          ? (
-            <p>
-              Minimum required characters left:&nbsp;
-              {50 - this.state.body.length}
-            </p>
+            ? (
+              <p>
+                Minimum required characters left:&nbsp;
+                {50 - this.state.body.length}
+              </p>
             )
-          : <p>Minimum Reached</p>}
+            : <p>Minimum Reached</p>}
         </label>
       </form>
     );
