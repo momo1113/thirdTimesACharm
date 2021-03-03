@@ -21,7 +21,7 @@ class ImageComponent extends React.Component {
           src={this.props.src}
           onClick={this.handleShowDialog}
           alt="no image"
-          width="20px"
+          width="50px"
         />
         {this.state.isOpen && (
           <dialog
