@@ -1,13 +1,17 @@
-/* eslint-disable camelcase */
+/* eslint-disable max-len */
+/* eslint-disable import/extensions */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
+
 import ImageGallery from './LeftSection/ImageGallery.jsx';
-// eslint-disable-next-line import/extensions
+
 import ProductDetails from './RightSection/ProductDetails.jsx';
-// eslint-disable-next-line import/extensions
+
 import ProductInfo from './BottomSection/ProductInfo.jsx';
+import {
+  Wrapper, Header, Image, Detail, Info,
+} from '../elements/Products.element.jsx';
 
 class Products extends React.Component {
   constructor() {
@@ -15,48 +19,55 @@ class Products extends React.Component {
     this.state = {
       product: {},
       styles: [],
+      selectedStyleName: 'Fuchsia',
     };
     this.getStyles = this.getStyles.bind(this);
-  }
-
-  // eslint-disable-next-line react/sort-comp
-  getStyles(styles) {
-    // eslint-disable-next-line react/no-unused-state
-    this.setState({ styles });
+    this.getSelectedStyle = this.getSelectedStyle.bind(this);
   }
 
   componentDidMount() {
-    const id = 14807;
+    const id = 14932;
     axios.get(`/products/${id}`)
       .then((response) => {
         const { data } = response;
         const {
           category, default_price, description, features, name, slogan,
         } = data;
-        // eslint-disable-next-line object-curly-newline
-        // eslint-disable-next-line max-len
         this.setState({
           product: {
             category, default_price, description, features, name, slogan,
           },
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  getStyles(styles) {
+    this.setState({ styles });
+  }
+
+  getSelectedStyle(styleName) {
+    this.setState({ selectedStyleName: styleName });
   }
 
   render() {
     return (
-      <div className="product_overview">
-        <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
-        <div className="product_detail">
+      <Wrapper>
+        <Header>
+          <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
+        </Header>
+        <Image>
           <ImageGallery getStyles={this.getStyles} />
-          <ProductDetails product={this.state.product} styles={this.state.styles} />
-        </div>
-        <br />
-        <div className="product_info">
+        </Image>
+        <Detail>
+          <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleName={this.state.selectedStyleName} />
+        </Detail>
+        <Info>
           <ProductInfo product={this.state.product} />
-        </div>
-      </div>
+        </Info>
+      </Wrapper>
     );
   }
 }

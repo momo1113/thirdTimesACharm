@@ -6,12 +6,17 @@ import BottomSection from './BottomSection.jsx';
 // eslint-disable-next-line import/extensions
 import TopSection from './TopSection.jsx';
 
-const ProductDetails = ({ product, styles }) => (
-  <div className="product_detail">
-    <TopSection product={product} />
-    <BottomSection styles={styles} />
-
-  </div>
+const ProductDetails = ({
+  product, styles, getSelectedStyle, selectedStyleName,
+}) => (
+  <>
+    <TopSection product={product} styles={styles} />
+    <BottomSection
+      styles={styles}
+      getSelectedStyle={getSelectedStyle}
+      selectedStyleName={selectedStyleName}
+    />
+  </>
 );
 
 export default ProductDetails;

@@ -8,19 +8,12 @@ const ReviewList = ({ reviews, reviewCount, seeMoreReviews }) => {
   if (allReviews.length < reviewCount) {
     return (
       <div>
-        <p>
-          {allReviews.length} Reviews
-        </p>
         {useTheseReviews.map((review, index) => <ReviewListItem review={review} key={index} />)}
-
       </div>
     );
   }
   return (
     <div>
-      <p>
-        {allReviews.length} Reviews
-      </p>
       {useTheseReviews.map((review, index) => <ReviewListItem review={review} key={index} />)}
       <button type="button" onClick={() => { seeMoreReviews(); }}>More Reviews</button>
     </div>
