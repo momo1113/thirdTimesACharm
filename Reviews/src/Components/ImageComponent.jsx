@@ -1,5 +1,5 @@
 import React from "react";
-import "/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/NewReview/NewReview.css";
+import "./NewReview/NewReview.css";
 
 class ImageComponent extends React.Component {
   constructor(props) {
