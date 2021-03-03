@@ -2,6 +2,8 @@ import { shallow, mount, render } from 'enzyme';
 import React from 'react';
 import AvgRating from '../Components/RatingBreakdown/AvgRating.jsx';
 import AvgRec from '../Components/RatingBreakdown/AvgRec.jsx';
+import Breakdown from '../Components/RatingBreakdown/Breakdown.jsx';
+import BreakdownItem from '../Components/RatingBreakdown/BreakdownItem.jsx';
 
 const sampleReview = {
   review_id: 147757,
@@ -62,6 +64,11 @@ test('averages ratings', () => {
 test('averages recs', () => {
   const wrapper = shallow(<AvgRec recommended={testMeta.recommended} />);
   expect(wrapper.find('div').text()).toContain('87% of reviews recommended this product');
+});
+
+test('adds breakdowns for each star', () => {
+  const wrapper = mount(<Breakdown ratings={testMeta.ratings} />);
+  expect(wrapper.find(BreakdownItem)).toHaveLength(5);
 });
 
 // describe('has buttons', () => {

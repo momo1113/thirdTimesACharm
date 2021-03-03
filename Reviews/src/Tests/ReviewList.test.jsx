@@ -23,27 +23,7 @@ const sampleReview = {
   ],
 };
 
-test('has loading screen', () => {
-  const wrapper = shallow(<ReviewApp />);
-  expect(wrapper.find('div').text()).toContain('Loading');
-});
-
-
-
-function setup() {
-  const props = {
-    id: 14932,
-  };
-  const wrapper = shallow(<ReviewApp />);
-  return { wrapper, props };
-}
-
-test('adds photos', () => {
-  const wrapper = shallow(<AddPhoto />);
-  wrapper
-    .find('input')
-    .first()
-    .simulate('change', { target: { name: 0, value: 'foo' } });
-
-  expect(wrapper.state('photos')).toHaveLength(1);
+test('review body has two p\'s', () => {
+  const wrapper = shallow(<ReviewBody review={sampleReview} />);
+  expect(wrapper.find('p')).toHaveLength(2);
 });
