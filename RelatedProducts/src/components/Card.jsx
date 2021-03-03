@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import '../../public/css/css.js'
+import '../../public/css/css.js';
 
 class Card extends React.Component {
   constructor(props) {
@@ -45,11 +45,17 @@ class Card extends React.Component {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
     return (
       <div className="card">
-        <button onClick={this.handleClick}>Remove</button>
-        <img src={imgSrc} alt="./img/img-test.png"></img>
+
+        <div className="frame">
+          <img src={imgSrc} alt="product image" />
+        </div>
+        {this.props.list === 'outfitList' ? <div className="action" onClick={this.handleClick}>Remove</div> : <div className="action" onClick={this.handleClick}>Compare</div>}
         <div className="category">{this.state.category}</div>
         <div className="product-name">{this.state.name}</div>
-        <div className="price">$ {this.state.price}</div>
+        <div className="price">
+          $
+          {this.state.price}
+        </div>
         <div>rating: 3</div>
       </div>
     );

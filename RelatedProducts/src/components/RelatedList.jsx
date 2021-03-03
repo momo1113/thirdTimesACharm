@@ -13,18 +13,20 @@ class RelatedList extends React.Component {
   }
 
   handleScroll(e) {
+    const { handleScroll } = this.props;
     e.preventDefault();
-    this.props.handleScroll('relatedList', e.target.id);
+    handleScroll('relatedList', e.target.id);
   }
 
   render() {
+    const { relatedList } = this.props;
     return (
       <div className="container">
         <button onClick={this.handleScroll} id="left">&lt;&lt;</button>
         <div className="list" id="relatedList">
-          {this.props.relatedList.map((item) => {
-            return <Card handleClick={this.handleCompare} key={item} id={item} />
-          })}
+          {relatedList.map((item) => (
+            <Card handleClick={this.handleCompare} key={item} id={item} list="relatedList" />
+          ))}
         </div>
         <button onClick={this.handleScroll} id="right">&gt; &gt; </button>
       </div>
