@@ -9,26 +9,9 @@ import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSec
 const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
   // eslint-disable-next-line react/prop-types
   const [sizeValue, setSizeValue] = useState('');
-  const [quantityValue, setQuantityValue] = useState('');
-
+  const [quantityValue, setQuantityValue] = useState(0);
   const { skus } = style;
   const listOfQuantityAndSize = Object.keys(skus);
-
-  const quantity = listOfQuantityAndSize.map(
-    // eslint-disable-next-line array-callback-return
-    (item, index) => (
-      (style.name === selectedStyleName && skus[item].quantity !== 0)
-      && (
-        <Quantity
-          key={index}
-          quantity={skus[item].quantity}
-          quantityValue={quantityValue}
-          skusId={item}
-
-        />
-      )
-    ),
-  );
 
   const size = listOfQuantityAndSize.map(
     (item, index) => (style.name === selectedStyleName) && skus[item].quantity !== 0
@@ -49,6 +32,46 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
       }
     }
   }, [sizeValue]);
+
+  let quantity = '';
+  if (quantityValue !== 0) {
+    const array = [];
+    if (quantityValue < 15) {
+      for (let i = 1; i < quantityValue; ++i) {
+        array.push(i);
+      }
+      quantity = array.map((num) => (
+        <Quantity
+          value={num}
+        />
+      ));
+    } else {
+      let i = 1;
+      while (i < 16) {
+        array.push(i);
+        i++;
+      }
+      quantity = array.map((num) => (
+        <Quantity
+          value={num}
+        />
+      ));
+    }
+  } else {
+    quantity = listOfQuantityAndSize.map(
+      (item, index) => (
+        (style.name === selectedStyleName && skus[item].quantity !== 0)
+        && (
+          <Quantity
+            key={index}
+            value={skus[item].quantity}
+            quantityValue={quantityValue}
+            skusId={item}
+          />
+        )
+      ),
+    );
+  }
 
   return (
     <>

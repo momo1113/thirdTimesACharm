@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Quantity = ({ quantity, quantityValue }) => (
+const Quantity = ({ value }) => {
+  console.log(value);
 
-
-  <option>{quantity}</option>
-
-);
+  return (
+    <option value={value}>
+      {value}
+    </option>
+  );
+};
 
 export default Quantity;
