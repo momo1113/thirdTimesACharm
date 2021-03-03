@@ -4,7 +4,7 @@ import React from 'react';
 const Quantity = ({ quantity, quantityValue }) => (
 
 
-  quantityValue? <option>{quantityValue}</option> : <option>{quantity}</option>
+  <option>{quantity}</option>
 
 );
 
