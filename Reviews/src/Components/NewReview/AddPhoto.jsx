@@ -33,12 +33,12 @@ class AddPhoto extends React.Component {
   // }
 
   render() {
-    console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
-          <form>
+          Please enter URLs to your photos below
+          <form >
             <label>
               Photo 1:
               <input
@@ -86,7 +86,7 @@ class AddPhoto extends React.Component {
             <br />
             {/* <input type="submit" value="Submit" /> */}
           </form>
-          <button onClick={this.sendPhotos}>Button</button>
+          <button type="button" onClick={this.sendPhotos}>Submit</button>
         </section>
       </div>
     );

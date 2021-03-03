@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ReviewSummary extends React.Component {
+class Email extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      summary: 'Example: Best purchase ever!',
+      email: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -13,8 +13,8 @@ class ReviewSummary extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ summary: event.target.value });
-    this.props.updateState({ summary: event.target.value });
+    this.setState({ email: event.target.value });
+    this.props.updateState({ email: event.target.value });
   }
 
   handleSubmit(event) {
@@ -26,8 +26,8 @@ class ReviewSummary extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Review Summary:
-          <textarea defaultValue="Example: Best purchase ever!" maxLength="60" value={this.state.value} onChange={this.handleChange}></textarea>
+          Email:
+          <input maxLength="60" type="email" value={this.state.name} onChange={this.handleChange} />
           Limit 60 characters
         </label>
       </form>
@@ -35,4 +35,4 @@ class ReviewSummary extends React.Component {
   }
 }
 
-export default ReviewSummary;
+export default Email;

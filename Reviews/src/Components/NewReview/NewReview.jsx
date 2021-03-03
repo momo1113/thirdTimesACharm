@@ -7,6 +7,8 @@ import Characteristics from './Characteristics.jsx';
 import ReviewSummary from './ReviewSummary.jsx'
 import ReviewBody from './ReviewBody.jsx'
 import AddPhoto from './AddPhoto.jsx'
+import Nickname from './Nickname.jsx'
+import Email from './Email.jsx'
 
 class NewReview extends React.Component {
   constructor(props) {
@@ -26,6 +28,7 @@ class NewReview extends React.Component {
     this.updateState = this.updateState.bind(this);
     this.updateCharacteristics = this.updateCharacteristics.bind(this);
     this.showModal = this.showModal.bind(this);
+    this.submitReview = this.submitReview.bind(this);
   }
   // this.props.factors for fit, width, etc
 
@@ -48,12 +51,18 @@ class NewReview extends React.Component {
     this.setState({
       addPhotos: !this.state.addPhotos
     });
-  };
+  }
+
+  submitReview() {
+    const newReview = this.state;
+    delete newReview.addPhotos;
+    this.props.sendNewReview(newReview);
+    this.props.close();
+  }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
-    console.log(this.props.factors);
     return (
       <div className={showHideClassName}>
         <section className="modal-main">
@@ -77,6 +86,9 @@ class NewReview extends React.Component {
             updateState={this.updateState}
             show={this.state.addPhotos}
           />
+          <Nickname updateState={this.updateState} />
+          <Email updateState={this.updateState} />
+          <button onClick={() => {this.submitReview()}}>Submit</button>
         </section>
       </div>
     );

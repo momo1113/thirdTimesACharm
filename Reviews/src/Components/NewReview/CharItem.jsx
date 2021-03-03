@@ -12,7 +12,7 @@ class CharItem extends React.Component {
 
   onChangeValue(event) {
     const charId = this.props.charId
-    let charArr = [charId, event.target.value];
+    let charArr = [charId, Number(event.target.value)];
     this.props.updateCharacteristics(charArr);
   }
 

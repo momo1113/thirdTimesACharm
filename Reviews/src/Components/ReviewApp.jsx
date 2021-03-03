@@ -21,6 +21,7 @@ class ReviewApp extends React.Component {
     this.seeMoreReviews = this.seeMoreReviews.bind(this);
     this.getSort = this.getSort.bind(this);
     this.showModal = this.showModal.bind(this);
+    this.sendNewReview = this.sendNewReview.bind(this);
   }
 
   componentDidMount() {
@@ -120,6 +121,12 @@ class ReviewApp extends React.Component {
     });
   }
 
+  sendNewReview(obj) {
+    const newObj = obj;
+    newObj.product_id = this.state.productId;
+    axios.post('/newReview', newObj);
+  }
+
   render() {
     if (this.state.loaded) {
       const allReviews = this.state.reviews
@@ -136,7 +143,7 @@ class ReviewApp extends React.Component {
             reviewCount={reviewCount}
             reviews={reviews}
           />
-          {allReviews.length >= reviewCount
+          {allReviews.length > reviewCount
             ? (
               <>
                 <button type="button" onClick={this.seeMoreReviews}>More Reviews</button>
@@ -160,6 +167,7 @@ class ReviewApp extends React.Component {
             factors={factors}
             close={this.showModal}
             show={this.state.newReview}
+            sendNewReview={this.sendNewReview}
           />
           <RatingBreakdown ratings={this.state.ratings} />
 

@@ -14,7 +14,7 @@ class ReviewBody extends React.Component {
 
   handleChange(event) {
     this.setState({ body: event.target.value });
-    this.props.updateState(this.state);
+    this.props.updateState({ body: event.target.value });
   }
 
   handleSubmit(event) {
@@ -26,8 +26,8 @@ class ReviewBody extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Review Summary:
-          <textarea maxLength="1000" minLength="50" value={this.state.value} onChange={this.handleChange} />
+          Review:
+          <textarea defaultValue="Why did you like the product or not?" maxLength="1000" minLength="50" value={this.state.value} onChange={this.handleChange} />
           {this.state.body.length < 50
           ? (
             <p>

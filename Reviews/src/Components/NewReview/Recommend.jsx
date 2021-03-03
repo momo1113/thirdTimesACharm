@@ -11,7 +11,11 @@ class Recommend extends React.Component {
   }
 
   onChangeValue(event) {
-    var ratingObj = { recommend: event.target.value }
+    let rec = true;
+    if (event.target.value === '0') {
+      rec = false;
+    }
+    var ratingObj = { recommend: rec }
     this.props.updateState(ratingObj);
   }
 

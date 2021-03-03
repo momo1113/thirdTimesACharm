@@ -46,6 +46,22 @@ app.get('/meta', (req, res) => {
     });
 });
 
+app.post('/newReview', (req, res) => {
+  const newReview = req.body;
+  console.log(newReview)
+  axios({
+    method: 'post',
+    url: `${keys.api}/reviews`,
+    data: newReview,
+    headers: {
+      Authorization: keys.TOKEN,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+    })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
