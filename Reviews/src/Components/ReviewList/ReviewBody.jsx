@@ -13,6 +13,7 @@ const ReviewBody = ({ review }) => (
 );
 
 ReviewBody.propTypes = {
+  review: PropTypes.object,
   summary: PropTypes.string,
   body: PropTypes.string,
 };
@@ -20,6 +21,7 @@ ReviewBody.propTypes = {
 ReviewBody.defaultProps = {
   summary: '',
   body: '',
+  review: {},
 };
 
 export default ReviewBody;
