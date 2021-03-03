@@ -9,28 +9,48 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-let storage = [];
+let products = [];
+const questions = {};
 
 app.get('/products', (req, res) => {
+  if (products.length !== 0) {
+    res.send(products);
+  } else {
+    res.send();
+  }
+});
+
+app.get('/questions/:id', (req, res) => {
+  const productId = req.params.id;
+  if (questions[productId] === undefined) {
+    axios.get(`${api.api}/qa/questions?product_id=${productId}`, {
+      headers: {
+        Authorization: api.TOKEN,
+      },
+    })
+      .then((response) => {
+        questions[productId] = response.data.results;
+        res.send(questions);
+      })
+      .catch((err) => res.send(JSON.stringify(err)));
+  } else {
+    res.send(questions);
+  }
+});
+
+app.get('/q', (req, res) => {
+  res.send(questions);
+});
+
+app.listen(PORT, () => {
+  // console.log(`Server listening in on port ${PORT}`);
   axios.get(`${api.api}/products`, {
     headers: {
       Authorization: api.TOKEN,
     },
   })
     .then((response) => {
-      storage = response.data;
-      res.send('Success');
+      products = response.data;
     })
-    .catch((err) => res.send(err));
-});
-
-app.get('/products/3', (req, res) => {
-  if (storage.length !== 0) {
-    res.send(storage);
-  }
-  res.send();
-});
-
-app.listen(PORT, () => {
-  console.log(`Server listening in on port ${PORT}`);
+    .catch((err) => console.log(err));
 });

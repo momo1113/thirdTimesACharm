@@ -1,0 +1,25 @@
+
+img {
+  width: 10rem;
+}
+.card{
+
+}
+
+.container{
+  background-color: rgb(250, 242, 232);
+  width: 90%;
+  display: flex;
+  margin: 10px auto;
+  /* padding: 10px 0; */
+  /* flex-direction: row; */
+  /* justify-content: space-evenly; */
+  /* flex-wrap: wrap; */
+  /* align-content: center; */
+}
+.list {
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
