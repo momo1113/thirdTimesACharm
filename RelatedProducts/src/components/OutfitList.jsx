@@ -24,7 +24,7 @@ class OutfitList extends React.Component {
   }
 
   render() {
-    const { currentImg, outfitList, handleScroll } = this.props;
+    const { currentImg, outfitList, handleScroll, currentProduct } = this.props;
     return (
       <div className="container">
         <button onClick={this.handleScroll} id="left">&lt;&lt;</button>
@@ -41,7 +41,7 @@ class OutfitList extends React.Component {
           </div>
 
           {outfitList.map(
-            (item) => <Card handleClick={this.removeFromList} key={item} id={item} list="outfitList" />,
+            (item) => <Card handleClick={this.removeFromList} key={item} id={item} list="outfitList" currentProduct={currentProduct} />,
           )}
         </div>
         <button onClick={this.handleScroll} id="right">&gt; &gt; </button>

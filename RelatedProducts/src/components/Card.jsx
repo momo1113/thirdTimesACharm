@@ -1,30 +1,22 @@
 import React from 'react';
 import axios from 'axios';
+import Rating from 'react-star-ratings';
 import '../../public/css/css.js';
 
 class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Product name',
+      // name: 'Product name',
       imgs: ['./img/img-test.png'],
-      category: 'category',
-      price: 0,
+      // category: 'category',
+      // price: 0,
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     const { id } = this.props;
-    axios.get(`/products/${id}`)
-      .then((res) => {
-        const { category, name } = res.data;
-        this.setState({
-          category,
-          name,
-          price: res.data.default_price,
-        });
-      });
     axios.get(`/products/${id}/styles`)
       .then((res) => {
         const imgs = res.data.results[0].photos[0].thumbnail_url;
@@ -37,26 +29,34 @@ class Card extends React.Component {
   }
 
   handleClick(e) {
+    const { id } = this.props;
     e.preventDefault();
-    this.props.handleClick(this.props.id);
+    this.props.handleClick(id);
   }
 
   render() {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
+    const { name, category, default_price } = this.props.currentProduct;
     return (
       <div className="card">
-
         <div className="frame">
           <img src={imgSrc} alt="product image" />
         </div>
         {this.props.list === 'outfitList' ? <div className="action" onClick={this.handleClick}>Remove</div> : <div className="action" onClick={this.handleClick}>Compare</div>}
-        <div className="category">{this.state.category}</div>
-        <div className="product-name">{this.state.name}</div>
+        <div className="category">{category}</div>
+        <div className="product-name">{name}</div>
         <div className="price">
           $
-          {this.state.price}
+          {default_price}
         </div>
-        <div>rating: 3</div>
+        <div className="rating">
+          <Rating
+            rating={3.4}
+            starRatedColor="RGB(253, 204, 13)"
+            starDimension="20px"
+            starSpacing="1px"
+          />
+        </div>
       </div>
     );
   }
