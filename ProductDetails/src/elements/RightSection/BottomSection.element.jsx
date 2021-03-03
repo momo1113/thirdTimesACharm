@@ -13,6 +13,34 @@ cursor:pointer;
 
 export const QuantitySize = styled.div`
 display:flex;
+flex-wrap: wrap;
+margin-top:20px;
+`;
+
+export const SizeSelect = styled.select`
+flex: 2;
+appearance: none;
+width: 200px;
+height: 40px;
+margin-right:10px;
+font-weight: bold;
+cursor: pointer;
+border-radius: 2px;
+text-align: center;
+text-align-last: center;
+
+`;
+
+export const QuanitySelect = styled.select`
+ flex: 1;
+ appearance: none;
+width: 100%;
+height: 40px;
+font-weight: bold;
+cursor: pointer;
+border-radius: 2px;
+text-align: center;
+text-align-last: center;
 `;
 
 export const CheckMark = styled(Checkmark)`

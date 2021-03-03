@@ -33,8 +33,8 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
   return (
     <div className="styles_info">
       <h4>
-        Color:
-        <span style={{ fontWeight: 'normal' }}>
+        Style >
+        <span style={{ fontWeight: 'normal',paddingLeft:10 }}>
           {selectedStyleName}
         </span>
       </h4>
@@ -42,12 +42,12 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
         {styledThumbnails}
       </div>
 
-      {styledQuanityAndSize}
-      <div className="add_to_bag">
-        <p> ADD TO BAG</p>
-        <span> star </span>
-      </div>
-    </div>
+      { styledQuanityAndSize }
+  <div className="add_to_bag">
+    <p> ADD TO BAG</p>
+    <span> star </span>
+  </div>
+    </div >
   );
 };
 
