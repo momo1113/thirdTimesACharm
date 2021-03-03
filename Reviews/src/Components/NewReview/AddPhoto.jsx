@@ -20,17 +20,9 @@ class AddPhoto extends React.Component {
   }
 
   sendPhotos() {
-    // debugger
     this.props.updateState(this.state);
-    // debugger
-    // console.log('hi')
     this.props.hide();
   }
-
-  // handleSubmit(event) {
-  //   this.props.updateState(this.state);
-  //   event.preventDefault();
-  // }
 
   render() {
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';

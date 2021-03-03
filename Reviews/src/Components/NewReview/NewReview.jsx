@@ -99,7 +99,6 @@ class NewReview extends React.Component {
           />
           <ReviewSummary updateState={this.updateState} />
           <ReviewBody updateState={this.updateState} />
-          <br />
           <button
             type="button"
             onClick={() => { this.showModal(); }}
