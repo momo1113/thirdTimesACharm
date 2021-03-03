@@ -29,6 +29,7 @@ class NewReview extends React.Component {
     this.updateCharacteristics = this.updateCharacteristics.bind(this);
     this.showModal = this.showModal.bind(this);
     this.submitReview = this.submitReview.bind(this);
+    this.checkState = this.checkState.bind(this);
   }
   // this.props.factors for fit, width, etc
 
@@ -47,6 +48,25 @@ class NewReview extends React.Component {
     });
   }
 
+  checkState() {
+    const currState = this.state;
+    let okToSubmit = true;
+    if (
+      !currState.rating
+      || currState.body.length < 50
+      || !currState.summary
+      || currState.recommend === null
+      || !currState.name
+      || currState.email.indexOf('@') === -1
+      || currState.email.indexOf('.') === -1
+      || Object.keys(currState.characteristics).length !== this.props.factors.length
+    ) {
+      okToSubmit = false;
+    }
+
+    return okToSubmit;
+  }
+
   showModal() {
     this.setState({
       addPhotos: !this.state.addPhotos
@@ -54,13 +74,18 @@ class NewReview extends React.Component {
   }
 
   submitReview() {
-    const newReview = this.state;
-    delete newReview.addPhotos;
-    this.props.sendNewReview(newReview);
-    this.props.close();
+    if (!this.checkState()) {
+      alert('please make sure all forms are filled out')
+    } else {
+      const newReview = this.state;
+      delete newReview.addPhotos;
+      this.props.sendNewReview(newReview);
+      this.props.close();
+    }
   }
 
   render() {
+    console.log(this.state)
     // console.log(this.state);
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
     return (

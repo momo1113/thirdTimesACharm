@@ -11,10 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, './public')));
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
-
 // 14931
 app.get('/reviews', (req, res) => {
   const prodId = req.query.id;
@@ -31,7 +27,6 @@ app.get('/reviews', (req, res) => {
 });
 
 app.get('/meta', (req, res) => {
-  // console.log(req.query)
   const prodId = req.query.id;
   axios({
     method: 'get',
@@ -41,14 +36,13 @@ app.get('/meta', (req, res) => {
     },
   })
     .then((response) => {
-      // console.log(response.data);
       res.send(response.data);
     });
 });
 
 app.post('/newReview', (req, res) => {
   const newReview = req.body;
-  console.log(newReview)
+  console.log(newReview);
   axios({
     method: 'post',
     url: `${keys.api}/reviews`,
@@ -57,10 +51,10 @@ app.post('/newReview', (req, res) => {
       Authorization: keys.TOKEN,
     },
   })
-    .then((response) => {
-      console.log(response);
-    })
-})
+    .then(response => {
+      res.end();
+    });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
