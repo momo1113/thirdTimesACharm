@@ -42,7 +42,6 @@ app.get('/meta', (req, res) => {
 
 app.post('/newReview', (req, res) => {
   const newReview = req.body;
-  console.log(newReview);
   axios({
     method: 'post',
     url: `${keys.api}/reviews`,
@@ -51,8 +50,8 @@ app.post('/newReview', (req, res) => {
       Authorization: keys.TOKEN,
     },
   })
-    .then(response => {
-      res.end();
+    .then((response) => {
+      res.send(response.data);
     });
 });
 

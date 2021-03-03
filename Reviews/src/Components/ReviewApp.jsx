@@ -124,7 +124,10 @@ class ReviewApp extends React.Component {
   sendNewReview(obj) {
     const newObj = obj;
     newObj.product_id = this.state.productId;
-    axios.post('/newReview', newObj);
+    axios.post('/newReview', newObj)
+      .then(response => {
+        console.log(response);
+      });
   }
 
   render() {
