@@ -18,8 +18,7 @@ margin-top:20px;
 `;
 
 export const SizeSelect = styled.select`
-flex: 2;
-appearance: none;
+flex: 3;
 width: 200px;
 height: 40px;
 margin-right:10px;
@@ -28,12 +27,10 @@ cursor: pointer;
 border-radius: 2px;
 text-align: center;
 text-align-last: center;
-
 `;
 
 export const QuanitySelect = styled.select`
  flex: 1;
- appearance: none;
 width: 100%;
 height: 40px;
 font-weight: bold;

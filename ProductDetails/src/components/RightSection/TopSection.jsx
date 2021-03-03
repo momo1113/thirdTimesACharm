@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarRatings from 'react-star-ratings';
 import {
-  Reviews, Category, Name, OriginalPrice, SalePrice
+  Reviews, Category, Name, OriginalPrice,
 } from '../../elements/RightSection/TopSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
@@ -49,18 +49,10 @@ const TopSection = ({ product, styles, selectedStyleName }) => {
 
       <Category>{product.category}</Category>
       <Name>{product.name}</Name>
-      <OriginalPrice checkSale={salePrice !== 0}>
+      <OriginalPrice checkSale={salePrice !== 0} salePrice={salePrice}>
         $
         {originalPrice}
       </OriginalPrice>
-      {
-        salePrice !== 0 ? (
-          <SalePrice>
-            $
-            {salePrice}
-          </SalePrice>
-        ) : null
-      }
     </div>
   );
 };

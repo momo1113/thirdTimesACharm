@@ -14,13 +14,13 @@ const StyledQuanityAndSize = ({ style, selectedStyleName }) => {
   const listOfQuantityAndSize = Object.keys(skus);
 
   const size = listOfQuantityAndSize.map(
-    (item, index) => (style.name === selectedStyleName) && skus[item].quantity !== 0
+    (item, index) => (
+      style.name === selectedStyleName) && skus[item].quantity !== 0
       && (
         <Size
           key={index}
           size={skus[item].size}
           skusid={item}
-
         />
       ),
   );
