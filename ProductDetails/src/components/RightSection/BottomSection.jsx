@@ -10,13 +10,16 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
-
+  const getClicked = (clicked) => {
+    setClicked(!clicked);
+  }
   const styledThumbnails = styles.map(
     (item, index) => (
       <Style
         key={index}
         style={item}
         getSelectedStyle={getSelectedStyle}
+        getClicked={getClicked}
         selectedStyleName={selectedStyleName}
       />
     ),
@@ -46,7 +49,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
         {styledThumbnails}
       </div>
       { styledQuanityAndSize}
-      <AddToBag >
+      <AddToBag  >
         <Bag onClick={() => setClicked(true)}> ADD TO BAG<AddPlus /></Bag>
         <StarButton > <FavStar /></StarButton>
       </AddToBag >

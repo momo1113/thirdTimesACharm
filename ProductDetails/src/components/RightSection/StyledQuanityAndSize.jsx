@@ -6,14 +6,15 @@ import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
 import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
-const StyledQuanityAndSize = ({ style, selectedStyleName, clicked }) => {
+const StyledQuanityAndSize = ({
+  style, selectedStyleName, clicked,
+}) => {
   const [sizeValue, setSizeValue] = useState(0);
   const [quantityValue, setQuantityValue] = useState(0);
+
   const { skus } = style;
   const listOfQuantityAndSize = Object.keys(skus);
 
-  console.log(`defaultName${sizeValue}`);
-  console.log(`after click${clicked}`);
   const size = listOfQuantityAndSize.map(
     (item, index) => (
       style.name === selectedStyleName) && skus[item].quantity !== 0
@@ -38,7 +39,7 @@ const StyledQuanityAndSize = ({ style, selectedStyleName, clicked }) => {
   if (quantityValue !== 0) {
     const array = [];
     if (quantityValue < 15) {
-      for (let i = 1; i < quantityValue; ++i) {
+      for (let i = 1; i < quantityValue; i += 1) {
         array.push(i);
       }
       quantity = array.map((num, index) => (
@@ -51,7 +52,7 @@ const StyledQuanityAndSize = ({ style, selectedStyleName, clicked }) => {
       let i = 1;
       while (i < 16) {
         array.push(i);
-        i++;
+        i += 1;
       }
       quantity = array.map((num, index) => (
         <Quantity
@@ -73,6 +74,7 @@ const StyledQuanityAndSize = ({ style, selectedStyleName, clicked }) => {
       ),
     );
   }
+
   return (
     <>
       {
@@ -82,15 +84,18 @@ const StyledQuanityAndSize = ({ style, selectedStyleName, clicked }) => {
               name="size"
               onChange={(e) => setSizeValue(e.target.value)}
               value={sizeValue}
-              clicked={clicked === true}
-              sizeValue={sizeValue === 0}
+              required
             >
-              <option value="0">  SELECT SIZE</option>
-              {size}
-            </SizeSelect>
-            <QuanitySelect name="quantity" disabled={quantityValue === 0}>
               {
-                quantityValue === 0 && <option value="0">  - </option>
+                clicked && sizeValue === 0 ? <option value="0" style={{ color: 'red' }}> PLEASE SELECT SIZE </option> : <option value="0">  SELECT SIZE</option>
+              }
+
+              {size}
+
+            </SizeSelect>
+            <QuanitySelect name="quantity" disabled={sizeValue === 0}>
+              {
+                sizeValue === 0 && quantityValue === 0 && <option value="0">  - </option>
               }
               {quantity}
             </QuanitySelect>
