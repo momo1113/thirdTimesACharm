@@ -56,20 +56,19 @@ class Characteristics extends React.Component {
   render() {
     const options = this.chars;
     return (
-      <>
+      <div>
         Characteristics
-        <br/>
-        {this.props.factors.map((factor, index) =>
-          <CharItem options={options[factor[0]]} name={factor[0]} updateCharacteristics={this.props.updateCharacteristics} charId={factor[1]} key={index} />)}
+        {this.props.factors.map((factor, index) => (
+          <CharItem
+            options={options[factor[0]]}
+            name={factor[0]}
+            updateCharacteristics={this.props.updateCharacteristics}
+            charId={factor[1]}
+            key={index}
+          />
+        ))}
 
-        {/* <div onChange={this.onChangeValue}>
-          <input type="radio" value="1" name="rating" />
-          <input type="radio" value="2" name="rating" />
-          <input type="radio" value="3" name="rating" />
-          <input type="radio" value="4" name="rating" />
-          <input type="radio" value="5" name="rating" />
-        </div> */}
-      </>
+      </div>
     );
   }
 }

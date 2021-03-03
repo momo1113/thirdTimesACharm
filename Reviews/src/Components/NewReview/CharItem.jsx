@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-
 class CharItem extends React.Component {
   constructor(props) {
     super(props);
@@ -18,21 +16,31 @@ class CharItem extends React.Component {
 
   render() {
     return (
-      <>
-        {this.props.name}
-        <div onChange={this.onChangeValue}>
-        <label >{this.props.options[1]}</label>
-          <input type="radio" value="1" name={this.props.name} />
-          <label >{this.props.options[2]}</label>
-          <input type="radio" value="2" name={this.props.name} />
-          <label >{this.props.options[3]}</label>
-          <input type="radio" value="3" name={this.props.name} />
-          <label >{this.props.options[4]}</label>
-          <input type="radio" value="4" name={this.props.name} />
-          <label >{this.props.options[5]}</label>
-          <input type="radio" value="5" name={this.props.name} />
-        </div>
-      </>
+      <div>
+        <p>{this.props.name}</p>
+        <section onChange={this.onChangeValue}>
+          <label >{this.props.options[1]}<br />
+            <input type="radio" value="1" name={this.props.name} />
+          </label>
+          <label >{this.props.options[2]}<br />
+            <input type="radio" value="2" name={this.props.name} />
+          </label>
+          <label >{this.props.options[3]}<br />
+            <input type="radio" value="3" name={this.props.name} />
+          </label>
+          <label >{this.props.options[4]}<br />
+            <input type="radio" value="4" name={this.props.name} />
+          </label>
+          <label >{this.props.options[5]}<br />
+            <input type="radio" value="5" name={this.props.name} />
+          </label>
+        </section>
+        <br />
+        <br />
+        <br />
+
+      </div>
+
     );
   }
 };
