@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614804519148" clover="3.2.0">
-  <project timestamp="1614804519148" name="All files">
-    <metrics statements="249" coveredstatements="39" conditionals="60" coveredconditionals="2" methods="85" coveredmethods="7" elements="394" coveredelements="48" complexity="0" loc="249" ncloc="249" packages="4" files="27" classes="27"/>
+<coverage generated="1614807009093" clover="3.2.0">
+  <project timestamp="1614807009093" name="All files">
+    <metrics statements="249" coveredstatements="46" conditionals="60" coveredconditionals="2" methods="85" coveredmethods="9" elements="394" coveredelements="57" complexity="0" loc="249" ncloc="249" packages="4" files="27" classes="27"/>
     <package name="Components">
       <metrics statements="74" coveredstatements="12" conditionals="34" coveredconditionals="1" methods="18" coveredmethods="3"/>
       <file name="ImageComponent.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ImageComponent.jsx">
@@ -232,17 +232,17 @@
       </file>
     </package>
     <package name="Components.RatingBreakdown">
-      <metrics statements="39" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="0"/>
+      <metrics statements="39" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="2"/>
       <file name="AvgRating.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/AvgRating.jsx">
-        <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
       </file>
       <file name="AvgRec.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/AvgRec.jsx">
         <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>

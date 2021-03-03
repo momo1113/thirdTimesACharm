@@ -2,7 +2,9 @@ import { shallow, mount, render } from 'enzyme';
 import React from 'react';
 import ReviewApp from '../Components/ReviewApp.jsx';
 import ReviewBody from '../Components/ReviewList/ReviewBody.jsx';
-import AddPhoto from '../Components/NewReview/AddPhoto.jsx'
+import AddPhoto from '../Components/NewReview/AddPhoto.jsx';
+import AvgRating from '../Components/RatingBreakdown/AvgRating.jsx';
+import AvgRec from '../Components/RatingBreakdown/AvgRec.jsx';
 
 const sampleReview = {
   review_id: 147757,
@@ -45,25 +47,7 @@ test('adds photos', () => {
   wrapper
     .find('input')
     .first()
-    .simulate('change', { target: { name: 0, value: 'foo' }})
+    .simulate('change', { target: { name: 0, value: 'foo' } });
 
   expect(wrapper.state('photos')).toHaveLength(1);
-})
-
-// describe('has buttons', () => {
-//   it('Should have a button', () => {
-//     const { wrapper } = setup();
-//     expect(wrapper.find('button').exists()).toBe(true);
-//   });
-// });
-
-
-// import { shallow, mount, render } from 'enzyme';
-// import React from 'react';
-// import App from './App.jsx';
-
-// test('Link changes the class when hovered', () => {
-//   const wrapper = shallow(<App />);
-//   console.log(wrapper.find('h1'));
-//   expect(wrapper.find('h1').text()).toContain('Hello');
-// });
+});
