@@ -11,16 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, './public')));
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
-
-// 14931
+// 14932
 app.get('/reviews', (req, res) => {
   const prodId = req.query.id;
   axios({
     method: 'get',
-    url: `${keys.api}/reviews/?product_id=${prodId}`,
+    url: `${keys.api}/reviews/?product_id=${prodId}&count=10&sort=relevant`,
     headers: {
       Authorization: keys.TOKEN,
     },
@@ -31,7 +27,6 @@ app.get('/reviews', (req, res) => {
 });
 
 app.get('/meta', (req, res) => {
-  // console.log(req.query)
   const prodId = req.query.id;
   axios({
     method: 'get',
@@ -41,7 +36,21 @@ app.get('/meta', (req, res) => {
     },
   })
     .then((response) => {
-      // console.log(response.data);
+      res.send(response.data);
+    });
+});
+
+app.post('/newReview', (req, res) => {
+  const newReview = req.body;
+  axios({
+    method: 'post',
+    url: `${keys.api}/reviews`,
+    data: newReview,
+    headers: {
+      Authorization: keys.TOKEN,
+    },
+  })
+    .then((response) => {
       res.send(response.data);
     });
 });
