@@ -41,6 +41,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
       <div className="style" style={{ display: 'flex', height: 50, flexWrap: 'wrap' }}>
         {styledThumbnails}
       </div>
+
       {styledQuanityAndSize}
       <div className="add_to_bag">
         <p> ADD TO BAG</p>
