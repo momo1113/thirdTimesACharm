@@ -9,6 +9,7 @@ import ReviewBody from './ReviewBody.jsx'
 import AddPhoto from './AddPhoto.jsx'
 import Nickname from './Nickname.jsx'
 import Email from './Email.jsx'
+import DisplayPhotos from './DisplayPhotos.jsx'
 
 class NewReview extends React.Component {
   constructor(props) {
@@ -110,12 +111,15 @@ class NewReview extends React.Component {
                 Add Photo
               </button>
             )
-            : <br />}
+            : null}
           <AddPhoto
             hide={this.showModal}
             updateState={this.updateState}
             show={this.state.addPhotos}
           />
+          {allPhotos.length
+            ? <DisplayPhotos photos={allPhotos} />
+            : null}
           <Nickname updateState={this.updateState} />
           <Email updateState={this.updateState} />
           <button type="button" onClick={() => { this.submitReview(); }}>Submit</button>
