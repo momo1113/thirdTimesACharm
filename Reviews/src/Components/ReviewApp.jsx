@@ -137,6 +137,7 @@ class ReviewApp extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     if (this.state.loaded) {
       const allReviews = this.state.reviews
       const reviews = this.state.displayedReviews

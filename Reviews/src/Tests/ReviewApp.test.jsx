@@ -2,8 +2,7 @@ import { shallow, mount, render } from 'enzyme';
 import React from 'react';
 import sinon from 'sinon';
 import ReviewApp from '../Components/ReviewApp.jsx';
-import ReviewBody from '../Components/ReviewList/ReviewBody.jsx';
-import AddPhoto from '../Components/NewReview/AddPhoto.jsx';
+import ImageComponent from '../Components/ImageComponent.jsx'
 
 const sampleReview = {
   review_id: 147757,
@@ -28,8 +27,6 @@ test('has loading screen', () => {
   expect(wrapper.find('div').text()).toContain('Loading');
 });
 
-
-
 function setup() {
   const props = {
     id: 14932,
@@ -38,12 +35,17 @@ function setup() {
   return { wrapper, props };
 }
 
-test('adds photos', () => {
-  const wrapper = shallow(<AddPhoto />);
+test('changes size of photo', () => {
+  const wrapper = mount(<ImageComponent src="https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png" />);
   wrapper
-    .find('input')
-    .first()
-    .simulate('change', { target: { name: 0, value: 'foo' } });
+    .find('img')
+    .simulate('click');
 
-  expect(wrapper.state('photos')).toHaveLength(1);
+  expect(wrapper.state().isOpen).toBe(true);
+});
+
+test('ReviewApp has buttons', () => {
+  const wrapper = shallow(<ReviewApp productId={14932} />);
+  wrapper.instance().componentDidMount();
+  expect(wrapper.find('button')).toHaveLength(2);
 });

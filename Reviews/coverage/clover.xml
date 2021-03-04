@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614807009093" clover="3.2.0">
-  <project timestamp="1614807009093" name="All files">
-    <metrics statements="249" coveredstatements="46" conditionals="60" coveredconditionals="2" methods="85" coveredmethods="9" elements="394" coveredelements="57" complexity="0" loc="249" ncloc="249" packages="4" files="27" classes="27"/>
+<coverage generated="1614813028069" clover="3.2.0">
+  <project timestamp="1614813028069" name="All files">
+    <metrics statements="248" coveredstatements="61" conditionals="60" coveredconditionals="4" methods="86" coveredmethods="18" elements="394" coveredelements="83" complexity="0" loc="248" ncloc="248" packages="4" files="27" classes="27"/>
     <package name="Components">
-      <metrics statements="74" coveredstatements="12" conditionals="34" coveredconditionals="1" methods="18" coveredmethods="3"/>
+      <metrics statements="73" coveredstatements="17" conditionals="34" coveredconditionals="3" methods="19" coveredmethods="7"/>
       <file name="ImageComponent.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ImageComponent.jsx">
-        <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
       </file>
       <file name="ReviewApp.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewApp.jsx">
         <metrics statements="68" coveredstatements="12" conditionals="32" coveredconditionals="1" methods="15" coveredmethods="3"/>
@@ -122,7 +121,7 @@
       </file>
       <file name="DisplayPhotos.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/NewReview/DisplayPhotos.jsx">
         <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
       </file>
@@ -232,10 +231,10 @@
       </file>
     </package>
     <package name="Components.RatingBreakdown">
-      <metrics statements="39" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="2"/>
+      <metrics statements="39" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="7"/>
       <file name="AvgRating.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/AvgRating.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
@@ -245,30 +244,30 @@
         <line num="15" count="1" type="stmt"/>
       </file>
       <file name="AvgRec.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/AvgRec.jsx">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
       <file name="Breakdown.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/Breakdown.jsx">
-        <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
       </file>
       <file name="BreakdownItem.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/BreakdownItem.jsx">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
       </file>
       <file name="FactorItem.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/FactorItem.jsx">
         <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -277,7 +276,7 @@
       </file>
       <file name="Factors.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/Factors.jsx">
         <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -288,12 +287,12 @@
       </file>
       <file name="RatingBreakdown.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/RatingBreakdown.jsx">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
       </file>
       <file name="RatingSummary.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/RatingBreakdown/RatingSummary.jsx">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
       </file>
     </package>
@@ -301,21 +300,21 @@
       <metrics statements="26" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="1"/>
       <file name="ReviewBody.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewBody.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
       </file>
       <file name="ReviewHelpful.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewHelpful.jsx">
         <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
       </file>
       <file name="ReviewList.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewList.jsx">
         <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -323,13 +322,13 @@
       </file>
       <file name="ReviewListItem.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewListItem.jsx">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
       </file>
       <file name="ReviewTop.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/ReviewTop.jsx">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
       </file>
       <file name="SortForm.jsx" path="/Users/gusfeliciano345/Desktop/Hack Reactor/bootcamp/FEC/soloFEC/thirdTimesACharm/Reviews/src/Components/ReviewList/SortForm.jsx">

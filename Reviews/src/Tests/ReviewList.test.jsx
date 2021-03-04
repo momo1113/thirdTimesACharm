@@ -27,3 +27,4 @@ test('review body has two p\'s', () => {
   const wrapper = shallow(<ReviewBody review={sampleReview} />);
   expect(wrapper.find('p')).toHaveLength(2);
 });
+
