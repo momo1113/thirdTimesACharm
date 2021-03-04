@@ -36,6 +36,7 @@ export const Thumbnail = styled.img`
 export const Underline = styled.hr`
  position:absolute;
  border: 4px solid pink;
+ border-radius:15px;
  width:15%;
  left:2.75%;
  margin-top:-2%;
@@ -55,6 +56,9 @@ export const LeftArrow = styled(ArrowLeft)`
   z-index:10;
   cursor:pointer;
   user-select: none;
+  &:hover{
+    color:white
+  }
 `;
 
 export const RightArrow = styled(ArrowRight)`
@@ -66,6 +70,9 @@ export const RightArrow = styled(ArrowRight)`
   z-index:10;
   cursor:pointer;
   user-select: none;
+  &:hover{
+    color:white
+  }
 `;
 
 export const FullscreenArrow = styled(ArrowsFullscreen)`
@@ -77,4 +84,7 @@ export const FullscreenArrow = styled(ArrowsFullscreen)`
   z-index:10;
   cursor:pointer;
   user-select: none;
+  &:hover{
+    color:white
+  }
 `;
