@@ -95,7 +95,7 @@ class NewReview extends React.Component {
       <div className={showHideClassName}>
         <section className="modal-main">
           <h2>Write Your Review</h2>
-          <p>About the {}</p>
+          <p>About the {this.props.name}</p>
           <Rating updateState={this.updateState} />
           <Recommend updateState={this.updateState} />
           <Characteristics

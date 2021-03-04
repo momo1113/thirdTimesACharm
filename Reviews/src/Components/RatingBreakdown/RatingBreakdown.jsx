@@ -3,22 +3,56 @@ import PropTypes from 'prop-types';
 import RatingSummary from './RatingSummary.jsx';
 import Breakdown from './Breakdown.jsx';
 import Factors from './Factors.jsx';
+import SelectedList from './SelectedList.jsx';
 
-const RatingBreakdown = (props) => (
-  <div>
-    <p>
-      Ratings &amp; Reviews
-    </p>
-    <RatingSummary
-      ratings={props.ratings.ratings}
-      recommended={props.ratings.recommended}
-    />
-    <Breakdown selectStars={props.selectStars} ratings={props.ratings.ratings} />
-    <Factors factors={props.ratings.characteristics} />
-  </div>
-);
+class RatingBreakdown extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: this.props.starsSelected,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <p>
+          Ratings &amp; Reviews
+        </p>
+        <RatingSummary
+          ratings={this.props.ratings.ratings}
+          recommended={this.props.ratings.recommended}
+        />
+        {this.state.selected.length
+          ? (
+            <>
+              <SelectedList selected={this.state.selected} />
+              <p>Clear all filters</p>
+            </>
+          )
+          : <></>}
+        <Breakdown selectStars={this.props.selectStars} ratings={this.props.ratings.ratings} />
+        <Factors factors={this.props.ratings.characteristics} />
+      </div>
+    );
+  }
+}
 
 export default RatingBreakdown;
+
+// const RatingBreakdown = (props) => (
+//   <div>
+//     <p>
+//       Ratings &amp; Reviews
+//     </p>
+//     <RatingSummary
+//       ratings={props.ratings.ratings}
+//       recommended={props.ratings.recommended}
+//     />
+//     <Breakdown selectStars={props.selectStars} ratings={props.ratings.ratings} />
+//     <Factors factors={props.ratings.characteristics} />
+//   </div>
+// );
 // {
 //   "product_id": "14931",
 //   "ratings": {

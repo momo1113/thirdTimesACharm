@@ -10,6 +10,7 @@ class ReviewApp extends React.Component {
     super(props);
     this.state = {
       productId: this.props.productId,
+      productName: '',
       reviews: [],
       reviewCount: 2,
       ratings: {},
@@ -38,8 +39,10 @@ class ReviewApp extends React.Component {
       params: { id: prodId },
     })
       .then((data) => {
+        console.log(data)
         this.setState({
           reviews: data.data.results,
+          productName: data.data.name,
         });
         this.getSort('relevant');
       });
@@ -204,13 +207,13 @@ class ReviewApp extends React.Component {
               </button>
             )}
           <NewReview
-            // name={}
+            name={this.state.productName}
             factors={factors}
             close={this.showModal}
             show={this.state.newReview}
             sendNewReview={this.sendNewReview}
           />
-          <RatingBreakdown ratings={this.state.ratings} selectStars={this.selectStars} />
+          <RatingBreakdown starsSelected={this.state.starsSelected} ratings={this.state.ratings} selectStars={this.selectStars} />
 
         </div>
       );
