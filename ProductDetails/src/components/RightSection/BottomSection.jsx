@@ -38,7 +38,6 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
     ),
   );
   const selectedStyleName = styles.filter(item => item.style_id === selectedStyleId)
-  console.log(selectedStyleName)
   return (
     <>
       <h4>

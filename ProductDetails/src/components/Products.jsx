@@ -73,7 +73,7 @@ class Products extends React.Component {
           {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} />}
         </Image>
         <Detail>
-          <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} />
+          {this.state.id !== 0 && <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} id={this.state.id} />}
         </Detail>
         <Info>
           <ProductInfo product={this.state.product} />
