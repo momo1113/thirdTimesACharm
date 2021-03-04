@@ -13,7 +13,7 @@ const RatingBreakdown = (props) => (
       ratings={props.ratings.ratings}
       recommended={props.ratings.recommended}
     />
-    <Breakdown ratings={props.ratings.ratings} />
+    <Breakdown selectStars={props.selectStars} ratings={props.ratings.ratings} />
     <Factors factors={props.ratings.characteristics} />
   </div>
 );

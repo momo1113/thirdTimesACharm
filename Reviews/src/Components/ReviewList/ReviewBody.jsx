@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReviewPhotos from './ReviewPhotos.jsx'
 
 const ReviewBody = ({ review }) => (
   <div>
@@ -9,6 +10,7 @@ const ReviewBody = ({ review }) => (
     <p>
       {review.body}
     </p>
+    <ReviewPhotos photos={review.photos}/>
   </div>
 );
 
