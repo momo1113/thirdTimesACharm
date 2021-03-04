@@ -29,6 +29,7 @@ class ReviewApp extends React.Component {
     this.reportReview = this.reportReview.bind(this);
     this.selectStars = this.selectStars.bind(this);
     this.filterRevs = this.filterRevs.bind(this);
+    this.clearStars = this.clearStars.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +40,7 @@ class ReviewApp extends React.Component {
       params: { id: prodId },
     })
       .then((data) => {
-        console.log(data)
+        console.log(data);
         this.setState({
           reviews: data.data.results,
           productName: data.data.name,
@@ -132,7 +133,7 @@ class ReviewApp extends React.Component {
       });
   }
 
-  selectStars(num) {
+  selectStars(num, action) {
     const currentSelected = this.state.starsSelected;
     if (currentSelected.indexOf(num) === -1) {
       currentSelected.push(num);
@@ -141,10 +142,17 @@ class ReviewApp extends React.Component {
       currentSelected.splice(loc, 1);
     }
     if (!currentSelected.length) {
-      this.getSort(this.state.currentSort);
+      this.clearStars();
     } else {
       this.filterRevs(currentSelected);
     }
+  }
+
+  clearStars() {
+    this.getSort(this.state.currentSort);
+    this.setState({
+      starsSelected: [],
+    });
   }
 
   filterRevs(arr) {
@@ -213,8 +221,12 @@ class ReviewApp extends React.Component {
             show={this.state.newReview}
             sendNewReview={this.sendNewReview}
           />
-          <RatingBreakdown starsSelected={this.state.starsSelected} ratings={this.state.ratings} selectStars={this.selectStars} />
-
+          <RatingBreakdown
+            clearStars={this.clearStars}
+            starsSelected={this.state.starsSelected}
+            ratings={this.state.ratings}
+            selectStars={this.selectStars}
+          />
         </div>
       );
     }

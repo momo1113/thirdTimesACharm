@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BreakdownItem from './BreakdownItem.jsx'
 
-const Breakdown = ({ ratings, selectStars }) => {
+const Breakdown = ({ ratings, selectStars, addStar }) => {
   const sortedArr = [];
 
   Object.keys(ratings).forEach(key => {
@@ -15,6 +15,7 @@ const Breakdown = ({ ratings, selectStars }) => {
     <div>
       {sortedArr.map((pair, index) => (
         <BreakdownItem
+          addStar={addStar}
           selectStars={selectStars}
           pair={pair}
           key={index}

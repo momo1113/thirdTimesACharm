@@ -9,8 +9,32 @@ class RatingBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.starsSelected,
+      selected: [],
     };
+    this.clearFilters = this.clearFilters.bind(this);
+    this.addStar = this.addStar.bind(this);
+  }
+
+  addStar(num) {
+    if (this.state.selected.indexOf(num) === -1) {
+      this.setState({
+        selected: [...this.state.selected, num],
+      });
+    } else {
+      const currentStars = this.state.selected;
+      const index = currentStars.indexOf(num);
+      currentStars.splice(index, 1);
+      this.setState({
+        selected: currentStars
+      })
+    }
+  }
+
+  clearFilters() {
+    this.props.clearStars();
+    this.setState({
+      selected: [],
+    });
   }
 
   render() {
@@ -27,11 +51,15 @@ class RatingBreakdown extends React.Component {
           ? (
             <>
               <SelectedList selected={this.state.selected} />
-              <p>Clear all filters</p>
+              <p className="link" onClick={() => { this.clearFilters(); }}>Clear all filters</p>
             </>
           )
           : <></>}
-        <Breakdown selectStars={this.props.selectStars} ratings={this.props.ratings.ratings} />
+        <Breakdown
+          addStar={this.addStar}
+          selectStars={this.props.selectStars}
+          ratings={this.props.ratings.ratings}
+        />
         <Factors factors={this.props.ratings.characteristics} />
       </div>
     );
