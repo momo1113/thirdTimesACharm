@@ -10,7 +10,7 @@ const ProductDetails = ({
   product, styles, getSelectedStyle, selectedStyleName,
 }) => (
   <>
-    <TopSection product={product} styles={styles} />
+    <TopSection product={product} styles={styles} selectedStyleName={selectedStyleName} />
     <BottomSection
       styles={styles}
       getSelectedStyle={getSelectedStyle}

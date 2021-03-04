@@ -7,6 +7,8 @@ const api = require('../../config');
 
 router.get('/products/:id', (req, res) => {
   const { id } = req.params;
+
+
   axios.get(`${api.api}/products/${id}`, {
     headers: {
       Authorization: api.TOKEN,
@@ -47,10 +49,10 @@ router.get('/reviews/:id', (req, res) => {
         sum += result.rating;
         return sum;
       });
-      const aveRating = Math.floor(sum / results.length);
+      const aveRating = sum / results.length;
       res.status(200).send(aveRating.toString());
     })
-    .catch(() => res.sendStatus(400));
+    .catch((err) => res.sendStatus(400).send(err));
 });
 
 module.exports = router;

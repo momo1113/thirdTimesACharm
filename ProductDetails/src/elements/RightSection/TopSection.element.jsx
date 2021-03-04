@@ -20,6 +20,14 @@ export const Name = styled.h1`
 margin-top:1px;
 `;
 
-export const Price = styled.h4`
+export const OriginalPrice = styled.h4`
 margin-top: 1px;
+text-decoration: ${(props) => props.checkSale && 'line-through'};
+color:${(props) => props.checkSale && ' rgb(128,128,128)'};
+&::after{
+  ${(props) => props.checkSale && `content:'$${props.salePrice}'`};
+  padding-left:10px;
+  color: red;
+  display: inline-block
+}
 `;
