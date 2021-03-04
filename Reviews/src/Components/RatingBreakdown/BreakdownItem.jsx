@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BreakdownItem = ({pair}) => (
+const BreakdownItem = ({pair, selectStars, addStar}) => (
   <div>
-    {pair[0]} Stars: {pair[1]}
+    <span className="link" onKeyPress={()=> {selectStars(Number(pair[0])); addStar(Number(pair[0]))}} onClick={()=> {selectStars(Number(pair[0])); addStar(Number(pair[0]))}} >
+      {pair[0]}
+      &nbsp;Stars
+    </span>
+    :
+    &nbsp;
+    {pair[1]}
   </div>
 );
 

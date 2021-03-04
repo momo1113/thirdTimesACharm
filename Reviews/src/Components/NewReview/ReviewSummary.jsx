@@ -27,7 +27,7 @@ class ReviewSummary extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Review Summary:
-          <textarea defaultValue="Example: Best purchase ever!" maxLength="60" value={this.state.value} onChange={this.handleChange} />
+          <textarea maxLength="60" value={this.state.summary} onChange={this.handleChange} />
           Limit 60 characters
         </label>
       </form>

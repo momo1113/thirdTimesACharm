@@ -5,6 +5,7 @@ import AvgRec from './AvgRec.jsx'
 
 const RatingSummary = ({ ratings, recommended}) => (
   <div>
+    <p>Rating Breakdown</p>
     <AvgRating ratings={ratings} />
     <AvgRec recommended={recommended} />
   </div>
