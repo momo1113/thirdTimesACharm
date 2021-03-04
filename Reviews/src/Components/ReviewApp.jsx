@@ -10,30 +10,40 @@ class ReviewApp extends React.Component {
     super(props);
     this.state = {
       productId: this.props.productId,
+      productName: '',
       reviews: [],
       reviewCount: 2,
       ratings: {},
       loaded: false,
       displayedReviews: [],
       newReview: false,
+      starsSelected: [],
+      currentSort: 'relevant',
     };
 
     this.seeMoreReviews = this.seeMoreReviews.bind(this);
     this.getSort = this.getSort.bind(this);
     this.showModal = this.showModal.bind(this);
     this.sendNewReview = this.sendNewReview.bind(this);
+    this.markAsHelpful = this.markAsHelpful.bind(this);
+    this.reportReview = this.reportReview.bind(this);
+    this.selectStars = this.selectStars.bind(this);
+    this.filterRevs = this.filterRevs.bind(this);
+    this.clearStars = this.clearStars.bind(this);
   }
 
   componentDidMount() {
-    const prodId = this.state.productId
+    const prodId = this.state.productId;
     axios({
       method: 'get',
       url: '/reviews',
       params: { id: prodId },
     })
       .then((data) => {
+        console.log(data);
         this.setState({
           reviews: data.data.results,
+          productName: data.data.name,
         });
         this.getSort('relevant');
       });
@@ -51,6 +61,9 @@ class ReviewApp extends React.Component {
   }
 
   getSort(val) {
+    this.setState({
+      currentSort: val,
+    });
     if (val === 'helpful') {
       this.sortReviews('help');
     }
@@ -58,7 +71,9 @@ class ReviewApp extends React.Component {
       this.sortReviews('date');
     }
     if (val === 'relevant') {
-      this.sortReviews('relevant');
+      this.setState({
+        displayedReviews: this.state.reviews,
+      });
     }
   }
 
@@ -84,18 +99,6 @@ class ReviewApp extends React.Component {
               sortedRevs.splice(j, 0, review);
               entered = true;
             }
-          } else if (sort === 'relevant') {
-            const reviewDate = new Date(review.date);
-            const sortedRevDate = new Date(sortedRev.date);
-            const today = new Date();
-            const reviewDif = today - reviewDate;
-            const sortedDif = today - sortedRevDate;
-            const reviewRel = reviewDif / review.helpfulness;
-            const sortedRel = sortedDif / sortedRev.helpfulness;
-            if (reviewRel < sortedRel && !entered) {
-              sortedRevs.splice(j, 0, review);
-              entered = true;
-            }
           }
         }
         if (!entered) {
@@ -110,9 +113,9 @@ class ReviewApp extends React.Component {
 
   showModal() {
     this.setState({
-      newReview: !this.state.newReview
+      newReview: !this.state.newReview,
     });
-  };
+  }
 
   seeMoreReviews() {
     const newCount = this.state.reviewCount + 2;
@@ -125,16 +128,59 @@ class ReviewApp extends React.Component {
     const newObj = obj;
     newObj.product_id = this.state.productId;
     axios.post('/newReview', newObj)
-      .then(response => {
+      .then((response) => {
         console.log(response);
       });
   }
 
+  selectStars(num, action) {
+    const currentSelected = this.state.starsSelected;
+    if (currentSelected.indexOf(num) === -1) {
+      currentSelected.push(num);
+    } else {
+      const loc = currentSelected.indexOf(num);
+      currentSelected.splice(loc, 1);
+    }
+    if (!currentSelected.length) {
+      this.clearStars();
+    } else {
+      this.filterRevs(currentSelected);
+    }
+  }
+
+  clearStars() {
+    this.getSort(this.state.currentSort);
+    this.setState({
+      starsSelected: [],
+    });
+  }
+
+  filterRevs(arr) {
+    const displayedRevs = [];
+    this.state.reviews.forEach((review) => {
+      if (arr.indexOf(review.rating) !== -1) {
+        displayedRevs.push(review);
+      }
+    });
+    this.setState({
+      displayedReviews: displayedRevs,
+    });
+  }
+
+  markAsHelpful(revId) {
+    axios.put('/helpful', { id: revId });
+  }
+
+  reportReview(revId) {
+    axios.put('/report', { id: revId });
+  }
+
   render() {
+    console.log(this.state);
     if (this.state.loaded) {
-      const allReviews = this.state.reviews
-      const reviews = this.state.displayedReviews
-      const reviewCount = this.state.reviewCount
+      const allReviews = this.state.reviews;
+      const reviews = this.state.displayedReviews;
+      const { reviewCount } = this.state;
       const factors = Object.keys(this.state.ratings.characteristics).map((key) => (
         [key, this.state.ratings.characteristics[key].id]
       ));
@@ -145,6 +191,8 @@ class ReviewApp extends React.Component {
             seeMoreReviews={this.seeMoreReviews}
             reviewCount={reviewCount}
             reviews={reviews}
+            markAsHelpful={this.markAsHelpful}
+            reportReview={this.reportReview}
           />
           {allReviews.length > reviewCount
             ? (
@@ -167,13 +215,18 @@ class ReviewApp extends React.Component {
               </button>
             )}
           <NewReview
+            name={this.state.productName}
             factors={factors}
             close={this.showModal}
             show={this.state.newReview}
             sendNewReview={this.sendNewReview}
           />
-          <RatingBreakdown ratings={this.state.ratings} />
-
+          <RatingBreakdown
+            clearStars={this.clearStars}
+            starsSelected={this.state.starsSelected}
+            ratings={this.state.ratings}
+            selectStars={this.selectStars}
+          />
         </div>
       );
     }

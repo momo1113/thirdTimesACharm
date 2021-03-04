@@ -5,7 +5,7 @@ const AvgRating = ({ ratings }) => {
   let reviewCount = 0;
   let reviewTotal = 0;
 
-  Object.keys(ratings).forEach(key => {
+  Object.keys(ratings).forEach((key) => {
     reviewCount += Number(ratings[key]);
     reviewTotal += Number(key) * Number(ratings[key]);
   });

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import "./NewReview/NewReview.css";
 
 class ImageComponent extends React.Component {
@@ -9,9 +9,8 @@ class ImageComponent extends React.Component {
   }
 
   handleShowDialog() {
-    this.setState({ isOpen: !this.state.isOpen });
-    console.log("cliked");
-  };
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+  }
 
   render() {
     return (
@@ -20,7 +19,8 @@ class ImageComponent extends React.Component {
           className="small"
           src={this.props.src}
           onClick={this.handleShowDialog}
-          alt="small image"
+          onKeyPress={this.handleShowDialog}
+          alt="small"
           width="50px"
         />
         {this.state.isOpen && (
@@ -29,12 +29,14 @@ class ImageComponent extends React.Component {
             style={{ position: 'absolute' }}
             open
             onClick={this.handleShowDialog}
+            onKeyPress={this.handleShowDialog}
           >
             <img
               className="image"
               src={this.props.src}
               onClick={this.handleShowDialog}
-              alt="big image"
+              onKeyPress={this.handleShowDialog}
+              alt="big"
             />
           </dialog>
         )}
