@@ -1,8 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import Rating from 'react-star-ratings';
-import getRating from '../utility/getRating.js'
+import getRating from '../utility/getRating.js';
+import getSalePrice from '../utility/getSalePrice.js';
+import { FaListUl } from 'react-icons/fa';
 import '../../public/css/css.js';
+
 
 class Card extends React.Component {
   constructor(props) {
@@ -11,6 +14,8 @@ class Card extends React.Component {
       // name: 'Product name',
       imgs: ['./img/img-test.png'],
       rating: 0,
+      salePrice: null,
+      cardProduct: { name: '', category: '', default_price: '' },
       // price: 0,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -21,11 +26,17 @@ class Card extends React.Component {
     axios.get(`/products/${id}/styles`)
       .then((res) => {
         const imgs = res.data.results[0].photos[0].thumbnail_url;
+        const { results } = res.data;
+        this.setState({ salePrice: getSalePrice(results) });
         if (imgs) {
           this.setState({
-            imgs: res.data.results[0].photos,
+            imgs: results[0].photos,
           });
         }
+      });
+    axios.get(`/products/${id}`)
+      .then((res) => {
+        this.setState({ cardProduct: res.data });
       });
     getRating(id, (average) => {
       this.setState({ rating: average || 0 });
@@ -40,19 +51,18 @@ class Card extends React.Component {
 
   render() {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
-    const { name, category, default_price } = this.props.currentProduct;
-    const { rating } = this.state;
+    const { rating, salePrice, cardProduct } = this.state;
     return (
       <div className="card">
         <div className="frame">
           <img src={imgSrc} alt="product image" />
         </div>
-        {this.props.list === 'outfitList' ? <div className="action" onClick={this.handleClick}>Remove</div> : <div className="action" onClick={this.handleClick}>Compare</div>}
-        <div className="category">{category}</div>
-        <div className="product-name">{name}</div>
+        {this.props.list === 'outfitList' ? <div className="action" onClick={this.handleClick}>&times;</div> : <div className="action" onClick={this.handleClick}><span className="icon"><FaListUl/></span></div>}
+        <div className="category">{cardProduct.category}</div>
+        <div className="product-name">{cardProduct.name}</div>
         <div className="price">
-          $
-          {default_price}
+          {salePrice ? <span className="sale">${cardProduct.default_price}</span> : <span>${cardProduct.default_price}</span>}
+          {salePrice && <span>${salePrice}</span>}
         </div>
         <div className="rating">
           <Rating

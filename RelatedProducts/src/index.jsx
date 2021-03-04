@@ -48,7 +48,6 @@ class App extends React.Component {
       case 'left':
         scrollList.scrollLeft -= 380;
         break;
-
       case 'right':
         scrollList.scrollLeft += 380;
         break;
