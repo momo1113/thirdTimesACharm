@@ -67,7 +67,9 @@ class ReviewApp extends React.Component {
       this.sortReviews('date');
     }
     if (val === 'relevant') {
-      this.sortReviews('relevant');
+      this.setState({
+        displayedReviews: this.state.reviews,
+      });
     }
   }
 
@@ -90,18 +92,6 @@ class ReviewApp extends React.Component {
             }
           } else if (sort === 'date') {
             if (review.date > sortedRev.date && !entered) {
-              sortedRevs.splice(j, 0, review);
-              entered = true;
-            }
-          } else if (sort === 'relevant') {
-            const reviewDate = new Date(review.date);
-            const sortedRevDate = new Date(sortedRev.date);
-            const today = new Date();
-            const reviewDif = today - reviewDate;
-            const sortedDif = today - sortedRevDate;
-            const reviewRel = reviewDif / review.helpfulness;
-            const sortedRel = sortedDif / sortedRev.helpfulness;
-            if (reviewRel < sortedRel && !entered) {
               sortedRevs.splice(j, 0, review);
               entered = true;
             }
@@ -142,15 +132,10 @@ class ReviewApp extends React.Component {
   selectStars(num) {
     const currentSelected = this.state.starsSelected;
     if (currentSelected.indexOf(num) === -1) {
-      this.setState({
-        starsSelected: [...this.state.starsSelected, num],
-      });
+      currentSelected.push(num);
     } else {
       const loc = currentSelected.indexOf(num);
       currentSelected.splice(loc, 1);
-      this.setState({
-        starsSelected: currentSelected,
-      });
     }
     if (!currentSelected.length) {
       this.getSort(this.state.currentSort);
