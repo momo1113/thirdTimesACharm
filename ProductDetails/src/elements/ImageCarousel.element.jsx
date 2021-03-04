@@ -27,9 +27,9 @@ export const ThumbnailWrapper = styled.div`
 
 export const Thumbnail = styled.img`
  display: block;
- width:15%;
- height:15%;
- margin:3%;
+ width:55px;
+ height:55px;
+ margin:5% 25% 25% 25%;
  border: 1px solid black; 
  cursor:pointer;
 `;
@@ -38,9 +38,9 @@ export const Underline = styled.hr`
  position:absolute;
  border: 4px solid pink;
  border-radius:15px;
- width:15%;
- left:2.75%;
- margin-top:-2%;
+ width:60px;
+ margin-left:15%;
+ margin-top:-25%;
 `;
 
 export const DownArrow = styled(ArrowDown)`
