@@ -7,17 +7,16 @@ import Size from './Size.jsx';
 import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const StyledQuanityAndSize = ({
-  style, selectedStyleName, clicked,
+  style, selectedStyleId, clicked,
 }) => {
   const [sizeValue, setSizeValue] = useState(0);
   const [quantityValue, setQuantityValue] = useState(0);
 
   const { skus } = style;
   const listOfQuantityAndSize = Object.keys(skus);
-
   const size = listOfQuantityAndSize.map(
     (item, index) => (
-      style.name === selectedStyleName) && skus[item].quantity !== 0
+      style.style_id === selectedStyleId) && skus[item].quantity !== 0
       && (
         <Size
           key={index}
@@ -64,7 +63,7 @@ const StyledQuanityAndSize = ({
   } else {
     quantity = listOfQuantityAndSize.map(
       (item, index) => (
-        (style.name === selectedStyleName && skus[item].quantity !== 0)
+        (style.style_id === selectedStyleId && skus[item].quantity !== 0)
         && (
           <Quantity
             key={index}
@@ -78,7 +77,7 @@ const StyledQuanityAndSize = ({
   return (
     <>
       {
-        style.name === selectedStyleName && (
+        style.style_id === selectedStyleId && (
           <QuantitySize>
             <SizeSelect
               name="size"

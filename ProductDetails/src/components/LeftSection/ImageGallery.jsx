@@ -9,7 +9,7 @@ const ImageGallery = ({ getStyles }) => {
   const [styles, setStyles] = useState([]);
 
   useEffect(() => {
-    const id = 14932;
+    const id = 14807;
     axios.get(`/products/${id}/styles`)
       .then((response) => {
         const { results } = response.data;

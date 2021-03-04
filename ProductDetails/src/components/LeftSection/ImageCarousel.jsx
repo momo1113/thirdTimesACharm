@@ -36,8 +36,8 @@ const ImageCarousel = ({ styles }) => {
     const { url } = item.photos[0];
     return (
       <>
-        <Thumbnail key={index} src={url} alt="Women dress" />
-        {index === current && <Underline />}
+        <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} />
+        { index === current && <Underline />}
       </>
     );
   });

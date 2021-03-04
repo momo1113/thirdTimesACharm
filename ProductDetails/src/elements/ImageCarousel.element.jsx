@@ -31,6 +31,7 @@ export const Thumbnail = styled.img`
  height:15%;
  margin:3%;
  border: 1px solid black; 
+ cursor:pointer;
 `;
 
 export const Underline = styled.hr`

@@ -4,13 +4,16 @@
 import React from 'react';
 import { SelectedStyled, CheckMark } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
-const Style = ({ style, getSelectedStyle, selectedStyleName, getClicked }) => {
+const Style = ({
+  style, getSelectedStyle, selectedStyleId, getClicked,
+}) => {
   const thumbnailUrl = style.photos[0].thumbnail_url;
 
   const onHandleClick = () => {
-    getSelectedStyle(style.name);
+    getSelectedStyle(style.style_id);
     getClicked(true);
   };
+
   return (
     <>
 
@@ -19,7 +22,7 @@ const Style = ({ style, getSelectedStyle, selectedStyleName, getClicked }) => {
         onClick={onHandleClick}
       />
       {
-        selectedStyleName === style.name && <CheckMark />
+        selectedStyleId === style.style_id && <CheckMark />
       }
     </>
   );
