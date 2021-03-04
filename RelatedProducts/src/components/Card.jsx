@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Rating from 'react-star-ratings';
+import getRating from '../utility/getRating.js'
 import '../../public/css/css.js';
 
 class Card extends React.Component {
@@ -9,7 +10,7 @@ class Card extends React.Component {
     this.state = {
       // name: 'Product name',
       imgs: ['./img/img-test.png'],
-      // category: 'category',
+      rating: 0,
       // price: 0,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -26,6 +27,9 @@ class Card extends React.Component {
           });
         }
       });
+    getRating(id, (average) => {
+      this.setState({ rating: average || 0 });
+    });
   }
 
   handleClick(e) {
@@ -37,6 +41,7 @@ class Card extends React.Component {
   render() {
     const imgSrc = this.state.imgs[0].thumbnail_url || this.state.imgs[0];
     const { name, category, default_price } = this.props.currentProduct;
+    const { rating } = this.state;
     return (
       <div className="card">
         <div className="frame">
@@ -51,7 +56,7 @@ class Card extends React.Component {
         </div>
         <div className="rating">
           <Rating
-            rating={3.4}
+            rating={rating}
             starRatedColor="RGB(253, 204, 13)"
             starDimension="20px"
             starSpacing="1px"
