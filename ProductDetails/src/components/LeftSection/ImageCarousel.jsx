@@ -9,7 +9,12 @@ import {
 
 const ImageCarousel = ({ styles }) => {
   const [current, setCurrent] = useState(0);
-  
+  const [curThumbnail, setCurThumbnail] = useState(0);
+
+  if (!Array.isArray(styles) || styles.length <= 0) {
+    return null;
+  }
+
   const length = styles.length - 1;
 
   const preSlide = () => {
@@ -20,10 +25,11 @@ const ImageCarousel = ({ styles }) => {
     setCurrent(current === length ? 0 : current + 1);
   };
 
-  if (!Array.isArray(styles) || styles.length <= 0) {
-    return null;
-  }
+  const downSlide = () => {
+    setCurThumbnail((previous) => previous + 1);
+  };
 
+  console.log(curThumbnail);
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
@@ -52,7 +58,7 @@ const ImageCarousel = ({ styles }) => {
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>
         {thumbnailUrl}
-        {styles.length > 7 && <DownArrow />}
+        {styles.length > 7 && <DownArrow onClick={downSlide} />}
       </ThumbnailWrapper>
     </Slider>
 

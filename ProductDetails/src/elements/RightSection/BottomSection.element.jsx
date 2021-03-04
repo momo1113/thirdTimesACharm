@@ -6,9 +6,12 @@ import { Plus, Star } from '@styled-icons/boxicons-regular';
 export const SelectedStyled = styled.img`
 border-radius: 50%;
 margin:auto 10px;
-height:75px;
-width:75px;
+height:65px;
+width:65px;
 cursor:pointer;
+border:3px solid ${(props) => (props.curSelected ? 'black' : '#DFDFDF')}; 
+padding:5px;
+
 `;
 
 export const QuantitySize = styled.div`
@@ -59,7 +62,7 @@ margin-right: 10px;
 padding: 15px 12px;
 text-decoration: none;
 border-color: coral;
-text-align: start;
+text-align: center;
 cursor: pointer;
 outline: none;
 &:focus {
@@ -76,16 +79,8 @@ outline: none;
 cursor: pointer;
 `;
 
-export const CheckMark = styled(Checkmark)`
-position: 'absolute';
-margin-bottom: 15px;
-height: 15px;
-color: red;
-`;
-
 export const AddPlus = styled(Plus)`
 height: 17px;
-margin-left: 50% ;
 margin-bottom: 4px;
 `;
 

@@ -11,7 +11,6 @@ const TopSection = ({
   product, styles, selectedStyleId, id,
 }) => {
   const [rating, setRating] = useState('');
-  console.log(id)
   useEffect(() => {
     axios.get(`/reviews/${id}`)
       .then((response) => {

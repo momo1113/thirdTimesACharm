@@ -46,6 +46,7 @@ export const DownArrow = styled(ArrowDown)`
    width:40px;
    padding-left:18%;
    margin-top:-20px;
+   cursor:pointer;
 `;
 
 export const LeftArrow = styled(ArrowLeft)`

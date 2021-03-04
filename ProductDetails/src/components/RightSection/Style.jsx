@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { SelectedStyled, CheckMark } from '../../elements/RightSection/BottomSection.element.jsx';
+import { SelectedStyled } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const Style = ({
   style, getSelectedStyle, selectedStyleId, getClicked,
@@ -16,14 +16,14 @@ const Style = ({
 
   return (
     <>
-
       <SelectedStyled
         src={thumbnailUrl}
         onClick={onHandleClick}
+        curSelected={selectedStyleId === style.style_id}
       />
-      {
+      {/* {
         selectedStyleId === style.style_id && <CheckMark />
-      }
+      } */}
     </>
   );
 };
