@@ -45,14 +45,14 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleName }) => {
           {selectedStyleName}
         </span>
       </h4>
-      <div className="style" style={{ display: 'flex', height: 50, flexWrap: 'wrap' }}>
-        {styledThumbnails}
-      </div>
-      { styledQuanityAndSize}
-      <AddToBag  >
-        <Bag onClick={() => setClicked(true)}> ADD TO BAG<AddPlus /></Bag>
-        <StarButton > <FavStar /></StarButton>
-      </AddToBag >
+      <div className="style" style={{ display: 'flex', height: 50, flexWrap: 'wrap', marginBottom:'10%' }}>
+      {styledThumbnails}
+    </div>
+      { styledQuanityAndSize }
+  <AddToBag  >
+    <Bag onClick={() => setClicked(true)}> ADD TO BAG<AddPlus /></Bag>
+    <StarButton > <FavStar /></StarButton>
+  </AddToBag >
     </div >
   );
 };

@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import {
+  Underline,
   LeftArrow, RightArrow, Image, Thumbnail, ThumbnailWrapper, Slider, FullscreenArrow, DownArrow,
   // eslint-disable-next-line import/extensions
 } from '../../elements/ImageCarousel.element.jsx';
@@ -26,15 +27,18 @@ const ImageCarousel = ({ styles }) => {
     const { url } = item.photos[0];
     return (
       index === current && (
-        <Image key={index} src={url} alt="Women dress" />)
+        <Image key={index} src={url} alt="Women dress" />
+      )
     );
   });
 
   const thumbnailUrl = styles.map((item, index) => {
-    // eslint-disable-next-line camelcase
     const { url } = item.photos[0];
     return (
-      <Thumbnail key={index} src={url} alt="Women dress" />
+      <>
+        <Thumbnail key={index} src={url} alt="Women dress" />
+        {index === current && <Underline />}
+      </>
     );
   });
 
@@ -47,7 +51,7 @@ const ImageCarousel = ({ styles }) => {
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>
         {thumbnailUrl}
-        <DownArrow />
+        {styles.length > 7 && <DownArrow />}
       </ThumbnailWrapper>
     </Slider>
 

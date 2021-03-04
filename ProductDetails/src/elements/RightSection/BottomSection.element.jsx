@@ -4,7 +4,6 @@ import { Checkmark } from '@styled-icons/icomoon';
 import { Plus, Star } from '@styled-icons/boxicons-regular';
 
 export const SelectedStyled = styled.img`
-
 border-radius: 50%;
 margin:auto 10px;
 height:75px;

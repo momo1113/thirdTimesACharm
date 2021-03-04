@@ -91,9 +91,7 @@ const StyledQuanityAndSize = ({
               {
                 clicked && sizeValue === 0 ? <option value="0"> PLEASE SELECT SIZE </option> : <option value="0">  SELECT SIZE</option>
               }
-
               {size}
-
             </SizeSelect>
             <QuanitySelect name="quantity" disabled={sizeValue === 0}>
               {

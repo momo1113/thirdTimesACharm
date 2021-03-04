@@ -1,13 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   ArrowLeft, ArrowRight, ArrowsFullscreen,
-  // eslint-disable-next-line import/no-extraneous-dependencies
 } from '@styled-icons/bootstrap';
-
-import {
-  ArrowDown,
-  // eslint-disable-next-line import/no-extraneous-dependencies
-} from '@styled-icons/evaicons-solid';
+import { ArrowDown } from '@styled-icons/evaicons-solid';
 
 export const Slider = styled.div`
   position:relative;
@@ -32,18 +27,24 @@ export const ThumbnailWrapper = styled.div`
 
 export const Thumbnail = styled.img`
  display: block;
- width:75px;
- height:75px;
- margin:10px;
+ width:15%;
+ height:15%;
+ margin:3%;
  border: 1px solid black; 
+`;
+
+export const Underline = styled.hr`
+ position:absolute;
+ border: 4px solid pink;
+ width:15%;
+ left:2.75%;
+ margin-top:-2%;
 `;
 
 export const DownArrow = styled(ArrowDown)`
    width:40px;
-   padding-left: 30%;
+   padding-left:6%;
 `;
-
-
 
 export const LeftArrow = styled(ArrowLeft)`
   position:absolute;
