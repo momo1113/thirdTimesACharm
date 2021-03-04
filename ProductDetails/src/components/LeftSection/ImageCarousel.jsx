@@ -9,6 +9,7 @@ import {
 
 const ImageCarousel = ({ styles }) => {
   const [current, setCurrent] = useState(0);
+  
   const length = styles.length - 1;
 
   const preSlide = () => {

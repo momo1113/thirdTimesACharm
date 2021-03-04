@@ -22,14 +22,14 @@ export const ThumbnailWrapper = styled.div`
   position:absolute;
   top:15%;
   z-index:9;
-  left:5%;
+  left:10%;
 `;
 
 export const Thumbnail = styled.img`
  display: block;
- width:55px;
- height:55px;
- margin:5% 25% 25% 25%;
+ width:60px;
+ height:50px;
+ margin-bottom:20px;
  border: 1px solid black; 
  cursor:pointer;
 `;
@@ -38,14 +38,14 @@ export const Underline = styled.hr`
  position:absolute;
  border: 4px solid pink;
  border-radius:15px;
- width:60px;
- margin-left:15%;
+ width:55px;
  margin-top:-25%;
 `;
 
 export const DownArrow = styled(ArrowDown)`
    width:40px;
-   padding-left:6%;
+   padding-left:18%;
+   margin-top:-20px;
 `;
 
 export const LeftArrow = styled(ArrowLeft)`
