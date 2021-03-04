@@ -45,7 +45,8 @@ test('changes size of photo', () => {
 });
 
 test('ReviewApp has buttons', () => {
-  const wrapper = shallow(<ReviewApp productId={14932} />);
-  wrapper.instance().componentDidMount();
+  const wrapper = mount(<ReviewApp productId={14932} />);
+  // wrapper.instance().componentDidMount();
+  wrapper.update()
   expect(wrapper.find('button')).toHaveLength(2);
 });

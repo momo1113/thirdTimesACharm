@@ -5,7 +5,7 @@ class ReviewBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: '',
+      body: 'Why did you like the product or not?',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +27,7 @@ class ReviewBody extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Review:
-          <textarea defaultValue="Why did you like the product or not?" maxLength="1000" minLength="50" value={this.state.body} onChange={this.handleChange} />
+          <textarea maxLength="1000" minLength="50" value={this.state.body} onChange={this.handleChange} />
           {this.state.body.length < 50
             ? (
               <p>

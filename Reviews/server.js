@@ -71,6 +71,23 @@ app.put('/helpful', (req, res) => {
     })
 });
 
+app.put('/report', (req, res) => {
+  console.log(req.body.id)
+  const reviewId = req.body.id;
+  axios({
+    method: 'put',
+    url: `${keys.api}/reviews/${reviewId}/report`,
+    params: {review_id: reviewId},
+    headers: {
+      Authorization: keys.TOKEN,
+    },
+  })
+    .then(response => {
+      console.log(response)
+    })
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
