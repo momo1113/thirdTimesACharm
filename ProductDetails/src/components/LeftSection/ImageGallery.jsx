@@ -16,7 +16,9 @@ const ImageGallery = ({ getStyles }) => {
         setStyles(results);
         getStyles(results);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
   }, []);
   return (
 

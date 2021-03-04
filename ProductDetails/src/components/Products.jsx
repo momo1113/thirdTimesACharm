@@ -3,7 +3,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
-
 import ImageGallery from './LeftSection/ImageGallery.jsx';
 
 import ProductDetails from './RightSection/ProductDetails.jsx';

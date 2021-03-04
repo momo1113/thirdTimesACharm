@@ -18,10 +18,12 @@ justify-self: center;
 
 export const Image = styled.div`
 grid-area:image;
+justify-self: center;
 `;
 
 export const Detail = styled.div`
 grid-area:detail;
+align-self: center;
 justify-self: start;
 `;
 
