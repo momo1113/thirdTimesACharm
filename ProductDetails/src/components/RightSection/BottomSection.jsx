@@ -38,24 +38,27 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
     ),
   );
   const selectedStyleName = styles.filter(item => item.style_id === selectedStyleId)
-
+  console.log(selectedStyleName)
   return (
-    <div className="styles_info">
+    <>
       <h4>
         Style >
         <span style={{ fontWeight: 'normal', paddingLeft: 10 }}>
-          {selectedStyleName[0].name}
+          {selectedStyleName.length !== 0 && selectedStyleName[0].name}
         </span>
       </h4>
-      <div className="style" style={{ display: 'flex', height: 50, flexWrap: 'wrap', marginBottom: '10%' }}>
+      <div className="style" style={{ display: 'flex', flexWrap: 'wrap' }}>
         {styledThumbnails}
       </div>
-      { styledQuanityAndSize}
-      <AddToBag  >
-        <Bag onClick={() => setClicked(true)}> ADD TO BAG<AddPlus /></Bag>
-        <StarButton > <FavStar /></StarButton>
-      </AddToBag >
-    </div >
+      <div>
+        {styledQuanityAndSize}
+
+        <AddToBag  >
+          <Bag onClick={() => setClicked(true)}> ADD TO BAG<AddPlus /></Bag>
+          <StarButton > <FavStar /></StarButton>
+        </AddToBag >
+      </div>
+    </ >
   );
 };
 

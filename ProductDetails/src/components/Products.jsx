@@ -16,27 +16,39 @@ class Products extends React.Component {
   constructor() {
     super();
     this.state = {
+      products: [],
+      id: 0,
       product: {},
       styles: [],
-      selectedStyleId: 75540,
+      selectedStyleId: '',
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
   }
 
   componentDidMount() {
-    const id = 14932;
-    axios.get(`/products/${id}`)
+    //let id = 14931;
+    axios.get('/products')
       .then((response) => {
-        const { data } = response;
-        const {
-          category, default_price, description, features, name, slogan,
-        } = data;
-        this.setState({
-          product: {
-            category, default_price, description, features, name, slogan,
-          },
-        });
+        this.setState({ products: response.data });
+        if (this.state.products.length !== 0) {
+          const random = Math.floor(Math.random() * this.state.products.length);
+          this.setState({ id: this.state.products[random].id });
+        }
+      })
+      .then(() => {
+        axios.get(`/products/${this.state.id}`)
+          .then((response) => {
+            const { data } = response;
+            const {
+              category, default_price, description, features, name, slogan,
+            } = data;
+            this.setState({
+              product: {
+                category, default_price, description, features, name, slogan,
+              },
+            });
+          });
       })
       .catch((err) => {
         throw err;
@@ -58,7 +70,7 @@ class Products extends React.Component {
           <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
         </Header>
         <Image>
-          <ImageGallery getStyles={this.getStyles} />
+          {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} />}
         </Image>
         <Detail>
           <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} />

@@ -4,6 +4,19 @@ const router = express.Router();
 const axios = require('axios');
 
 const api = require('../../config');
+router.get('/products', (req, res) => {
+
+  axios.get(`${api.api}/products`, {
+    headers: {
+      Authorization: api.TOKEN,
+    },
+  })
+    .then((response) => {
+      const { data } = response;
+      res.status(200).send(data);
+    })
+    .catch(() => res.status(400).send('Could\'n find the productss your you are looking for '));
+});
 
 router.get('/products/:id', (req, res) => {
   const { id } = req.params;
