@@ -25,8 +25,8 @@ class RatingBreakdown extends React.Component {
       const index = currentStars.indexOf(num);
       currentStars.splice(index, 1);
       this.setState({
-        selected: currentStars
-      })
+        selected: currentStars,
+      });
     }
   }
 

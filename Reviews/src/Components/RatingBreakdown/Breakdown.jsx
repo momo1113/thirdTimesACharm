@@ -18,7 +18,6 @@ const Breakdown = ({ ratings, selectStars, addStar }) => {
           addStar={addStar}
           selectStars={selectStars}
           pair={pair}
-          key={index}
         />
       ))}
     </div>
