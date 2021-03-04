@@ -30,7 +30,7 @@ class OutfitList extends React.Component {
 
 
         <div className="container">
-          <div className="scroll-btn" onClick={this.handleScroll} id="left">&lt;</div>
+          <div className="scroll-btn-left" onClick={this.handleScroll} id="left"><span className="scroll-btn-arrow">&lt;</span></div>
           <div className="list" id="outfitList">
 
             <div className="card" onClick={this.addToList}>
@@ -47,7 +47,7 @@ class OutfitList extends React.Component {
               (item) => <Card handleClick={this.removeFromList} key={item} id={item} list="outfitList" currentProduct={currentProduct} />,
             )}
           </div>
-          <div onClick={this.handleScroll} id="right">&gt; </div>
+          <div className="scroll-btn-right" onClick={this.handleScroll} id="right"><span className="scroll-btn-arrow">&gt;</span> </div>
         </div>
       </div>
     );

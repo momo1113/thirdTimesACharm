@@ -1,22 +1,46 @@
-.scroll-btn {
+.scroll-btn-left,
+.scroll-btn-right {
   border: 1px solid black;
-  height: 6%;
-  border-radius: 15px;
+  width: 30px;
+  height: 50px;
+  border-radius: 5px;
   font-weight: bold;
+  top:30%;
+  font-size: 25px;
+  position: absolute;
+  z-index: 1;
+}
+.scroll-btn-right {
+  right: 0%;
+}
+
+.scroll-btn-arrow{
+  position: absolute;
+  margin: 10px 5px;
+}
+
+.scroll-btn-left:hover,
+.scroll-btn-right:hover{
+  color: white;
+  background-color: #888;
+  opacity: 0.8;
+  transition: 0.8s smooth;
+  cursor: pointer;
 }
 
 .container{
-  display: grid;
-  grid-template-columns: 2% 90% 2%;
-  grid-gap: 1em;
-  margin-bottom: 20px;
+  position: relative;
+  /* display: grid; */
+  /* grid-template-columns: 2% 90% 2%; */
+  /* grid-gap: 1em; */
+  /* margin-bottom: 20px; */
 }
+
 
 .list::-webkit-scrollbar{
   display:none;
 }
 .list {
-  border: 1px solid black;
   display: flex;
   overflow-x: scroll;
   scroll-behavior: smooth;

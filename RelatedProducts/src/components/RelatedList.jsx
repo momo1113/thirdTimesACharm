@@ -22,13 +22,13 @@ class RelatedList extends React.Component {
     const { relatedList, currentProduct } = this.props;
     return (
       <div className="container">
-        <button onClick={this.handleScroll} id="left">&lt;&lt;</button>
+        <div className="scroll-btn-left" onClick={this.handleScroll} id="left"><span className="scroll-btn-arrow">&lt;</span></div>
         <div className="list" id="relatedList">
           {relatedList.map((item) => (
             <Card handleClick={this.handleCompare} key={item} id={item} list="relatedList" currentProduct={currentProduct}/>
           ))}
         </div>
-        <button onClick={this.handleScroll} id="right">&gt; &gt; </button>
+        <div className="scroll-btn-right" onClick={this.handleScroll} id="right"><span className="scroll-btn-arrow">&gt; </span></div>
       </div>
     )
   }
