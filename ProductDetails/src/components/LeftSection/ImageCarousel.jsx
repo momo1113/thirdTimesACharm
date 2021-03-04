@@ -32,9 +32,9 @@ const ImageCarousel = ({ styles }) => {
 
   const thumbnailUrl = styles.map((item, index) => {
     // eslint-disable-next-line camelcase
-    const { thumbnail_url } = item.photos[0];
+    const { url } = item.photos[0];
     return (
-      <Thumbnail key={index} src={thumbnail_url} alt="Women dress" />
+      <Thumbnail key={index} src={url} alt="Women dress" />
     );
   });
 

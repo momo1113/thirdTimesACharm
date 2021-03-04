@@ -84,10 +84,12 @@ const StyledQuanityAndSize = ({
               name="size"
               onChange={(e) => setSizeValue(e.target.value)}
               value={sizeValue}
+              clicked={clicked}
+              sizeValue={sizeValue === 0}
               required
             >
               {
-                clicked && sizeValue === 0 ? <option value="0" style={{ color: 'red' }}> PLEASE SELECT SIZE </option> : <option value="0">  SELECT SIZE</option>
+                clicked && sizeValue === 0 ? <option value="0"> PLEASE SELECT SIZE </option> : <option value="0">  SELECT SIZE</option>
               }
 
               {size}

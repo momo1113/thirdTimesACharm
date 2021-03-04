@@ -25,13 +25,15 @@ cursor: pointer;
 border-radius: 2px;
 display:inline-block;
 padding:15px 12px;
-text-decoration:none;
-font-weight:300;
 text-align:start;
-appearance: none;
 &:focus {
   outline: none;
 };
+appearance: none;
+${(props) => props.clicked && props.sizeVlue && css`
+
+`}
+
 `;
 
 export const QuanitySelect = styled.select`

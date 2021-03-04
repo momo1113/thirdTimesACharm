@@ -20,9 +20,8 @@ export const Slider = styled.div`
 `;
 
 export const Image = styled.img`
-position: absolute;
-width:700px;
-height:550px;
+width:90%;
+height:80%;
 `;
 export const ThumbnailWrapper = styled.div`
   position:absolute;
@@ -32,16 +31,6 @@ export const ThumbnailWrapper = styled.div`
 `;
 
 export const Thumbnail = styled.img`
-&::after{
-  content:" 🦄";
-  position:absolute;
-  left:0;
-  bottom:0;
-  height:5px;
-  width:10005px;
-  background:red;
-
-};
  display: block;
  width:75px;
  height:75px;
