@@ -35,7 +35,6 @@ appearance: none;
 ${(props) => props.clicked && props.sizeVlue && css`
 
 `}
-
 `;
 
 export const QuanitySelect = styled.select`
@@ -58,23 +57,30 @@ margin-top: 20px;
 
 export const Bag = styled.button`
 flex: 7;
+width:100%;
 margin-right: 10px;
 padding: 15px 12px;
-text-decoration: none;
-border-color: coral;
+border:1px solid #4b5666;
 text-align: center;
+line-height:normal;
+letter-spacing:.24rem;
 cursor: pointer;
-outline: none;
+background-color:#4b5666;
+color:white;
 &:focus {
   outline: none;
 }
-background-color: white;
+&:hover{
+  background-color:white;
+  color:#4b5666;
+
+}
 `;
 
 export const StarButton = styled.button`
 flex: 1;
 background-color: white;
-border-color: coral;
+border:1px solid #4b5666;
 outline: none;
 cursor: pointer;
 `;
