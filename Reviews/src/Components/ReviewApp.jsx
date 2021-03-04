@@ -204,6 +204,7 @@ class ReviewApp extends React.Component {
               </button>
             )}
           <NewReview
+            // name={}
             factors={factors}
             close={this.showModal}
             show={this.state.newReview}

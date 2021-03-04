@@ -1,16 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReviewPhotos from './ReviewPhotos.jsx'
+import ReviewPhotos from './ReviewPhotos.jsx';
+import BodyText from './BodyText.jsx';
 
 const ReviewBody = ({ review }) => (
   <div>
     <p>
-      {review.summary}
+      <b>{review.summary}</b>
     </p>
-    <p>
-      {review.body}
-    </p>
-    <ReviewPhotos photos={review.photos}/>
+    <BodyText text={review.body} />
+    <ReviewPhotos photos={review.photos} />
+    {review.recommend
+      ? (
+        <>
+          <p>✓ I recommend this product</p>
+        </>
+      )
+      : <></>}
+    {review.response
+      ? (
+        <div clasName="response">
+          <p>Response From Seller:</p>
+          <p>{review.response}</p>
+        </div>
+      )
+      : <></>}
   </div>
 );
 
