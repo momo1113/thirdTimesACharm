@@ -10,11 +10,19 @@ const AvgRating = ({ ratings }) => {
     reviewTotal += Number(key) * Number(ratings[key]);
   });
 
-  const avgRating = (reviewTotal / reviewCount).toFixed(2);
+  const avgRating = (reviewTotal / reviewCount).toFixed(1);
+  const starNum = (avgRating / 5) * 75;
 
   return (
     <div>
       {avgRating}
+      {/* <tr className="overRatings">
+        <td> */}
+          <div className="stars-outer">
+            <div className="stars-inner" style={{ width: starNum }} />
+          </div>
+        {/* </td>
+      </tr> */}
     </div>
   );
 };

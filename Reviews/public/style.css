@@ -4,7 +4,30 @@ div {
   margin: 5px;
 }
 
+.noborder, .stars-outer, .stars-inner{
+  border: none;
+}
 
+#parent {
+  display: flex;
+}
+
+#ratingBox {
+  width: 25%;
+  background: lightblue;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
+#reviewBox {
+  /* Grow to rest of container */
+  width: 50%;
+  margin-left: 20px;
+  background: lightgreen;
+  /* Just so it's visible */
+}
+
+/* review modal */
 .modal {
   position: fixed;
   top: 0;
@@ -37,7 +60,7 @@ label {
   padding: 0 1em;
   text-align: center;
 }
-
+/* image modal  */
 #myImg {
   border-radius: 5px;
   cursor: pointer;
@@ -78,4 +101,102 @@ img {
 
 .response {
   background: lightslategray;
+}
+
+
+#sortBox span {
+  display: inline-block;
+}
+
+.nameDate {
+  float: right;
+}
+
+/* new rating stars */
+.hide {
+  display: none;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.rating {
+  width: 90px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative;
+}
+
+.rating > label {
+  float: right;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
+  color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+  color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+}
+
+/* review stars  */
+.checked {
+  color: orange;
+}
+
+/* rating overview stars */
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+.attribution {
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: -1;
+}
+.attribution:hover {
+  color: #1fa67a;
 }

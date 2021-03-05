@@ -185,48 +185,52 @@ class ReviewApp extends React.Component {
         [key, this.state.ratings.characteristics[key].id]
       ));
       return (
-        <div>
-          <SortForm reviewCount={allReviews.length} getSort={this.getSort} />
-          <ReviewList
-            seeMoreReviews={this.seeMoreReviews}
-            reviewCount={reviewCount}
-            reviews={reviews}
-            markAsHelpful={this.markAsHelpful}
-            reportReview={this.reportReview}
-          />
-          {allReviews.length > reviewCount
-            ? (
-              <>
-                <button type="button" onClick={this.seeMoreReviews}>More Reviews</button>
+        <div id="parent">
+          <div id="ratingBox">
+            <RatingBreakdown
+              clearStars={this.clearStars}
+              starsSelected={this.state.starsSelected}
+              ratings={this.state.ratings}
+              selectStars={this.selectStars}
+            />
+          </div>
+          <div id="reviewBox">
+            <SortForm reviewCount={allReviews.length} getSort={this.getSort} />
+            <ReviewList
+              seeMoreReviews={this.seeMoreReviews}
+              reviewCount={reviewCount}
+              reviews={reviews}
+              markAsHelpful={this.markAsHelpful}
+              reportReview={this.reportReview}
+            />
+            {allReviews.length > reviewCount
+              ? (
+                <>
+                  <button type="button" onClick={this.seeMoreReviews}>More Reviews</button>
+                  <button
+                    type="button"
+                    onClick={() => { this.showModal(); }}
+                  >
+                    Add Review
+                  </button>
+                </>
+              )
+              : (
                 <button
                   type="button"
                   onClick={() => { this.showModal(); }}
                 >
                   Add Review
                 </button>
-              </>
-            )
-            : (
-              <button
-                type="button"
-                onClick={() => { this.showModal(); }}
-              >
-                Add Review
-              </button>
-            )}
-          <NewReview
-            name={this.state.productName}
-            factors={factors}
-            close={this.showModal}
-            show={this.state.newReview}
-            sendNewReview={this.sendNewReview}
-          />
-          <RatingBreakdown
-            clearStars={this.clearStars}
-            starsSelected={this.state.starsSelected}
-            ratings={this.state.ratings}
-            selectStars={this.selectStars}
-          />
+              )}
+            <NewReview
+              name={this.state.productName}
+              factors={factors}
+              close={this.showModal}
+              show={this.state.newReview}
+              sendNewReview={this.sendNewReview}
+            />
+          </div>
         </div>
       );
     }
