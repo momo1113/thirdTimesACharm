@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 import {
   Underline,
-  LeftArrow, RightArrow, Image, Thumbnail, ThumbnailWrapper, Slider, FullscreenArrow, DownArrow,
-  // eslint-disable-next-line import/extensions
+  LeftArrow, RightArrow, Image, Thumbnail, ThumbnailWrapper,
+  Slider, FullscreenArrow, DownArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
 const ImageCarousel = ({ styles, selectedStyleId }) => {
   const [current, setCurrent] = useState(0);
+  const [isShown, setIsShown] = useState(false);
   const [curThumbnail, setCurThumbnail] = useState(0);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
@@ -29,34 +30,30 @@ const ImageCarousel = ({ styles, selectedStyleId }) => {
     setCurThumbnail((previous) => previous + 1);
   };
 
-  
-  let imageUrl = '';
-  if (selectedStyleId) {
-    imageUrl = styles.map((item, index) => {
-      const { style_id } = item;
-      const { url } = item.photos[0];
-      return (
-        (selectedStyleId === style_id
-          && (
-            <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
-              <Image key={index} src={url} alt="Women dress" />
-            </div>
-          )
-        )
-      );
-    });
-  } else {
-    imageUrl = styles.map((item, index) => {
-      const { url } = item.photos[0];
-      return (
-        (index === current && (
-          <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
-            <Image key={index} src={url} alt="Women dress" />
-          </div>
-        ))
-      );
-    });
-  }
+  const imageUrl = styles.map((item, index) => {
+    const { url } = item.photos[0];
+    const { style_id } = item;
+    return (
+      index === current && (
+        <ImageWrapper>
+          <Image key={index} src={url} alt="Women dress" />
+          <ImageUnderline />
+        </ImageWrapper>
+      )
+    );
+  });
+
+  // const imageUrl2 = styles.map((item, index) => {
+  //   const { url } = item.photos[0];
+  //   const { style_id } = item;
+  //   return (
+  //     selectedStyleId && selectedStyleId === style_id && (
+  //       <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
+  //         <Image key={index} src={url} alt="Women dress" />
+  //       </div>
+  //     )
+  //   );
+  // });
 
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
@@ -71,9 +68,13 @@ const ImageCarousel = ({ styles, selectedStyleId }) => {
   return (
     <Slider>
       <FullscreenArrow />
+
+
       <LeftArrow onClick={preSlide} />
       <RightArrow onClick={nextSlide} />
-      {imageUrl}
+
+
+      { imageUrl}
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>
         {thumbnailUrl}
