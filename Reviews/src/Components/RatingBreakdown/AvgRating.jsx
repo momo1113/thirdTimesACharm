@@ -14,15 +14,13 @@ const AvgRating = ({ ratings }) => {
   const starNum = (avgRating / 5) * 75;
 
   return (
-    <div>
-      {avgRating}
-      {/* <tr className="overRatings">
-        <td> */}
-          <div className="stars-outer">
-            <div className="stars-inner" style={{ width: starNum }} />
-          </div>
-        {/* </td>
-      </tr> */}
+    <div id="avgRatingBox">
+      <div id="avgRatingNum">{avgRating}</div>
+      <div id="avgRatingStars">
+        <div className="stars-outer">
+          <div className="stars-inner" style={{ width: starNum }} />
+        </div>
+      </div>
     </div>
   );
 };

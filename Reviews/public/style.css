@@ -1,11 +1,36 @@
+body {
+font-family: Helvetica, Arial, sans-serif;
+}
+
 div {
-  border: solid black;
-  border-width: 2px;
+  /* border: solid black;
+  border-width: 2px; */
   margin: 5px;
 }
 
-.noborder, .stars-outer, .stars-inner{
+.reviewListItem {
+  border-bottom: solid black 1px;
+}
+
+.breakdownItem div {
+  display: inline-block;
+}
+
+.breakdownItem {
+  display: flex;
+  align-items: center;
+}
+
+/* .noborder, .stars-outer, .stars-inner, .line-outer, .line-inner, .link{
   border: none;
+} */
+
+.smallFactor {
+  float:left
+}
+
+.largeFactor {
+  float:right
 }
 
 #parent {
@@ -14,7 +39,6 @@ div {
 
 #ratingBox {
   width: 25%;
-  background: lightblue;
   margin-left: 30px;
   margin-right: 20px;
 }
@@ -23,7 +47,6 @@ div {
   /* Grow to rest of container */
   width: 50%;
   margin-left: 20px;
-  background: lightgreen;
   /* Just so it's visible */
 }
 
@@ -110,6 +133,7 @@ img {
 
 .nameDate {
   float: right;
+  border: none
 }
 
 /* new rating stars */
@@ -171,6 +195,7 @@ img {
 
 .stars-outer::before {
   content: "\f006 \f006 \f006 \f006 \f006";
+  font-size: 12px;
 }
 
 .stars-inner {
@@ -184,7 +209,8 @@ img {
 
 .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
-  color: #f8ce0b;
+  color: black;
+  font-size: 12px;
 }
 
 .attribution {
@@ -199,4 +225,39 @@ img {
 }
 .attribution:hover {
   color: #1fa67a;
+}
+
+/* rating stars lines */
+
+.outerLine, .innerLine {
+  height: 4px
+}
+
+.outerLine {
+  background-color: black;
+  display: inline-block;
+  position: relative;
+}
+
+.innerLine {
+  background-color: red;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+#avgRatingNum {
+  font-size: 56px;
+}
+
+#avgRatingNum, #avgRatingStars {
+  display: inline-block;
+  /* align-items: flex-start; */
+  /* text-align: start; */
+}
+
+#avgRatingStars {
+  position: absolute;
+  /* top: 0 */
+  /* top: 0 */
 }

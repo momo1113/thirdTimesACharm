@@ -6,12 +6,7 @@ class SortForm extends React.Component {
     super(props);
     this.state = { value: '' };
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value });
   }
 
   handleSubmit(event) {
@@ -23,24 +18,16 @@ class SortForm extends React.Component {
     return (
       <div id="sortBox">
         <span>
-        {this.props.reviewCount}
-      &nbsp;Reviews, sorted by&nbsp;
+          {this.props.reviewCount}
+          &nbsp;Reviews, sorted by&nbsp;
         </span>
-<span>
-<form onSubmit={this.handleSubmit}>
-
-
+        <span id="sortForm">
             <select onChange={this.handleSubmit}>
               <option value="relevant">Relevence</option>
               <option value="helpful">Helpful</option>
               <option value="newest">Newest</option>
-
             </select>
-
-          {/* <input type="submit" value="Submit" /> */}
-        </form>
-</span>
-
+        </span>
       </div>
     );
   }

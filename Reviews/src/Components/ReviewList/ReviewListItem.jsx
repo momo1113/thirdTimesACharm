@@ -6,7 +6,7 @@ import ReviewHelpful from './ReviewHelpful.jsx'
 
 const ReviewListItem = ({ review, markAsHelpful, reportReview }) => (
 
-  <div>
+  <div className="reviewListItem">
     <ReviewTop review={review} />
     <ReviewBody review={review} />
     <ReviewHelpful reportReview={reportReview} markAsHelpful={markAsHelpful} review={review} />

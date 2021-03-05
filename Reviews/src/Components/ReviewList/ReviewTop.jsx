@@ -8,17 +8,18 @@ const ReviewTop = ({ review }) => {
   const newDate = new Date(date);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = newDate.toLocaleDateString(undefined, options);
+  const ratingPercent = (rating / 5) * 75;
   return (
     <div>
-      <span>
-        <ReviewStars rating={rating} />
-      </span>
+      <div className="stars-outer">
+        <div className="stars-inner" style={{ width: ratingPercent }} />
+      </div>
 
-      <span className="nameDate">
+      <div className="nameDate">
         {reviewer_name}
         ,&nbsp;
         {formattedDate}
-      </span>
+      </div>
     </div>
 
   );

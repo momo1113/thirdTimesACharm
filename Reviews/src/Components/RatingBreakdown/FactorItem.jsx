@@ -11,9 +11,9 @@ const FactorItem = ({ factor }) => {
     <div>
       <p>{name}</p>
       <p>{value}</p>
-      <span>{small}</span>
+      <span className="smallFactor">{small}</span>
       &nbsp;
-      <span>{large}</span>
+      <span className="largeFactor">{large}</span>
     </div>
   );
 };
