@@ -27,7 +27,6 @@ class Products extends React.Component {
   }
 
   componentDidMount() {
-    //let id = 14931;
     axios.get('/products')
       .then((response) => {
         this.setState({ products: response.data });

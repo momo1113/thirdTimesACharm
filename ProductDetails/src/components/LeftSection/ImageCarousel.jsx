@@ -29,7 +29,6 @@ const ImageCarousel = ({ styles }) => {
     setCurThumbnail((previous) => previous + 1);
   };
 
-  console.log(curThumbnail);
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (

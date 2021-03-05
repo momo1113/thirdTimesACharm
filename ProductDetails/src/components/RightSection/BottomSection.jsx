@@ -15,6 +15,10 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
   const getClicked = (click) => {
     setClicked(!click);
   };
+
+  const getLikeClicked = (click) => {
+    setLikeClicked(!click);
+  }
   const styledThumbnails = styles.map(
     (item, index) => (
       <Style
@@ -23,11 +27,12 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
         getSelectedStyle={getSelectedStyle}
         getClicked={getClicked}
         selectedStyleId={selectedStyleId}
+        getLikeClicked={getLikeClicked}
 
       />
     ),
   );
-
+  console.log(likeClicked);
   const styledQuanityAndSize = styles.map(
     (item, index) => (
       <StyledQuanityAndSize

@@ -13,7 +13,6 @@ const ImageGallery = ({ getStyles, id, getSelectedStyle }) => {
       .then((response) => {
         const { results } = response.data;
         setStyles(results);
-
         getStyles(results);
         getSelectedStyle(results[0].style_id);
       })
@@ -21,8 +20,6 @@ const ImageGallery = ({ getStyles, id, getSelectedStyle }) => {
         throw err;
       });
   }, []);
-
-
   return (
     <div className="image_gallery">
       <ImageCarousel styles={styles} />
