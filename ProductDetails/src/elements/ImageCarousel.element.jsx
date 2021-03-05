@@ -15,8 +15,8 @@ export const Slider = styled.div`
 `;
 
 export const Image = styled.img`
-width:90%;
-height:80%;
+ width: 100%;
+  min-height: 100%;
 `;
 export const ThumbnailWrapper = styled.div`
   position:absolute;

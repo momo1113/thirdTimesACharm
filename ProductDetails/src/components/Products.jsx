@@ -20,7 +20,7 @@ class Products extends React.Component {
       id: 0,
       product: {},
       styles: [],
-      selectedStyleId: '',
+      selectedStyleId: 0,
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
@@ -69,7 +69,7 @@ class Products extends React.Component {
           <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
         </Header>
         <Image>
-          {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} />}
+          {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} />}
         </Image>
         <Detail>
           {this.state.id !== 0 && <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} id={this.state.id} />}

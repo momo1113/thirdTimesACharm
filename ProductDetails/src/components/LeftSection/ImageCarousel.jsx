@@ -7,7 +7,7 @@ import {
   // eslint-disable-next-line import/extensions
 } from '../../elements/ImageCarousel.element.jsx';
 
-const ImageCarousel = ({ styles }) => {
+const ImageCarousel = ({ styles, selectedStyleId }) => {
   const [current, setCurrent] = useState(0);
   const [curThumbnail, setCurThumbnail] = useState(0);
 
@@ -31,9 +31,15 @@ const ImageCarousel = ({ styles }) => {
 
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
+    const { style_id } = item;
+    const same = (selectedStyleId === style_id);
+    console.log(same)
+
     return (
       index === current && (
-        <Image key={index} src={url} alt="Women dress" />
+        <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
+          <Image key={index} src={url} alt="Women dress" />
+        </div>
       )
     );
   });
