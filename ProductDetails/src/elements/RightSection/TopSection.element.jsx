@@ -26,6 +26,7 @@ letter-spacing:.12rem;
 
 export const OriginalPrice = styled.h4`
 margin-top: 1px;
+font:1rem/normal Avenir Medium,sans-seri;
 text-decoration: ${(props) => props.checkSale && 'line-through'};
 color:${(props) => props.checkSale && ' rgb(128,128,128)'};
 &::after{

@@ -28,11 +28,9 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
         getClicked={getClicked}
         selectedStyleId={selectedStyleId}
         getLikeClicked={getLikeClicked}
-
       />
     ),
   );
-  console.log(likeClicked);
   const styledQuanityAndSize = styles.map(
     (item, index) => (
       <StyledQuanityAndSize

@@ -29,20 +29,34 @@ const ImageCarousel = ({ styles, selectedStyleId }) => {
     setCurThumbnail((previous) => previous + 1);
   };
 
-  const imageUrl = styles.map((item, index) => {
-    const { url } = item.photos[0];
-    const { style_id } = item;
-    const same = (selectedStyleId === style_id);
-    console.log(same)
-
-    return (
-      index === current && (
-        <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
-          <Image key={index} src={url} alt="Women dress" />
-        </div>
-      )
-    );
-  });
+  
+  let imageUrl = '';
+  if (selectedStyleId) {
+    imageUrl = styles.map((item, index) => {
+      const { style_id } = item;
+      const { url } = item.photos[0];
+      return (
+        (selectedStyleId === style_id
+          && (
+            <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
+              <Image key={index} src={url} alt="Women dress" />
+            </div>
+          )
+        )
+      );
+    });
+  } else {
+    imageUrl = styles.map((item, index) => {
+      const { url } = item.photos[0];
+      return (
+        (index === current && (
+          <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
+            <Image key={index} src={url} alt="Women dress" />
+          </div>
+        ))
+      );
+    });
+  }
 
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
