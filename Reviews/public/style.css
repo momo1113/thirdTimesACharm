@@ -123,7 +123,7 @@ img {
 }
 
 .response {
-  background: lightslategray;
+  background-color: lightslategray;
 }
 
 
@@ -195,7 +195,7 @@ img {
 
 .stars-outer::before {
   content: "\f006 \f006 \f006 \f006 \f006";
-  font-size: 12px;
+
 }
 
 .stars-inner {
@@ -210,7 +210,6 @@ img {
 .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   color: black;
-  font-size: 12px;
 }
 
 .attribution {
@@ -230,7 +229,7 @@ img {
 /* rating stars lines */
 
 .outerLine, .innerLine {
-  height: 4px
+  height: 5px
 }
 
 .outerLine {
@@ -252,12 +251,61 @@ img {
 
 #avgRatingNum, #avgRatingStars {
   display: inline-block;
-  /* align-items: flex-start; */
-  /* text-align: start; */
 }
 
 #avgRatingStars {
   position: absolute;
-  /* top: 0 */
-  /* top: 0 */
+}
+
+#ratingSummary {
+  background-color: lawngreen;
+}
+
+#avgRatingBox {
+  font-size: 12px;
+}
+.factorData {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0px;
+}
+
+.factorLine {
+  height: 5px;
+  background-color: black;
+  display: flex;
+  position: absolute;
+  width: 300px;
+  justify-content: space-evenly;
+}
+
+.breakLine {
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  top: -5px;
+  position: relative;
+}
+
+.factorTriangle {
+  position: relative;
+  top: -6px;
+
+}
+
+.factorTriangle::before {
+  font-family: FontAwesome;
+  content: "\f0d7";
+  color: red;
+  font-size: 30px;
+}
+
+.factorItem{
+position: relative;
+}
+
+.factorItemFactors {
+  position: relative;
+  top: -20px;
+  font-size: 12px;
 }
