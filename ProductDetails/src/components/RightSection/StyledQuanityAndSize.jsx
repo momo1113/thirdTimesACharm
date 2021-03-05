@@ -26,7 +26,6 @@ const StyledQuanityAndSize = ({
       ),
   );
   useEffect(() => {
-    // eslint-disable-next-line no-restricted-syntax
     for (const key in skus) {
       if (skus[key].size === sizeValue) {
         setQuantityValue(skus[key].quantity);
