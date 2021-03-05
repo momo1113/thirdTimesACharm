@@ -17,7 +17,9 @@ const TopSection = ({
         const rate = response.data;
         setRating(rate);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
   }, []);
 
   let salePrice = 0;
@@ -43,6 +45,7 @@ const TopSection = ({
               starSpacing="1px"
               name="rating"
             />
+            <span style={{ margin: 5 }}>|</span>
           </Reviews>
         )
       }
