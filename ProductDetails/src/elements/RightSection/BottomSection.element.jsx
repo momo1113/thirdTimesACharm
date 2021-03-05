@@ -92,7 +92,7 @@ color: white;
 export const StarButton = styled.button`
 flex: 1;
 background-color: white;
-border: 1px solid #4b5666;
+border: 1px solid #DFDFDF;
 outline: none;
 cursor: pointer;
 `;

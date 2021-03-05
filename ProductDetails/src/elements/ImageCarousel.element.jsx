@@ -27,7 +27,7 @@ export const Image = styled.img`
 
 export const ImageUnderline = styled.hr`
 position: absolute;
-border: 1px solid #5c5c5f;
+border: 1px solid #DFDFDF;
 width:90%;
   border-radius: 5px;
   top:95%;
@@ -50,7 +50,7 @@ export const Thumbnail = styled.img`
 
 export const Underline = styled.hr`
  position:absolute;
- border: 4px solid #DFDFDF;
+ border: 4px solid #5c5c5f;
  border-radius:15px;
  width:50px;
  margin-top:-25%;
