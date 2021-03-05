@@ -2,12 +2,11 @@ import React from 'react';
 import Photos from './Photos.jsx';
 
 const Answer = ({ answer }) => {
-  const readableDate = new Date(answer.date);
-  const month = readableDate.getUTCMonth();
-  // difference between .getUTCDate and .getDate?
-  const day = readableDate.getDate();
-  const year = readableDate.getUTCFullYear();
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let readableDate = new Date(answer.date);
+  const options = {
+    year: 'numeric', month: 'long', day: 'numeric',
+  };
+  readableDate = readableDate.toLocaleDateString('en-US', options);
 
   return (
     <div>
@@ -20,12 +19,7 @@ const Answer = ({ answer }) => {
         {answer.answerer_name}
         ,
         {' '}
-        {months[month]}
-        {' '}
-        {day}
-        ,
-        {' '}
-        {year}
+        {readableDate}
       </p>
       <p>
         Helpful? Yes(
