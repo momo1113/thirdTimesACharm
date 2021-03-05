@@ -30,7 +30,7 @@ class AddPhoto extends React.Component {
       <div className={showHideClassName}>
         <section className="modal-main">
           Please enter URLs to your photos below
-          <form >
+          <form>
             <label>
               Photo 1:
               <input

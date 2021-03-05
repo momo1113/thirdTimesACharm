@@ -56,13 +56,26 @@ label {
 .dialog {
   box-shadow: 0 8px 6px -6px black;
   position: absolute;
-  top:0;
+  /* top:0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   margin: auto;
 }
 
 .image {
   width: 400px;
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+img {
+  cursor: pointer;
+}
+
+.response {
+  background: lightslategray;
 }

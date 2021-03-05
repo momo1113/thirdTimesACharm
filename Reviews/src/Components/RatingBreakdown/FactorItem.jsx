@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const FactorItem = ({ factor }) => {
   const name = Object.keys(factor)[0];
-  const value = factor[name].value;
+  const { value } = factor[name];
   const small = factor[name].edges[0];
   const large = factor[name].edges[1];
 
@@ -11,8 +11,9 @@ const FactorItem = ({ factor }) => {
     <div>
       <p>{name}</p>
       <p>{value}</p>
-      <label>{small}</label>
-      <label>{large}</label>
+      <span>{small}</span>
+      &nbsp;
+      <span>{large}</span>
     </div>
   );
 };
