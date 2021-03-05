@@ -9,6 +9,7 @@ import {
 const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
+  
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }

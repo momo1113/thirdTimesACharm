@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { BagFill, HeartFill } from '@styled-icons/bootstrap';
 
 export const SelectedStyled = styled.img`
@@ -30,6 +30,23 @@ flex-wrap: wrap;
 margin-top:7.5%;
 `;
 
+const shake = keyframes`
+   10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+`;
 export const SizeSelect = styled.select`
 flex: 3;
 margin-right:10px;
@@ -38,11 +55,14 @@ border-radius: 2px;
 border:1px solid ${(props) => (props.clicked && props.sizeValue ? 'red' : '#4b5666')}; 
 padding:15px 12px;
 text-align:start;
+appearance: none;
 color:${(props) => props.clicked && props.sizeValue && 'red'};
 &:focus {
   outline: none;
 };
-appearance: none;
+${({ clicked, sizeValue }) => clicked && sizeValue && css`
+animation: ${shake} 1s ease both;
+`}
 
 `;
 
@@ -85,7 +105,10 @@ color: white;
 &:hover{
   background-color: white;
   color:#4b5666;
-
+}
+&:active{
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 `;
 
@@ -95,6 +118,13 @@ background-color: white;
 border: 1px solid #DFDFDF;
 outline: none;
 cursor: pointer;
+&:active{  
+  border: 1px solid red;
+  transform: translateY(4px);
+}
+&:focus::after{
+  border: 1px solid red;
+}
 `;
 
 export const AddPlus = styled(BagFill)`
@@ -105,4 +135,7 @@ margin-bottom: 4px;
 export const FavStar = styled(HeartFill)`
 height: 16px;
 color: ${(props) => (props.likeClicked && 'red')};
+${(props) => props.likeClicked && css`
+transform:scale(1.5)
+`}
 `;

@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
-import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSection/BottomSection.element.jsx';
+import { QuantitySize, SizeSelect, QuanitySelect, } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const StyledQuanityAndSize = ({
   style, selectedStyleId, clicked,

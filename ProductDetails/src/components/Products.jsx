@@ -9,7 +9,7 @@ import ProductDetails from './RightSection/ProductDetails.jsx';
 
 import ProductInfo from './BottomSection/ProductInfo.jsx';
 import {
-  Wrapper, Header, Image, Detail, Info,
+  Wrapper, Header, Image, Detail, Info, Logo,
 } from '../elements/Products.element.jsx';
 
 class Products extends React.Component {
@@ -66,7 +66,10 @@ class Products extends React.Component {
     return (
       <Wrapper>
         <Header>
-          <p> SITE-WIDE ANNOUNCEMENT MESSAGE! SALE/DISCOUNT OFFER-NEW PRODUCT-HIGHLIGHT</p>
+          <Logo>Logo</Logo>
+          <input />
+          <h2> search</h2>
+          <button type="submit">bag</button>
         </Header>
         <Image>
           {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} />}
