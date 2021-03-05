@@ -36,26 +36,3 @@ export default ReviewListItem;
 //                 }
 //             ]
 //         },
-
-
-{/* <div>
-<div>
-  <div>
-    {review.rating}
-    stars
-  </div>
-  <div>
-    {review.reviewer_name}, {review.date}
-  </div>
-</div>
-<div>
-  <p>
-    {review.summary}
-  </p>
-  <p>
-    {review.body}
-  </p>
-  <p>Helpful? <a>Yes</a> ({review.helpfulness}) | <a>Report</a></p>
-</div>
-
-</div> */}
