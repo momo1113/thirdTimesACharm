@@ -7,23 +7,25 @@ import {
 } from '../../elements/RightSection/TopSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
-const TopSection = ({ product, styles, selectedStyleName }) => {
+const TopSection = ({
+  product, styles, selectedStyleId, id,
+}) => {
   const [rating, setRating] = useState('');
-
   useEffect(() => {
-    const id = 14932;
     axios.get(`/reviews/${id}`)
       .then((response) => {
         const rate = response.data;
         setRating(rate);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
   }, []);
 
   let salePrice = 0;
   let originalPrice = product.default_price;
   const saleProductResult = styles.filter(
-    (style) => (style.name === selectedStyleName) && style.sale_price
+    (style) => (style.style_id === selectedStyleId) && style.sale_price,
   );
   if (saleProductResult && (saleProductResult[0] !== undefined)) {
     salePrice = saleProductResult[0].sale_price;
@@ -43,6 +45,7 @@ const TopSection = ({ product, styles, selectedStyleName }) => {
               starSpacing="1px"
               name="rating"
             />
+            <span style={{ margin: 5 }}>|</span>
           </Reviews>
         )
       }
