@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Style from './Style.jsx';
-import StyledQuanityAndSize from './StyledQuanityAndSize.jsx';
+import StyleThumbnails from './StyleThumbnails.jsx';
+import QuanityAndSize from './QuanityAndSize.jsx';
 import {
   AddToBag, Bag, StarButton, AddPlus, FavStar, StyleValue, StyleLegend,
 } from '../../elements/RightSection/BottomSection.element.jsx';
@@ -9,7 +9,7 @@ import {
 const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
-  
+
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
@@ -22,7 +22,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
   }
   const styledThumbnails = styles.map(
     (item, index) => (
-      <Style
+      <StyleThumbnails
         key={index}
         style={item}
         getSelectedStyle={getSelectedStyle}
@@ -34,7 +34,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
   );
   const styledQuanityAndSize = styles.map(
     (item, index) => (
-      <StyledQuanityAndSize
+      <QuanityAndSize
         key={index}
         style={item}
         getSelectedStyle={getSelectedStyle}

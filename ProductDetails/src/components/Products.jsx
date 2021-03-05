@@ -3,13 +3,15 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
+import Nav from './HeaderSection/Nav.jsx';
 import ImageGallery from './LeftSection/ImageGallery.jsx';
 
 import ProductDetails from './RightSection/ProductDetails.jsx';
 
 import ProductInfo from './BottomSection/ProductInfo.jsx';
+
 import {
-  Wrapper, Header, Image, Detail, Info, Logo,
+  Wrapper, Header, Image, Detail, Info
 } from '../elements/Products.element.jsx';
 
 class Products extends React.Component {
@@ -66,10 +68,7 @@ class Products extends React.Component {
     return (
       <Wrapper>
         <Header>
-          <Logo>Logo</Logo>
-          <input />
-          <h2> search</h2>
-          <button type="submit">bag</button>
+          <Nav />
         </Header>
         <Image>
           {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} />}

@@ -13,13 +13,7 @@ gap: 20px;
 
 export const Header = styled.div`
 grid-area:hd;
-justify-self: center;
-display:flex;
-flex-direction:row;
-`;
-
-export const Logo = styled.h1`
-align-self:flex-start;
+justify-self: start;
 `;
 
 // other components
