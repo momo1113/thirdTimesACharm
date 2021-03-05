@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
 margin:0 auto; 
 display:grid;
-grid-template-columns:60% auto;
+grid-template-columns:60% 30%;
 grid-template-rows: 60px auto 90px;
 grid-template-areas: "hd hd"
                       "image detail"
