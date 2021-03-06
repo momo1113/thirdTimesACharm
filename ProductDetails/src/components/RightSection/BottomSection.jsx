@@ -65,7 +65,6 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
         <AddToBag>
           <Bag onClick={() => setClicked(true)}>
             ADD TO BAG
-            <AddPlus />
           </Bag>
           <StarButton onClick={() => setLikeClicked(!likeClicked)}>
             <FavStar likeClicked={likeClicked} />

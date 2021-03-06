@@ -1,15 +1,20 @@
 import React from 'react';
-import { NavWrapper, Logo, Search } from '../../elements/Nav.element.jsx';
+import {
+  Logo, Input, SearchIcon, AddBag,
+} from '../../elements/Nav.element.jsx';
 
 const Nav = () => (
-  <NavWrapper>
+  <>
     <Logo>Logo</Logo>
-    <Search>
-      <input />
-      <h2> search</h2>
-      <button type="submit">bag</button>
-    </Search>
-  </NavWrapper>
+    <Input>
+      <SearchIcon />
+      Search
+    </Input>
+    <div>
+      <AddBag />
+      <span style={{ display: 'inlineBlock' }}>1</span>
+    </div>
+  </>
 
 );
 

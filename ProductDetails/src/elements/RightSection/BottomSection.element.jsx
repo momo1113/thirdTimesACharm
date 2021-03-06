@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled, { css, keyframes } from 'styled-components';
-import { BagFill, HeartFill } from '@styled-icons/bootstrap';
+import {  HeartFill } from '@styled-icons/bootstrap';
 
 export const SelectedStyled = styled.img`
 border-radius: 50%;
@@ -63,7 +63,7 @@ color:${(props) => props.clicked && props.sizeValue && 'red'};
 ${({ clicked, sizeValue }) => clicked && sizeValue && css`
 animation: ${shake} 1s ease both;
 `}
-
+background-color:white;
 `;
 
 export const QuanitySelect = styled.select`
@@ -76,6 +76,7 @@ border-radius: 2px;
 text-align: center;
 text-align-last: center;
 appearance: none;
+background-color:white;
 &:focus {
   outline: none;
 };
@@ -127,10 +128,7 @@ cursor: pointer;
 }
 `;
 
-export const AddPlus = styled(BagFill)`
-height: 17px;
-margin-bottom: 4px;
-`;
+
 
 export const FavStar = styled(HeartFill)`
 height: 16px;

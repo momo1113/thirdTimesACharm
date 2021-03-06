@@ -14,6 +14,11 @@ gap: 20px;
 export const Header = styled.div`
 grid-area:hd;
 justify-self: start;
+display:grid;
+grid-template-columns:5fr 1fr 1fr;
+width:100%;
+margin-left:9%;
+height:auto;
 `;
 
 // other components
