@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import StyleThumbnails from '../src/components/RightSection/StyleThumbnails.jsx';
 import QuanityAndSize from '../src/components/RightSection/QuanityAndSize.jsx';
