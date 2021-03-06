@@ -57,7 +57,7 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
       <FullscreenArrow onClick={handleOnClick} />
       <LeftArrow onClick={preSlide} />
       <RightArrow onClick={nextSlide} />
-      { imageUrl}
+      {imageUrl}
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>
         {thumbnailUrl}

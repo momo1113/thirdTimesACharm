@@ -42,6 +42,7 @@ export const ThumbnailWrapper = styled.div`
   position:absolute;
   top:15%;
   left:-7.5%;
+  margin-right:10px;
 `;
 export const Thumbnail = styled.img`
  display: block;
@@ -52,7 +53,6 @@ export const Thumbnail = styled.img`
  padding:2px;
  border: 1px solid ${(props) => (props.curImage ? 'black' : ' #DFDFDF')};
  transition:transform .5s;
- z-index:2;
  &:hover{
    transform:scale(2);
  }
@@ -64,7 +64,6 @@ border: 4px solid #5c5c5f;
 border-radius: 15px;
 width: 57px;
 margin-top: -25%;
-z-index:-2;
 
 `;
 
@@ -82,7 +81,7 @@ width: 40px;
 top: 50%;
 left: 10%;
 font-size:3rem;
-z-index: 9;
+
 cursor: pointer;
 user-select: none;
 transition: 0.6s ease;
@@ -98,7 +97,6 @@ width: 40px;
 top: 50%;
 right:10%;
 font-size: 3rem;
-z-index:10;
 cursor: pointer;
 user-select: none;
 transition: 0.6s ease;
@@ -114,7 +112,6 @@ width: 20px;
 top: 15%;
 right: 10%;
 font-size: 3rem;
-z-index: 10;
 cursor: pointer;
 user-select: none;
 color:#4b5666;
