@@ -78,7 +78,7 @@ class Products extends React.Component {
   }
 
   render() {
-    console.log(this.state.fullScreenClicked);
+
     return (
       <Wrapper>
         <Header>
@@ -90,7 +90,7 @@ class Products extends React.Component {
             styles={this.state.styles}
             getFullScreenClicked={
               this.getFullScreenClicked
-}
+            }
           />
         ) : ''}
         <Image>

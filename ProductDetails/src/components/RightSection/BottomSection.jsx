@@ -6,7 +6,7 @@ import {
 } from '../../elements/RightSection/BottomSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
-const BottomSection = ({ styles, getSelectedStyle, selectedStyleId }) => {
+const BottomSection = ({ styles, getSelectedStyle, selectedStyleId, getSizeQuanitySelected }) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
 

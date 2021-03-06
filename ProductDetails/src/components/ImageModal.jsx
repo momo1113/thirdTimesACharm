@@ -31,10 +31,10 @@ const Image = styled.img`
 
 const Close = styled.button`
 color:#5c5c5f;
-margin-left:90%;
+margin-left:92%;
 width:50px;
 height:50px;
-margin-top:5%;
+margin-top:1%;
 margin-bottom:1%;
 border-radius:50%;
 background-color:#DFDFDF;
@@ -47,26 +47,26 @@ opacity:.4;
 `;
 
 const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
-    const bgMain = styles.map((item, index) => {
-        const { url } = item.photos[0];
-        return index === curMainImageIndex && (
-            <>
-                <Close type="submit" onClick={() => getFullScreenClicked(false)}>
-                    <div>X</div>
-                </Close>
-                <Image src={url} key={index} alt="styles" />
-            </>
-        );
-    });
-
-    return (
-        <Modal>
-            <BigImage>
-                {bgMain}
-            </BigImage>
-
-        </Modal>
+  const bgMain = styles.map((item, index) => {
+    const { url } = item.photos[0];
+    return index === curMainImageIndex && (
+    <>
+      <Close type="submit" onClick={() => getFullScreenClicked(false)}>
+        <div>X</div>
+      </Close>
+      <Image src={url} key={index} alt="styles" />
+    </>
     );
+  });
+
+  return (
+    <Modal>
+      <BigImage>
+        {bgMain}
+      </BigImage>
+
+    </Modal>
+  );
 };
 
 export default ImageModal;
