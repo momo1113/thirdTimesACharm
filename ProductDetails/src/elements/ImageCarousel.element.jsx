@@ -13,15 +13,23 @@ export const Slider = styled.div`
   align-items:center;
   margin-left:10%;
 `;
+
+
 export const ImageWrapper = styled.div`
  width: 90%;
  height: 80%;
  overflow:hidden
 `;
 
+const fade = keyframes`
+from {opacity: 0.5}
+  to {opacity: 1}
+`;
+
 export const Image = styled.img`
  width: 100%;
  min-height: 100%;  
+ animation:${fade} 1.5s;
 `;
 
 export const ImageUnderline = styled.hr`
@@ -35,10 +43,8 @@ width:90%;
 export const ThumbnailWrapper = styled.div`
   position:absolute;
   top:15%;
- 
   left:-7.5%;
 `;
-
 export const Thumbnail = styled.img`
  display: block;
  width:60px;
@@ -49,7 +55,6 @@ export const Thumbnail = styled.img`
  border: 1px solid ${(props) => (props.curImage ? 'black' : ' #DFDFDF')};
  transition:transform .5s;
  z-index:2;
-
  &:hover{
    transform:scale(2);
  }
@@ -82,6 +87,7 @@ font-size:3rem;
 z-index: 10;
 cursor: pointer;
 user-select: none;
+transition: 0.6s ease;
 color:#4b5666;
   &:hover{
   color: white
@@ -97,6 +103,7 @@ font-size: 3rem;
 z-index:10;
 cursor: pointer;
 user-select: none;
+transition: 0.6s ease;
 color:#4b5666;
   &:hover{
   color: white
