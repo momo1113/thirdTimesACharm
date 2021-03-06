@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled, { css, keyframes } from 'styled-components';
-import {  HeartFill } from '@styled-icons/bootstrap';
+import { HeartFill } from '@styled-icons/bootstrap';
 
 export const SelectedStyled = styled.img`
 border-radius: 50%;
@@ -55,6 +55,7 @@ border-radius: 2px;
 border:1px solid ${(props) => (props.clicked && props.sizeValue ? 'red' : '#4b5666')}; 
 padding:15px 12px;
 text-align:start;
+letter-spacing:.06rem;
 appearance: none;
 color:${(props) => props.clicked && props.sizeValue && 'red'};
 &:focus {

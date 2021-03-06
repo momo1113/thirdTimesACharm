@@ -15,18 +15,24 @@ margin-top:5%;
 export const Input = styled.div`
 border:1px solid black;
 margin-top:30%;
-height:20%;
-padding:2px;
+height:30%;
+padding-top:7.5px;
+border: 1px solid #DFDFDF;
+color:#4b5666;
+letter-spacing:.06rem;
+font: 1rem/normal Avenir Book,sans-serif;
+
 `;
 
 export const SearchIcon = styled(Search)`
-justify-self:end;
-color: red;
+color:#167a92;
 height:25px;
+margin:0 5px;
 `;
 export const AddBag = styled(BagFill)`
 height:25px;
 margin-bottom: 4px;
-margin-top:30%;
+margin-top:32.5%;
 margin-left:20px;
+color:#167a92;
 `;
