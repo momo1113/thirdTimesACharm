@@ -23,9 +23,15 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>6/6</span>
+=======
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>0/6</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
             </div>
         
             
@@ -37,16 +43,28 @@
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>3/3</span>
+=======
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>0/3</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>6/6</span>
+=======
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>0/6</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
             </div>
         
             
@@ -55,7 +73,11 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
+<<<<<<< HEAD
+    <div class='status-line high'></div>
+=======
     <div class='status-line low'></div>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -144,10 +166,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+=======
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,12 +223,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+=======
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -224,11 +262,19 @@ import PropTypes from 'prop-types';
 import CharItem from './CharItem.jsx'
 &nbsp;
 class Characteristics extends React.Component {
+<<<<<<< HEAD
+  constructor(props) {
+    super(props);
+    this.state = {};
+&nbsp;
+    this.chars = {
+=======
 <span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
 <span class="cstat-no" title="statement not covered" >    super(props);</span>
 <span class="cstat-no" title="statement not covered" >    this.state = {};</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    this.chars = {</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
       Fit: {
         1: 'Runs tight',
         2: 'Runs slightly tight',
@@ -274,6 +320,15 @@ class Characteristics extends React.Component {
     };
   }
 &nbsp;
+<<<<<<< HEAD
+  render() {
+    const options = this.chars;
+    return (
+      &lt;div&gt;
+        Characteristics
+        {this.props.factors.map((factor, index) =&gt; (
+          &lt;CharItem
+=======
 <span class="fstat-no" title="function not covered" >  re</span>nder() {
     const options = <span class="cstat-no" title="statement not covered" >this.chars;</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
@@ -281,6 +336,7 @@ class Characteristics extends React.Component {
         Characteristics
         {this.props.factors.map(<span class="fstat-no" title="function not covered" >(f</span>actor, index) =&gt; (
 <span class="cstat-no" title="statement not covered" >          &lt;CharItem</span>
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
             options={options[factor[0]]}
             name={factor[0]}
             updateCharacteristics={this.props.updateCharacteristics}
@@ -307,7 +363,11 @@ export default Characteristics;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+<<<<<<< HEAD
+                at Wed Mar 03 2021 20:46:36 GMT-0800 (Pacific Standard Time)
+=======
                 at Wed Mar 03 2021 13:30:09 GMT-0800 (Pacific Standard Time)
+>>>>>>> adb7e62cb08c3d878be4e92d6b271ca176e5e98c
             </div>
         </div>
         <script src="../../prettify.js"></script>
