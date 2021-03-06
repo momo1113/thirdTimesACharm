@@ -24,12 +24,12 @@ const AnswersList = ({ answersQ, search, foundInQ }) => {
     <div>
       {filteredAns.map((answer, index) => (index < moreAns
         && <Answer key={answer.answer_id} answer={answer} />))}
-      <div>
+      <>
         {filteredAns.length - moreAns > 0
           && <button type="button" onClick={() => setMoreAns(moreAns + 2)}>LOAD MORE ANSWERS</button>}
-        <br />
-        <a href="jflda">Add Answer</a>
-      </div>
+        {/* <br /> */}
+        {/* <a href="jflda">Add Answer</a> */}
+      </>
     </div>
   );
 };

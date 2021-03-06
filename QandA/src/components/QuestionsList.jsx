@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import Question from './Question.jsx';
+
+const QuestionsDiv = styled.div`
+  overflow: scroll;
+  height: 95%;
+  `;
+
+const Button = styled.button`
+  width: auto;
+  height: 50px;
+  margin: auto 10px;
+  margin-left: 0;
+  font-size: 1.2rem;
+  padding: 10px;
+  `;
 
 const QuestionsList = ({
   productData, answers, search,
@@ -36,7 +51,7 @@ const QuestionsList = ({
     <>
       {productData
         ? (
-          <div>
+          <QuestionsDiv>
             {filtered.map((question, index) => {
               if (answers[question.question_id]) {
                 answersQ = answers[question.question_id].results;
@@ -54,11 +69,15 @@ const QuestionsList = ({
               );
             })}
             <div>
-              {(filtered.length - moreQ > 0)
-                && <button type="button" onClick={() => setMoreQ(filtered.length)}>MORE ANSWERED QUESTIONS</button>}
-              <button type="button">ADD A QUESTION</button>
+              <div>
+                {(filtered.length - moreQ > 0)
+                && <Button type="button" onClick={() => setMoreQ(filtered.length)}>MORE ANSWERED QUESTIONS</Button>}
+              </div>
+              <div>
+                <Button type="button">ADD A QUESTION +</Button>
+              </div>
             </div>
-          </div>
+          </QuestionsDiv>
         )
         : <div>This product does not exist. </div>}
     </>
