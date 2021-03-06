@@ -78,12 +78,21 @@ class Products extends React.Component {
   }
 
   render() {
+    console.log(this.state.fullScreenClicked);
     return (
       <Wrapper>
         <Header>
           <Nav />
         </Header>
-        {this.state.fullScreenClicked ? (<ImageModal curMainImageIndex={this.state.curMainImageIndex} styles={this.state.styles} />) : ''}
+        {this.state.fullScreenClicked ? (
+          <ImageModal
+            curMainImageIndex={this.state.curMainImageIndex}
+            styles={this.state.styles}
+            getFullScreenClicked={
+              this.getFullScreenClicked
+}
+          />
+        ) : ''}
         <Image>
           {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} getCurMainImageIndex={this.getCurMainImageIndex} getFullScreenClicked={this.getFullScreenClicked} />}
         </Image>
