@@ -84,11 +84,10 @@ class Products extends React.Component {
   }
 
   render() {
-    console.log('current' + this.state.quantitySizeSelected)
     return (
       <Wrapper>
         <Header>
-          <Nav />
+          <Nav quantitySizeSelected={this.state.quantitySizeSelected} />
         </Header>
         {this.state.fullScreenClicked ? (
           <ImageModal

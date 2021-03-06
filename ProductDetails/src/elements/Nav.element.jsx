@@ -1,17 +1,11 @@
 import styled from 'styled-components';
 import { Search } from '@styled-icons/boxicons-regular';
-import { BagFill } from '@styled-icons/bootstrap';
+import { ShoppingBag } from '@styled-icons/boxicons-regular';
 
 export const Logo = styled.h1`
 margin-left:10%;
 margin-top:5%;
 `;
-
-// export const Search = styled.div`
-// justify-self:end;
-// margin-top:30%;
-// `;
-
 export const Input = styled.div`
 border:1px solid black;
 margin-top:30%;
@@ -29,10 +23,25 @@ color:#167a92;
 height:25px;
 margin:0 5px;
 `;
-export const AddBag = styled(BagFill)`
-height:25px;
+export const AddBag = styled(ShoppingBag)`
+height:40px;
 margin-bottom: 4px;
-margin-top:32.5%;
+margin-top:30%;
 margin-left:20px;
 color:#167a92;
+`;
+
+export const QuanityTag = styled.div`
+display: inline-block;
+height:20px;
+width:20px;
+border-radius:50%;
+color:white;
+background-color:#167a92;
+border:1px solid #167a92;
+margin-left:-15px;
+text-align:center;
+vertical-align: middle;
+transition:1s ease;
+font:Avenir medium, sans-serif;
 `;

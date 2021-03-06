@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Logo, Input, SearchIcon, AddBag,
+  Logo, Input, SearchIcon, AddBag, QuanityTag,
 } from '../../elements/Nav.element.jsx';
 
-const Nav = () => (
+const Nav = ({ quantitySizeSelected }) => (
   <>
     <Logo>Logo</Logo>
     <Input>
@@ -12,7 +12,11 @@ const Nav = () => (
     </Input>
     <div>
       <AddBag />
-      <span style={{ display: 'inlineBlock' }}>1</span>
+      {quantitySizeSelected !== 0 && (
+        <QuanityTag>
+          {quantitySizeSelected}
+        </QuanityTag>
+      )}
     </div>
   </>
 

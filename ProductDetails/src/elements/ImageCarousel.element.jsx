@@ -39,6 +39,7 @@ border: 1px solid #DFDFDF;
 width:90%;
   border-radius: 5px;
   top:95%;
+
 `;
 
 export const ThumbnailWrapper = styled.div`
@@ -67,6 +68,7 @@ border: 4px solid #5c5c5f;
 border-radius: 15px;
 width: 57px;
 margin-top: -25%;
+z-index:-1;
 
 `;
 

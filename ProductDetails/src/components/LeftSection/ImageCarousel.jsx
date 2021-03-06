@@ -28,7 +28,7 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     const { url } = item.photos[0];
     return (
       index === current && (
-        <ImageWrapper>
+        <ImageWrapper key={index} >
           <Image key={index} src={url} />
           <ImageUnderline />
         </ImageWrapper>
@@ -40,10 +40,10 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
-      <>
+      <div key={index}>
         <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} curImage={index === current} />
         { index === current && <Underline />}
-      </>
+      </div>
     );
   });
 

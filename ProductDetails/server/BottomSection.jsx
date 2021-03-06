@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import StyleThumbnails from './StyleThumbnails.jsx';
-import QuanityAndSize from './QuanityAndSize.jsx';
+import StyleThumbnails from '../src/components/RightSection/StyleThumbnails.jsx';
+import QuanityAndSize from '../src/components/RightSection/QuanityAndSize.jsx';
 import {
   AddToBag, Bag, StarButton, FavStar, StyleValue, StyleLegend,
-} from '../../elements/RightSection/BottomSection.element.jsx';
+} from '../src/elements/RightSection/BottomSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({
@@ -24,7 +24,8 @@ const BottomSection = ({
     setLikeClicked(!click);
   };
 
-  const getSizeQuantitySelcted = (selected) => {
+  const getSizeQuantitySelected = (selected) => {
+    console.log(selected)
     setSizeQuantitySelcted(selected);
   };
   const styledThumbnails = styles.map(
@@ -47,14 +48,14 @@ const BottomSection = ({
         getSelectedStyle={getSelectedStyle}
         selectedStyleId={selectedStyleId}
         clicked={clicked}
-        getSizeQuantitySelcted={getSizeQuantitySelcted}
+        getSizeQuantitySelected={getSizeQuantitySelected}
       />
     ),
   );
 
   const selectedStyleName = styles.filter((item) => item.style_id === selectedStyleId);
 
-  
+
   const handleBagAdd = () => {
     if (!clicked) {
       setClicked(true);
