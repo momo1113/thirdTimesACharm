@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnswersList from './AnswersList.jsx';
 
-const Question = ({ question, answersQ }) => {
+const Question = ({
+  question, answersQ, findInQ, search,
+}) => {
+  const [foundInQ, setFoundInQ] = useState(findInQ);
   let readableDate = new Date(question.question_date);
   const options = {
     year: 'numeric', month: 'long', day: 'numeric',
   };
   readableDate = readableDate.toLocaleDateString('en-US', options);
-  console.log(readableDate);
+
+  if (search.length >= 3 && question.question_body.toLowerCase().includes(search)) {
+    if (!foundInQ) {
+      setFoundInQ(true);
+    }
+  }
 
   return (
     <div>
@@ -17,7 +25,7 @@ const Question = ({ question, answersQ }) => {
       </div>
       <div>
         <h1>A:</h1>
-        <AnswersList answersQ={answersQ} />
+        <AnswersList answersQ={answersQ} search={search} foundInQ={foundInQ} />
       </div>
       <div>
         <p>{readableDate}</p>

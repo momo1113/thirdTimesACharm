@@ -11,7 +11,7 @@ const SearchQuestions = ({ searchQA }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={search} onChange={(event) => setSearch(event.target.value)} />
-      <button type="button">Search</button>
+      <button type="submit">Search</button>
     </form>
   );
 };
