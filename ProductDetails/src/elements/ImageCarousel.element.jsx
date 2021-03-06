@@ -21,16 +21,14 @@ export const ImageWrapper = styled.div`
  overflow:hidden
 `;
 
-const fade = keyframes`
-from {opacity: 0.5}
-  to {opacity: 1}
-`;
+
 
 export const Image = styled.img`
  width: 100%;
  min-height: 100%;  
- animation:${fade} 1.5s;
 `;
+
+
 
 export const ImageUnderline = styled.hr`
 position: absolute;
@@ -84,7 +82,7 @@ width: 40px;
 top: 50%;
 left: 10%;
 font-size:3rem;
-z-index: 10;
+z-index: 9;
 cursor: pointer;
 user-select: none;
 transition: 0.6s ease;

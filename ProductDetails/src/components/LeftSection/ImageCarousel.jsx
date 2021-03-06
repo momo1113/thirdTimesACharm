@@ -7,10 +7,8 @@ import {
   Slider, FullscreenArrow, DownArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
-const ImageCarousel = ({ styles }) => {
+const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) => {
   const [current, setCurrent] = useState(0);
-
-  const [curThumbnail, setCurThumbnail] = useState(0);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
@@ -26,10 +24,6 @@ const ImageCarousel = ({ styles }) => {
     setCurrent(current === length ? 0 : current + 1);
   };
 
-  const downSlide = () => {
-    setCurThumbnail((previous) => previous + 1);
-  };
-
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
@@ -42,17 +36,6 @@ const ImageCarousel = ({ styles }) => {
     );
   });
 
-  // const imageUrl2 = styles.map((item, index) => {
-  //   const { url } = item.photos[0];
-  //   const { style_id } = item;
-  //   return (
-  //     selectedStyleId && selectedStyleId === style_id && (
-  //       <div style={{ width: '90%', height: '80%', overflow: 'hidden' }}>
-  //         <Image key={index} src={url} alt="Women dress" />
-  //       </div>
-  //     )
-  //   );
-  // });
 
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
@@ -64,16 +47,21 @@ const ImageCarousel = ({ styles }) => {
     );
   });
 
+  const handleOnClick = () => {
+    getCurMainImageIndex(current);
+    getFullScreenClicked(true);
+  };
+
   return (
     <Slider>
-      <FullscreenArrow />
+      <FullscreenArrow onClick={handleOnClick} />
       <LeftArrow onClick={preSlide} />
       <RightArrow onClick={nextSlide} />
       { imageUrl}
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>
         {thumbnailUrl}
-        {styles.length > 7 && <DownArrow onClick={downSlide} />}
+        {styles.length > 7 && <DownArrow />}
       </ThumbnailWrapper>
     </Slider>
 
