@@ -7,9 +7,9 @@ import {
   Slider, FullscreenArrow, DownArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
-const ImageCarousel = ({ styles, selectedStyleId }) => {
+const ImageCarousel = ({ styles }) => {
   const [current, setCurrent] = useState(0);
-  const [isShown, setIsShown] = useState(false);
+
   const [curThumbnail, setCurThumbnail] = useState(0);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
@@ -32,11 +32,10 @@ const ImageCarousel = ({ styles, selectedStyleId }) => {
 
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
-    const { style_id } = item;
     return (
       index === current && (
         <ImageWrapper>
-          <Image key={index} src={url} alt="Women dress" />
+          <Image key={index} src={url} />
           <ImageUnderline />
         </ImageWrapper>
       )
@@ -59,7 +58,7 @@ const ImageCarousel = ({ styles, selectedStyleId }) => {
     const { url } = item.photos[0];
     return (
       <>
-        <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} />
+        <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} curImage={index === current} />
         { index === current && <Underline />}
       </>
     );
@@ -68,12 +67,8 @@ const ImageCarousel = ({ styles, selectedStyleId }) => {
   return (
     <Slider>
       <FullscreenArrow />
-
-
       <LeftArrow onClick={preSlide} />
       <RightArrow onClick={nextSlide} />
-
-
       { imageUrl}
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper>

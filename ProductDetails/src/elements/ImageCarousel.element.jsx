@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import {
   ArrowLeftCircle, ArrowRightCircle, ArrowsAngleExpand,
 } from '@styled-icons/bootstrap';
 import { ArrowIosUpwardOutline, ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline';
-
 
 export const Slider = styled.div`
   position:relative;
@@ -22,7 +21,7 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
  width: 100%;
-  min-height: 100%;
+ min-height: 100%;  
 `;
 
 export const ImageUnderline = styled.hr`
@@ -36,7 +35,7 @@ width:90%;
 export const ThumbnailWrapper = styled.div`
   position:absolute;
   top:15%;
-  z-index:9;
+ 
   left:-7.5%;
 `;
 
@@ -46,65 +45,75 @@ export const Thumbnail = styled.img`
  height:50px;
  margin-bottom:20px;
  cursor:pointer;
+ padding:2px;
+ border: 1px solid ${(props) => (props.curImage ? 'black' : ' #DFDFDF')};
+ transition:transform .5s;
+ z-index:2;
+
+ &:hover{
+   transform:scale(2);
+ }
 `;
 
 export const Underline = styled.hr`
- position:absolute;
- border: 4px solid #5c5c5f;
- border-radius:15px;
- width:50px;
- margin-top:-25%;
+position: absolute;
+border: 4px solid #5c5c5f;
+border-radius: 15px;
+width: 57px;
+margin-top: -25%;
+z-index:-2;
+
 `;
 
 export const DownArrow = styled(ArrowIosDownwardOutline)`
-   width:40px;
-   padding-left:18%;
-   margin-top:-20px;
-   cursor:pointer;
+width: 40px;
+padding-left: 18%;
+margin-top: -20px;
+cursor: pointer;
 
 `;
 
 export const LeftArrow = styled(ArrowLeftCircle)`
-  position:absolute;
-  width:40px;
-  top:50%;
-  left:10%;
-  font-size:3rem;
-  z-index:10;
-  cursor:pointer;
-  user-select: none;
-  color:#4b5666;
+position: absolute;
+width: 40px;
+top: 50%;
+left: 10%;
+font-size:3rem;
+z-index: 10;
+cursor: pointer;
+user-select: none;
+color:#4b5666;
   &:hover{
-    color:white
-  }
+  color: white
+}
 `;
 
 export const RightArrow = styled(ArrowRightCircle)`
-  position:absolute;
-  width:40px;
-  top:50%;
-  right:10%;
-  font-size:3rem;
-  z-index:10;
-  cursor:pointer;
-  user-select: none;
-  color:#4b5666;
+position: absolute;
+width: 40px;
+top: 50%;
+right:10%;
+font-size: 3rem;
+z-index:10;
+cursor: pointer;
+user-select: none;
+color:#4b5666;
   &:hover{
-    color:white
-  }
+  color: white
+}
 `;
 
 export const FullscreenArrow = styled(ArrowsAngleExpand)`
-  position:absolute;
-  width:20px;
-  top:15%;
-  right:10%;
-  font-size:3rem;
-  z-index:10;
-  cursor:pointer;
-  user-select: none;
-  color:white
+position: absolute;
+width: 20px;
+top: 15%;
+right: 10%;
+font-size: 3rem;
+z-index: 10;
+cursor: pointer;
+user-select: none;
+color:#4b5666;
   &:hover{
-    color:white
-  }
+  color: white
+}
 `;
