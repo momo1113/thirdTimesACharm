@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StyleThumbnails from './StyleThumbnails.jsx';
 import QuanityAndSize from './QuanityAndSize.jsx';
 import {
-  AddToBag, Bag, StarButton, AddPlus, FavStar, StyleValue, StyleLegend,
+  AddToBag, Bag, StarButton, FavStar, StyleValue, StyleLegend,
 } from '../../elements/RightSection/BottomSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
-const BottomSection = ({ styles, getSelectedStyle, selectedStyleId, getSizeQuanitySelected }) => {
+const BottomSection = ({
+  styles, getSelectedStyle, selectedStyleId, getQuantitySizeSelected,
+}) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
+  const [sizeQuantitySelcted, setSizeQuantitySelcted] = useState(false);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
@@ -19,7 +22,11 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId, getSizeQuani
 
   const getLikeClicked = (click) => {
     setLikeClicked(!click);
-  }
+  };
+
+  const getSizeQuantitySelcted = (selected) => {
+    setSizeQuantitySelcted(selected);
+  };
   const styledThumbnails = styles.map(
     (item, index) => (
       <StyleThumbnails
@@ -40,11 +47,25 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId, getSizeQuani
         getSelectedStyle={getSelectedStyle}
         selectedStyleId={selectedStyleId}
         clicked={clicked}
+        getSizeQuantitySelcted={getSizeQuantitySelcted}
       />
     ),
   );
 
   const selectedStyleName = styles.filter((item) => item.style_id === selectedStyleId);
+
+  
+  const handleBagAdd = () => {
+    if (!clicked) {
+      setClicked(true);
+    }
+  };
+
+  if (clicked && sizeQuantitySelcted) {
+    getQuantitySizeSelected(1);
+    setClicked(false);
+  }
+
   return (
     <>
       <StyleLegend>
@@ -63,7 +84,7 @@ const BottomSection = ({ styles, getSelectedStyle, selectedStyleId, getSizeQuani
       <div>
         {styledQuanityAndSize}
         <AddToBag>
-          <Bag onClick={() => setClicked(true)}>
+          <Bag onClick={handleBagAdd}>
             ADD TO BAG
           </Bag>
           <StarButton onClick={() => setLikeClicked(!likeClicked)}>

@@ -4,10 +4,10 @@
 import React, { useState, useEffect } from 'react';
 import Quantity from './Quantity.jsx';
 import Size from './Size.jsx';
-import { QuantitySize, SizeSelect, QuanitySelect, } from '../../elements/RightSection/BottomSection.element.jsx';
+import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const StyledQuanityAndSize = ({
-  style, selectedStyleId, clicked,
+  style, selectedStyleId, clicked, getSizeQuantitySelcted,
 }) => {
   const [sizeValue, setSizeValue] = useState(0);
   const [quantityValue, setQuantityValue] = useState(0);
@@ -72,15 +72,19 @@ const StyledQuanityAndSize = ({
       ),
     );
   }
-
+  const handleQuantityChange = (e) => {
+    setSizeValue(e.target.value);
+    setQuantityValue(e.target.value);
+    getSizeQuantitySelcted(true);
+  };
   return (
     <>
       {
         style.style_id === selectedStyleId && (
           <QuantitySize>
             <SizeSelect
-              name="size"
-              onChange={(e) => setSizeValue(e.target.value)}
+              id="size"
+              onChange={handleQuantityChange}
               value={sizeValue}
               clicked={clicked}
               sizeValue={sizeValue === 0}
@@ -91,7 +95,7 @@ const StyledQuanityAndSize = ({
               }
               {size}
             </SizeSelect>
-            <QuanitySelect name="quantity" disabled={sizeValue === 0}>
+            <QuanitySelect id="quantity" disabled={sizeValue === 0} onChange={handleQuantityChange}>
               {
                 sizeValue === 0 && quantityValue === 0 && <option value="0">  - </option>
               }

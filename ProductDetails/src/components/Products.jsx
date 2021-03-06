@@ -26,11 +26,13 @@ class Products extends React.Component {
       selectedStyleId: 0,
       curMainImageIndex: 0,
       fullScreenClicked: false,
+      quantitySizeSelected: 0,
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
     this.getCurMainImageIndex = this.getCurMainImageIndex.bind(this);
     this.getFullScreenClicked = this.getFullScreenClicked.bind(this);
+    this.getQuantitySizeSelected = this.getQuantitySizeSelected.bind(this);
   }
 
   componentDidMount() {
@@ -77,8 +79,12 @@ class Products extends React.Component {
     this.setState({ fullScreenClicked: clicked });
   }
 
-  render() {
+  getQuantitySizeSelected(choosed) {
+    this.setState({ quantitySizeSelected: this.state.quantitySizeSelected + choosed });
+  }
 
+  render() {
+    console.log('current' + this.state.quantitySizeSelected)
     return (
       <Wrapper>
         <Header>
@@ -97,7 +103,7 @@ class Products extends React.Component {
           {this.state.id !== 0 && <ImageGallery getStyles={this.getStyles} id={this.state.id} getSelectedStyle={this.getSelectedStyle} getCurMainImageIndex={this.getCurMainImageIndex} getFullScreenClicked={this.getFullScreenClicked} />}
         </Image>
         <Detail>
-          {this.state.id !== 0 && <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} id={this.state.id} />}
+          {this.state.id !== 0 && <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} id={this.state.id} getQuantitySizeSelected={this.getQuantitySizeSelected} />}
         </Detail>
         <Info>
           <ProductInfo product={this.state.product} />

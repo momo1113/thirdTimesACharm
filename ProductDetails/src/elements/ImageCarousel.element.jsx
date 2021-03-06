@@ -14,18 +14,21 @@ export const Slider = styled.div`
   margin-left:10%;
 `;
 
-
 export const ImageWrapper = styled.div`
+
  width: 90%;
  height: 80%;
- overflow:hidden
+ overflow:hidden;
 `;
 
 
 
 export const Image = styled.img`
+
  width: 100%;
  min-height: 100%;  
+
+
 `;
 
 
