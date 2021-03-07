@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 import {
   ArrowLeftCircle, ArrowRightCircle, ArrowsAngleExpand,
 } from '@styled-icons/bootstrap';
@@ -24,11 +24,8 @@ export const ImageWrapper = styled.div`
 
 
 export const Image = styled.img`
-
  width: 100%;
  min-height: 100%;  
-
-
 `;
 
 
@@ -36,9 +33,9 @@ export const Image = styled.img`
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;
-width:90%;
-  border-radius: 5px;
-  top:${(props) => (props.top ? '3%' : '95%')}
+width:${(props) => (props.top ? '80%' : '90%')};
+border-radius: 5px;
+top:${(props) => (props.top ? '8%' : '95%')}
 
 `;
 

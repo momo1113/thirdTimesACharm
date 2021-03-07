@@ -4,6 +4,7 @@
 import React from 'react';
 import axios from 'axios';
 import Nav from './HeaderSection/Nav.jsx';
+import IconList from './HeaderSection/IconList.jsx';
 import ImageGallery from './LeftSection/ImageGallery.jsx';
 import ImageModal from './ImageModal.jsx';
 
@@ -12,7 +13,7 @@ import ProductDetails from './RightSection/ProductDetails.jsx';
 import ProductInfo from './BottomSection/ProductInfo.jsx';
 
 import {
-  Wrapper, Header, Image, Detail, Info,
+  Wrapper, Icon, Header, Image, Detail, Info,
 } from '../elements/Products.element.jsx';
 import { ImageUnderline } from '../elements/ImageCarousel.element.jsx';
 
@@ -88,8 +89,11 @@ class Products extends React.Component {
   render() {
     return (
       <Wrapper>
-        <ImageUnderline top={this.state.main} />
+        <Icon>
+          <IconList />
+        </Icon>
         <Header>
+          <ImageUnderline top={this.state.main} />
           <Nav quantitySizeSelected={this.state.quantitySizeSelected} />
         </Header>
         {this.state.fullScreenClicked ? (
