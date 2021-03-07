@@ -12,7 +12,7 @@ const BottomSection = ({
 }) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
-  const [sizeQuantitySelcted, setSizeQuantitySelcted] = useState(false);
+  const [sizeQuantitySelected, setSizeQuantitySelcted] = useState(false);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
@@ -36,7 +36,7 @@ const BottomSection = ({
         getSelectedStyle={getSelectedStyle}
         getClicked={getClicked}
         selectedStyleId={selectedStyleId}
-       
+
       />
     ),
   );
@@ -59,17 +59,19 @@ const BottomSection = ({
 
 
   const handleBagAdd = () => {
- 
+    if (!clicked) {
       setClicked(true);
-    
+    }
   };
-
-  if (clicked && sizeQuantitySelcted) {
+  if (clicked && sizeQuantitySelected) {
     getQuantitySizeSelected(1);
     setClicked(false);
+
   }
 
-  console.log(clicked)
+  let index = 0;
+  console.log(`${index++} add bag button clicked ` + clicked)
+  console.log(`${index++} quantity size selected ` + sizeQuantitySelected)
   return (
     <>
       <StyleLegend>
