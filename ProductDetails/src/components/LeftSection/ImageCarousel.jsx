@@ -24,11 +24,20 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     setCurrent(current === length ? 0 : current + 1);
   };
 
+  const handleOnClick = () => {
+    getCurMainImageIndex(current);
+    getFullScreenClicked(true);
+  };
+
+
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
       index === current && (
         <ImageWrapper key={index} >
+          <FullscreenArrow onClick={handleOnClick} />
+          <LeftArrow onClick={preSlide} />
+          <RightArrow onClick={nextSlide} />
           <Image key={index} src={url} />
           <ImageUnderline />
         </ImageWrapper>
@@ -47,18 +56,13 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     );
   });
 
-  const handleOnClick = () => {
-    getCurMainImageIndex(current);
-    getFullScreenClicked(true);
-  };
 
   return (
     <Slider>
-      <FullscreenArrow onClick={handleOnClick} />
-      <LeftArrow onClick={preSlide} />
-      <RightArrow onClick={nextSlide} />
+
       {imageUrl}
       {/* {thumbnailUrl} */}
+
       <ThumbnailWrapper>
         {thumbnailUrl}
         {styles.length > 7 && <DownArrow />}

@@ -12,12 +12,13 @@ color:#f23645;
 export const Input = styled.div`
 border:1px solid black;
 margin-top:25%;
-height:30%;
-padding-top:7.5px;
+height:20%;
+padding:5px;
 border: 1px solid #DFDFDF;
 color:#4b5666;
 letter-spacing:.06rem;
 font: 1rem/normal Avenir Book,sans-serif;
+text-align: left;
 
 `;
 
@@ -29,7 +30,7 @@ margin:0 5px;
 export const AddBag = styled(ShoppingBag)`
 height:40px;
 margin-bottom: 4px;
-margin-top:24%;
+margin-top:22%;
 margin-left:20px;
 color:#167a92;
 `;

@@ -12,28 +12,25 @@ export const Slider = styled.div`
   justify-content:center;
   align-items:center;
   margin-left:10%;
+  
 `;
 
 export const ImageWrapper = styled.div`
-
  width: 90%;
  height: 80%;
  overflow:hidden;
+ flex:4;
 `;
-
-
 
 export const Image = styled.img`
  width: 100%;
  min-height: 100%;  
 `;
 
-
-
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;
-width:${(props) => (props.top ? '80%' : '90%')};
+width:${(props) => (props.top ? '80%' : '100%')};
 border-radius: 5px;
 top:${(props) => (props.top ? '8%' : '95%')}
 
@@ -42,8 +39,9 @@ top:${(props) => (props.top ? '8%' : '95%')}
 export const ThumbnailWrapper = styled.div`
   position:absolute;
   top:15%;
-  left:-7.5%;
+  left:-10%;
   margin-right:10px;
+  flex:1;
 `;
 export const Thumbnail = styled.img`
  display: block;

@@ -38,7 +38,7 @@ justify-self: center;
 export const Detail = styled.div`
 grid-area:detail;
 align-self: center;
-justify-self: start;
+justify-self: center;
 `;
 
 export const Info = styled.div`
