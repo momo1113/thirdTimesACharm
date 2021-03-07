@@ -72,15 +72,11 @@ const StyledQuanityAndSize = ({
       ),
     );
   }
-  const index = 0;
+ 
   const onHandleChange = (e) => {
-    console.log(e.target.value);
     setSizeValue(e.target.value);
-
     getSizeQuantitySelected(Number(e.target.value) !== 0);
-
-    getClicked(e.target.value !== 0);
-    getLikeClicked(true);
+    getClicked(false);
   };
 
   return (
@@ -103,7 +99,7 @@ const StyledQuanityAndSize = ({
             </SizeSelect>
             <QuanitySelect name="quantity" disabled={sizeValue === '0'}>
               {
-                ( sizeValue === '0') && <option value="0">  - </option>
+                (sizeValue === '0') && <option value="0">  - </option>
               }
               {quantity}
             </QuanitySelect>

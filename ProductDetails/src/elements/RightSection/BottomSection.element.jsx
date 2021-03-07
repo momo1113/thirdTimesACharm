@@ -121,7 +121,7 @@ border: 1px solid #DFDFDF;
 outline: none;
 cursor: pointer;
 &:active{  
-  border: 1px solid red;
+  border: 1px solid ${({ sizeQuantitySelected }) => sizeQuantitySelected && 'red'};
   transform: translateY(4px);
 }
 &:focus::after{
@@ -133,8 +133,8 @@ cursor: pointer;
 
 export const FavStar = styled(HeartFill)`
 height: 16px;
-color: ${(props) => (props.likeClicked && 'red')};
-${(props) => props.likeClicked && css`
+color: ${(props) => (props.likeClicked && props.sizeQuantitySelected && 'red')};
+${(props) => props.likeClicked && props.sizeQuantitySelected && css`
 transform:scale(1.5)
 `}
 `;

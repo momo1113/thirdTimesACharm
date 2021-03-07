@@ -18,7 +18,7 @@ const BottomSection = ({
     return null;
   }
   const getClicked = (click) => {
-    setClicked(!click);
+    setClicked(click);
   };
 
   const getLikeClicked = (click) => {
@@ -93,9 +93,12 @@ const BottomSection = ({
           <Bag onClick={handleBagAdd}>
             ADD TO BAG
           </Bag>
-          <StarButton onClick={() => setLikeClicked(!likeClicked)}>
+          <StarButton onClick={() => setLikeClicked(!likeClicked)} sizeQuantitySelected={sizeQuantitySelected}>
             <FavStar likeClicked={likeClicked} />
           </StarButton>
+          {
+            !sizeQuantitySelected && likeClicked && <span>Please select your Size to add this item to your wish list.</span>
+          }
         </AddToBag>
       </div>
     </ >
