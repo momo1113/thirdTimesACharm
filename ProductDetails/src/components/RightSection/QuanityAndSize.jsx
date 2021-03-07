@@ -9,7 +9,7 @@ import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSec
 const StyledQuanityAndSize = ({
   style, selectedStyleId, clicked, getSizeQuantitySelected, getLikeClicked, getClicked,
 }) => {
-  const [sizeValue, setSizeValue] = useState(0);
+  const [sizeValue, setSizeValue] = useState('0');
   const [quantityValue, setQuantityValue] = useState(0);
 
   const { skus } = style;
@@ -72,18 +72,16 @@ const StyledQuanityAndSize = ({
       ),
     );
   }
-  let index = 0;
+  const index = 0;
   const onHandleChange = (e) => {
-   
-    getSizeQuantitySelected(Number(e.target.value) !== 0);
-    setSizeValue(e.target.value)
-    console.log(`${index++} current target value  ` + e.target.value);
-    console.log(Number(e.target.value) === 0)
-    getClicked( e.target.value !== 0);
-    getLikeClicked(true);
-    console.log(typeof e.target.value);
-  }
+    console.log(e.target.value);
+    setSizeValue(e.target.value);
 
+    getSizeQuantitySelected(Number(e.target.value) !== 0);
+
+    getClicked(e.target.value !== 0);
+    getLikeClicked(true);
+  };
 
   return (
     <>
@@ -95,17 +93,17 @@ const StyledQuanityAndSize = ({
               onChange={onHandleChange}
               value={sizeValue}
               clicked={clicked}
-              sizeValue={sizeValue === 0}
+              sizeValue={sizeValue === '0'}
               required
             >
               {
-                clicked && sizeValue === 0 ? <option value="0"> PLEASE SELECT SIZE </option> : <option value="0">  SELECT SIZE</option>
+                clicked && sizeValue === '0' ? <option value="0"> PLEASE SELECT SIZE </option> : <option value="0">  SELECT SIZE</option>
               }
               {size}
             </SizeSelect>
-            <QuanitySelect name="quantity" disabled={sizeValue === 0}>
+            <QuanitySelect name="quantity" disabled={sizeValue === '0'}>
               {
-                sizeValue === 0 && quantityValue === 0 && <option value="0">  - </option>
+                ( sizeValue === '0') && <option value="0">  - </option>
               }
               {quantity}
             </QuanitySelect>
