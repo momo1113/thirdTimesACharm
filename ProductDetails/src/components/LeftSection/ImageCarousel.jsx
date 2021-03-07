@@ -9,6 +9,7 @@ import {
 
 const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) => {
   const [current, setCurrent] = useState(0);
+  const [isLastImage, setIsLastImage] = useState(false);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
@@ -24,17 +25,23 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     setCurrent(current === length ? 0 : current + 1);
   };
 
+  const downSlide = () => {
+    setCurrent(current === length ? length : current + 1);
+    if (current === length) {
+      setIsLastImage(true);
+    }
+  };
+  console.log(isLastImage);
   const handleOnClick = () => {
     getCurMainImageIndex(current);
     getFullScreenClicked(true);
   };
 
-
   const imageUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
       index === current && (
-        <ImageWrapper key={index} >
+        <ImageWrapper key={index}>
           <FullscreenArrow onClick={handleOnClick} />
           <LeftArrow onClick={preSlide} />
           <RightArrow onClick={nextSlide} />
@@ -45,27 +52,24 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     );
   });
 
-
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
       <div key={index}>
         <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} />
-        { index === current && <Underline />}
+        { index === current && !isLastImage
+          && <Underline />}
       </div>
     );
   });
 
-
   return (
     <Slider>
-
       {imageUrl}
       {/* {thumbnailUrl} */}
-
       <ThumbnailWrapper>
         {thumbnailUrl}
-        {styles.length > 7 && <DownArrow />}
+        {styles.length > 7 && <DownArrow onClick={downSlide} disabled={isLastImage} />}
       </ThumbnailWrapper>
     </Slider>
 

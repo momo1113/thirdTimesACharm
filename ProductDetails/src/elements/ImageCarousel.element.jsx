@@ -42,6 +42,10 @@ export const ThumbnailWrapper = styled.div`
   left:-10%;
   margin-right:10px;
   flex:1;
+
+
+
+
 `;
 export const Thumbnail = styled.img`
  display: block;
@@ -62,8 +66,8 @@ position: absolute;
 border: 4px solid #5c5c5f;
 border-radius: 15px;
 width: 57px;
-margin-top: -27%;
-z-index:-1;
+margin-top: -20%;
+z-index:1;
 
 `;
 
