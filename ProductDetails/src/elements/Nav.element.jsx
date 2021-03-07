@@ -3,7 +3,6 @@ import { Search } from '@styled-icons/boxicons-regular';
 import { ShoppingBag } from '@styled-icons/boxicons-regular';
 
 export const Logo = styled.h1`
-margin-left:10%;
 margin-top:5%;
 `;
 export const Input = styled.div`

@@ -5,7 +5,7 @@ import {
 
 const Nav = ({ quantitySizeSelected }) => (
   <>
-    <Logo>Logo</Logo>
+    <Logo>humanitarian-hornbills</Logo>
     <Input>
       <SearchIcon />
       Search

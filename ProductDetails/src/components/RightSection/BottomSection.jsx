@@ -33,7 +33,7 @@ const BottomSection = ({
   const getErrorMessageShowed = (messageShowed) => {
     setErrorMesShowed(messageShowed);
   };
-  
+
   const styledThumbnails = styles.map(
     (item, index) => (
       <StyleThumbnails
