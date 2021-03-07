@@ -6,10 +6,12 @@ export const Logo = styled.h1`
 margin-top:5%;
 letter-spacing:0.0rem;
 font:2.5rem/1 Avenir Book,sans-serif;
+font-weight:bold;
+color:#f23645;
 `;
 export const Input = styled.div`
 border:1px solid black;
-margin-top:30%;
+margin-top:25%;
 height:30%;
 padding-top:7.5px;
 border: 1px solid #DFDFDF;
@@ -27,7 +29,7 @@ margin:0 5px;
 export const AddBag = styled(ShoppingBag)`
 height:40px;
 margin-bottom: 4px;
-margin-top:30%;
+margin-top:24%;
 margin-left:20px;
 color:#167a92;
 `;

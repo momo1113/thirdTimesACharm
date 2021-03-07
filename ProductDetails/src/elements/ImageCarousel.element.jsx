@@ -38,7 +38,7 @@ position: absolute;
 border: 1px solid #DFDFDF;
 width:90%;
   border-radius: 5px;
-  top:95%;
+  top:${(props) => (props.top ? '3%' : '95%')}
 
 `;
 

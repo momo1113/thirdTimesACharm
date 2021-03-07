@@ -14,6 +14,7 @@ import ProductInfo from './BottomSection/ProductInfo.jsx';
 import {
   Wrapper, Header, Image, Detail, Info,
 } from '../elements/Products.element.jsx';
+import { ImageUnderline } from '../elements/ImageCarousel.element.jsx';
 
 class Products extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class Products extends React.Component {
       curMainImageIndex: 0,
       fullScreenClicked: false,
       quantitySizeSelected: 0,
+      main: true,
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
@@ -86,6 +88,7 @@ class Products extends React.Component {
   render() {
     return (
       <Wrapper>
+        <ImageUnderline top={this.state.main} />
         <Header>
           <Nav quantitySizeSelected={this.state.quantitySizeSelected} />
         </Header>
