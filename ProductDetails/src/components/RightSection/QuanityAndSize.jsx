@@ -7,7 +7,7 @@ import Size from './Size.jsx';
 import { QuantitySize, SizeSelect, QuanitySelect } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const StyledQuanityAndSize = ({
-  style, selectedStyleId, clicked, getSizeQuantitySelected,
+  style, selectedStyleId, clicked, getSizeQuantitySelected, getLikeClicked,getClicked,
 }) => {
   const [sizeValue, setSizeValue] = useState(0);
   const [quantityValue, setQuantityValue] = useState(0);
@@ -73,6 +73,11 @@ const StyledQuanityAndSize = ({
     );
   }
 
+  const onHandleChange = (e) => {
+    setSizeValue(e.target.value)
+    getLikeClicked(true);
+    getClicked(true)
+  }
 
   if (sizeValue !== 0) {
     getSizeQuantitySelected(true);
@@ -84,7 +89,7 @@ const StyledQuanityAndSize = ({
           <QuantitySize>
             <SizeSelect
               name="size"
-              onChange={(e) => setSizeValue(e.target.value)}
+              onChange={onHandleChange}
               value={sizeValue}
               clicked={clicked}
               sizeValue={sizeValue === 0}

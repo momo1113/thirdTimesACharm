@@ -84,6 +84,7 @@ class Products extends React.Component {
   }
 
   render() {
+    console.log(this.state.quantitySizeSelected)
     return (
       <Wrapper>
         <Header>

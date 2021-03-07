@@ -12,7 +12,6 @@ const Style = ({
   const onHandleClick = () => {
     getSelectedStyle(style.style_id);
     getClicked(true);
-    getLikeClicked(true);
   };
 
   return (

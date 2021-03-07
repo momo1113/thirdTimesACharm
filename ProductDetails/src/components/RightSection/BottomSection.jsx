@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import StyleThumbnails from '../src/components/RightSection/StyleThumbnails.jsx';
-import QuanityAndSize from '../src/components/RightSection/QuanityAndSize.jsx';
+import React, { useState } from 'react';
+import StyleThumbnails from './StyleThumbnails.jsx';
+import QuanityAndSize from './QuanityAndSize.jsx';
 import {
   AddToBag, Bag, StarButton, FavStar, StyleValue, StyleLegend,
-} from '../src/elements/RightSection/BottomSection.element.jsx';
+} from '../../elements/RightSection/BottomSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({
@@ -26,7 +26,6 @@ const BottomSection = ({
   };
 
   const getSizeQuantitySelected = (selected) => {
-    console.log(selected)
     setSizeQuantitySelcted(selected);
   };
   const styledThumbnails = styles.map(
@@ -37,7 +36,7 @@ const BottomSection = ({
         getSelectedStyle={getSelectedStyle}
         getClicked={getClicked}
         selectedStyleId={selectedStyleId}
-        getLikeClicked={getLikeClicked}
+       
       />
     ),
   );
@@ -50,6 +49,8 @@ const BottomSection = ({
         selectedStyleId={selectedStyleId}
         clicked={clicked}
         getSizeQuantitySelected={getSizeQuantitySelected}
+        getLikeClicked={getLikeClicked}
+        getClicked={getClicked}
       />
     ),
   );
@@ -58,9 +59,9 @@ const BottomSection = ({
 
 
   const handleBagAdd = () => {
-    if (!clicked) {
+ 
       setClicked(true);
-    }
+    
   };
 
   if (clicked && sizeQuantitySelcted) {
@@ -68,6 +69,7 @@ const BottomSection = ({
     setClicked(false);
   }
 
+  console.log(clicked)
   return (
     <>
       <StyleLegend>

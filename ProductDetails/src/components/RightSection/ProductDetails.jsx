@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/newline-after-import
 import React from 'react';
 // eslint-disable-next-line import/extensions
-import BottomSection from '../../../server/BottomSection.jsx';
+import BottomSection from './BottomSection.jsx';
 // eslint-disable-next-line import/extensions
 import TopSection from './TopSection.jsx';
 
