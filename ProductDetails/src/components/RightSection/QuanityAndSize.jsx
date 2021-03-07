@@ -77,6 +77,7 @@ const StyledQuanityAndSize = ({
     setSizeValue(e.target.value);
     getSizeQuantitySelected(Number(e.target.value) !== 0);
     getClicked(false);
+    getLikeClicked(false);
   };
 
   return (

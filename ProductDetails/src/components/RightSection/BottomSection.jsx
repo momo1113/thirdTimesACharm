@@ -22,7 +22,7 @@ const BottomSection = ({
   };
 
   const getLikeClicked = (click) => {
-    setLikeClicked(!click);
+    setLikeClicked(click);
   };
 
   const getSizeQuantitySelected = (selected) => {
@@ -57,7 +57,6 @@ const BottomSection = ({
 
   const selectedStyleName = styles.filter((item) => item.style_id === selectedStyleId);
 
-
   const handleBagAdd = () => {
     if (!clicked) {
       setClicked(true);
@@ -66,12 +65,8 @@ const BottomSection = ({
   if (clicked && sizeQuantitySelected) {
     getQuantitySizeSelected(1);
     setClicked(false);
-
   }
 
-  let index = 0;
-  console.log(`${index++} add bag button clicked ` + clicked)
-  console.log(`${index++} quantity size selected ` + sizeQuantitySelected)
   return (
     <>
       <StyleLegend>
@@ -93,8 +88,11 @@ const BottomSection = ({
           <Bag onClick={handleBagAdd}>
             ADD TO BAG
           </Bag>
-          <StarButton onClick={() => setLikeClicked(!likeClicked)} sizeQuantitySelected={sizeQuantitySelected}>
-            <FavStar likeClicked={likeClicked} />
+          <StarButton
+            onClick={() => setLikeClicked(!likeClicked)}
+            sizeQuantitySelected={sizeQuantitySelected}
+          >
+            <FavStar likeClicked={likeClicked} sizeQuantitySelected={sizeQuantitySelected} />
           </StarButton>
           {
             !sizeQuantitySelected && likeClicked && <span>Please select your Size to add this item to your wish list.</span>
