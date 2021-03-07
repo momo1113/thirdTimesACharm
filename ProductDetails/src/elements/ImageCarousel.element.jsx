@@ -56,9 +56,9 @@ export const Thumbnail = styled.img`
  cursor:pointer;
  padding:2px;
  border: 1px solid ${(props) => (props.curImage ? 'black' : ' #DFDFDF')};
- transition:transform .5s;
+ transition:transform .5s ease;
  &:hover{
-   transform:scale(2);
+  transform: scale(1.5);
  }
 `;
 
@@ -67,7 +67,7 @@ position: absolute;
 border: 4px solid #5c5c5f;
 border-radius: 15px;
 width: 57px;
-margin-top: -25%;
+margin-top: -27%;
 z-index:-1;
 
 `;

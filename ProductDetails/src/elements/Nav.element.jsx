@@ -4,6 +4,8 @@ import { ShoppingBag } from '@styled-icons/boxicons-regular';
 
 export const Logo = styled.h1`
 margin-top:5%;
+letter-spacing:0.0rem;
+font:2.5rem/1 Avenir Book,sans-serif;
 `;
 export const Input = styled.div`
 border:1px solid black;

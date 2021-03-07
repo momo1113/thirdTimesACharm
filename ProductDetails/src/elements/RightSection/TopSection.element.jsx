@@ -16,6 +16,7 @@ text-transform: uppercase;
 margin-top:10px;
 margin-bottom:0px;
 font:1.3rem/normal Avenir Medium,sans-seri;
+color:#DFDFDF;
 `;
 
 export const Name = styled.h1`
