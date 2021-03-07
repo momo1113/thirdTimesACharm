@@ -138,3 +138,14 @@ ${(props) => props.likeClicked && props.sizeQuantitySelected && css`
 transform:scale(1.5)
 `}
 `;
+
+export const ErrorMessage = styled.span`
+color:#c33d3d;
+border: 1px solid #c33d3d;
+margin-top:10px;
+padding:6px;
+text-align:center;
+letter-spacing:0.0.3rem;
+font:1rem/2.0 Avenir Book,sans-serif;
+`;
+

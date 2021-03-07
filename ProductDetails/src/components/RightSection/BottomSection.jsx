@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import StyleThumbnails from './StyleThumbnails.jsx';
 import QuanityAndSize from './QuanityAndSize.jsx';
 import {
-  AddToBag, Bag, StarButton, FavStar, StyleValue, StyleLegend,
+  AddToBag, Bag, StarButton, FavStar, StyleValue, StyleLegend, ErrorMessage,
 } from '../../elements/RightSection/BottomSection.element.jsx';
 
 // eslint-disable-next-line react/prop-types
@@ -13,6 +13,7 @@ const BottomSection = ({
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
   const [sizeQuantitySelected, setSizeQuantitySelcted] = useState(false);
+  const [errorMesShowed, setErrorMesShowed] = useState(false);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
@@ -66,6 +67,12 @@ const BottomSection = ({
     getQuantitySizeSelected(1);
     setClicked(false);
   }
+  const handleClickLike = () =>{
+    setLikeClicked(!likeClicked)
+    if (likeClicked && !sizeQuantitySelected) {
+      setErrorMesShowed(true);
+    }
+  }
 
   return (
     <>
@@ -89,13 +96,21 @@ const BottomSection = ({
             ADD TO BAG
           </Bag>
           <StarButton
-            onClick={() => setLikeClicked(!likeClicked)}
+            onClick={handleClickLike}
             sizeQuantitySelected={sizeQuantitySelected}
           >
-            <FavStar likeClicked={likeClicked} sizeQuantitySelected={sizeQuantitySelected} />
+            <FavStar
+              likeClicked={likeClicked}
+              sizeQuantitySelected={sizeQuantitySelected}
+            />
           </StarButton>
           {
-            !sizeQuantitySelected && likeClicked && <span>Please select your Size to add this item to your wish list.</span>
+            !sizeQuantitySelected && likeClicked
+            && (
+              <ErrorMessage>
+                Please select your Size to add this item to your wish list.
+              </ErrorMessage>
+            )
           }
         </AddToBag>
       </div>
