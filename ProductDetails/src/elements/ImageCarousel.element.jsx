@@ -38,8 +38,8 @@ top:${(props) => (props.top ? '8%' : '95%')}
 
 export const ThumbnailWrapper = styled.div`
   position:absolute;
-  top:15%;
-  left:-10%;
+  top: ${(props) => (props.hasArrow ? '9%' : '15%')};
+  left:-12%;
   margin-right:10px;
   flex:1;
 
@@ -75,6 +75,14 @@ export const DownArrow = styled(ArrowIosDownwardOutline)`
 width: 40px;
 padding-left: 18%;
 margin-top: -20px;
+cursor: pointer;
+/* color:${(props) => (props.disabled ? '#DFDFDF' : '#5c5c5f')}; */
+`;
+
+export const UpArrow = styled(ArrowIosUpwardOutline)`
+width: 40px;
+padding-left: 18%;
+/* color:${(props) => (props.disabled ? '#5c5c5f' : '#DFDFDF')}; */
 cursor: pointer;
 
 `;

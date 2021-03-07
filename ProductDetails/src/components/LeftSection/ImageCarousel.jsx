@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import {
   Underline,
   LeftArrow, RightArrow, Image, Thumbnail, ThumbnailWrapper,
-  Slider, FullscreenArrow, DownArrow, ImageWrapper, ImageUnderline,
+  Slider, FullscreenArrow, DownArrow, UpArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
 const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) => {
   const [current, setCurrent] = useState(0);
   const [isLastImage, setIsLastImage] = useState(false);
+  const [isFirstImage, setIsFirstImage] = useState(true);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
@@ -31,7 +32,13 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
       setIsLastImage(true);
     }
   };
-  console.log(isLastImage);
+
+  const upSlide = () => {
+    setCurrent(current === 0 ? 0 : current - 1);
+    if (current === 0) {
+      setIsFirstImage(true);
+    }
+  };
   const handleOnClick = () => {
     getCurMainImageIndex(current);
     getFullScreenClicked(true);
@@ -67,9 +74,12 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     <Slider>
       {imageUrl}
       {/* {thumbnailUrl} */}
-      <ThumbnailWrapper>
+      <ThumbnailWrapper hasArrow={styles.length > 7}>
+        {styles.length > 7 && isLastImage
+        && <UpArrow onClick={upSlide} disabled={isFirstImage} />}
         {thumbnailUrl}
-        {styles.length > 7 && <DownArrow onClick={downSlide} disabled={isLastImage} />}
+        {styles.length > 7 && isFirstImage
+        && <DownArrow onClick={downSlide} disabled={isLastImage} />}
       </ThumbnailWrapper>
     </Slider>
 
