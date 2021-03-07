@@ -29,6 +29,11 @@ const BottomSection = ({
   const getSizeQuantitySelected = (selected) => {
     setSizeQuantitySelcted(selected);
   };
+
+  const getErrorMessageShowed = (messageShowed) => {
+    setErrorMesShowed(messageShowed);
+  };
+  
   const styledThumbnails = styles.map(
     (item, index) => (
       <StyleThumbnails
@@ -52,6 +57,7 @@ const BottomSection = ({
         getSizeQuantitySelected={getSizeQuantitySelected}
         getLikeClicked={getLikeClicked}
         getClicked={getClicked}
+        getErrorMessageShowed={getErrorMessageShowed}
       />
     ),
   );
@@ -67,12 +73,16 @@ const BottomSection = ({
     getQuantitySizeSelected(1);
     setClicked(false);
   }
-  const handleClickLike = () =>{
-    setLikeClicked(!likeClicked)
-    if (likeClicked && !sizeQuantitySelected) {
+  const handleClickLike = () => {
+    setLikeClicked(!likeClicked);
+    console.log('0' + likeClicked)
+    if (!sizeQuantitySelected) {
       setErrorMesShowed(true);
     }
+    console.log('1' + likeClicked)
   }
+  let index = 0;
+  console.log(`${index++} ` + errorMesShowed)
 
   return (
     <>
@@ -98,6 +108,7 @@ const BottomSection = ({
           <StarButton
             onClick={handleClickLike}
             sizeQuantitySelected={sizeQuantitySelected}
+            disabled={errorMesShowed}
           >
             <FavStar
               likeClicked={likeClicked}
