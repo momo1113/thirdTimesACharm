@@ -25,6 +25,10 @@ export const Image = styled.img`
  min-height: 100%;  
 `;
 
+export const Images = styled.div`
+
+`;
+
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;
@@ -36,16 +40,15 @@ top:${(props) => (props.top ? '8%' : '95%')}
 
 export const ThumbnailWrapper = styled.div`
   position:absolute;
-  top: ${(props) => (props.hasArrow ? '10%' : '19%')};
-  left:-5%;
+  top: ${(props) => (props.hasArrow ? '10%' : '15%')};
+  left:-10%;
   margin-right:10px;
 `;
 
-
 export const Thumbnails = styled.div`
 overflow-x: auto;
-	overflow-y: hidden;
-	-webkit-overflow-scrolling: touch;
+overflow-y: hidden;
+overflow: ${(props) => props.curImage && 'hidden'};
 `;
 export const Thumbnail = styled.img`
  display: block;

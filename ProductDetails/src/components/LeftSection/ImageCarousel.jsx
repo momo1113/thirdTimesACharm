@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import {
   Underline,
-  LeftArrow, RightArrow, Image, Thumbnail, Thumbnails, ThumbnailWrapper,
+  LeftArrow, RightArrow, Image, Images, Thumbnail, Thumbnails, ThumbnailWrapper,
   Slider, FullscreenArrow, DownArrow, UpArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
@@ -51,9 +51,9 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     const { url } = item.photos[0];
     return (
       index === current && (
-        <>
+        <Images>
           <Image key={index} src={url} />
-        </>
+        </Images>
       )
     );
   });
@@ -68,7 +68,7 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
-      <Thumbnails key={index}>
+      <Thumbnails key={index} curImage={index === current}>
         {
           index < 7 && <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} curImage={index === current} />
         }
