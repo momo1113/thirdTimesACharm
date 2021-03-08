@@ -58,19 +58,27 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     );
   });
 
-
+  // while (index < styles.length) {
+  //   whle(currentImage < 7){
+  //     console.log('1')
+  //   }
+  //   index + 7;
+  // }
 
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
       <Thumbnails key={index}>
-        <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} curImage={index === current} />
+        {
+          index < 7 && <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} curImage={index === current} />
+        }
+
         { index === current && (!isLastImage || !isFirstImage)
           && <Underline />}
       </Thumbnails>
     );
   });
-
+  console.log(current)
   return (
     <Slider>
       {/* {thumbnailUrl} */}
