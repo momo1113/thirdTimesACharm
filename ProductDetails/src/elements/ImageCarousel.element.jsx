@@ -36,7 +36,7 @@ top:${(props) => (props.top ? '8%' : '95%')}
 
 export const ThumbnailWrapper = styled.div`
   position:absolute;
-  top: ${(props) => (props.hasArrow ? '9%' : '19%')};
+  top: ${(props) => (props.hasArrow ? '13%' : '19%')};
   left:-7%;
   margin-right:10px;
 `;

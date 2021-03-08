@@ -64,7 +64,7 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     const { url } = item.photos[0];
     return (
       <Thumbnails key={index}>
-        <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} />
+        <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} curImage={index === current} />
         { index === current && (!isLastImage || !isFirstImage)
           && <Underline />}
       </Thumbnails>
