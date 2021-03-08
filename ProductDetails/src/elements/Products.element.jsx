@@ -26,7 +26,8 @@ grid-area:icon;
 display:flex;
 flex-direction:row;
 justify-content: flex-end;
-align-items: flex-end
+align-items: flex-end;
+margin-top:4%;
 `;
 
 // other components
@@ -38,7 +39,7 @@ justify-self: center;
 export const Detail = styled.div`
 grid-area:detail;
 align-self: center;
-justify-self: center;
+justify-self: start;
 `;
 
 export const Info = styled.div`

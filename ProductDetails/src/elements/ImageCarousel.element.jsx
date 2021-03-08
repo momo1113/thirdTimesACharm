@@ -8,7 +8,6 @@ export const Slider = styled.div`
   position:relative;
   display:flex;
   height:85vh;
-  //margin:10%;
   justify-content:center;
   align-items:center;
   margin-left:10%;
@@ -19,7 +18,6 @@ export const ImageWrapper = styled.div`
  width: 90%;
  height: 80%;
  overflow:hidden;
- flex:4;
 `;
 
 export const Image = styled.img`
@@ -30,7 +28,7 @@ export const Image = styled.img`
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;
-width:${(props) => (props.top ? '80%' : '100%')};
+width:${(props) => (props.top ? '80%' : '90%')};
 border-radius: 5px;
 top:${(props) => (props.top ? '8%' : '95%')}
 
@@ -38,13 +36,9 @@ top:${(props) => (props.top ? '8%' : '95%')}
 
 export const ThumbnailWrapper = styled.div`
   position:absolute;
-  top: ${(props) => (props.hasArrow ? '9%' : '15%')};
-  left:-12%;
+  top: ${(props) => (props.hasArrow ? '15%' : '19%')};
+  left:-7%;
   margin-right:10px;
-  flex:1;
-
-
-
 
 `;
 export const Thumbnail = styled.img`
@@ -76,13 +70,13 @@ width: 40px;
 padding-left: 18%;
 margin-top: -20px;
 cursor: pointer;
-/* color:${(props) => (props.disabled ? '#DFDFDF' : '#5c5c5f')}; */
+color:${(props) => (props.disabled && '#DFDFDF')};
 `;
 
 export const UpArrow = styled(ArrowIosUpwardOutline)`
 width: 40px;
 padding-left: 18%;
-/* color:${(props) => (props.disabled ? '#5c5c5f' : '#DFDFDF')}; */
+color:${(props) => (props.disabled && '#DFDFDF')};
 cursor: pointer;
 
 `;

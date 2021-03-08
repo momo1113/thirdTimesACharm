@@ -5,15 +5,13 @@ const IconList = () => (
   <>
     <>
       <GiftIcon />
-      <span style={{ position: 'inlineBlock' }}>registry</span>
+      <span>registry</span>
     </>
-
     <>
 
       <PersonIcon />
       <span>
         Sign in/ Sign up
-
       </span>
     </>
   </>

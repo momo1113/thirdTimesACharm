@@ -30,15 +30,22 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     setCurrent(current === length ? length : current + 1);
     if (current === length) {
       setIsLastImage(true);
+      setIsFirstImage(false);
     }
+    
   };
 
   const upSlide = () => {
     setCurrent(current === 0 ? 0 : current - 1);
     if (current === 0) {
       setIsFirstImage(true);
+      setIsLastImage(false);
     }
   };
+
+
+
+
   const handleOnClick = () => {
     getCurMainImageIndex(current);
     getFullScreenClicked(true);
@@ -48,13 +55,9 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     const { url } = item.photos[0];
     return (
       index === current && (
-        <ImageWrapper key={index}>
-          <FullscreenArrow onClick={handleOnClick} />
-          <LeftArrow onClick={preSlide} />
-          <RightArrow onClick={nextSlide} />
+        <>
           <Image key={index} src={url} />
-          <ImageUnderline />
-        </ImageWrapper>
+        </>
       )
     );
   });
@@ -64,7 +67,7 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     return (
       <div key={index}>
         <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} />
-        { index === current && !isLastImage
+        { index === current && (!isLastImage || !isFirstImage)
           && <Underline />}
       </div>
     );
@@ -72,15 +75,21 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
 
   return (
     <Slider>
-      {imageUrl}
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper hasArrow={styles.length > 7}>
         {styles.length > 7 && isLastImage
-        && <UpArrow onClick={upSlide} disabled={isFirstImage} />}
+          && <UpArrow onClick={upSlide} disabled={isFirstImage} />}
         {thumbnailUrl}
         {styles.length > 7 && isFirstImage
-        && <DownArrow onClick={downSlide} disabled={isLastImage} />}
+          && <DownArrow onClick={downSlide} disabled={isLastImage} />}
       </ThumbnailWrapper>
+      <ImageWrapper>
+        <FullscreenArrow onClick={handleOnClick} />
+        <LeftArrow onClick={preSlide} />
+        <RightArrow onClick={nextSlide} />
+        {imageUrl}
+        <ImageUnderline />
+      </ImageWrapper>
     </Slider>
 
   );
