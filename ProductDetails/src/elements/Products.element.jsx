@@ -27,12 +27,14 @@ height:auto;
 `;
 export const Thumbnails = styled.div`
 grid-area: 3 / 2 / 4 / 3; 
+align-self: center;
 justify-self: center;
 `;
 
 // other components
 export const Image = styled.div`
 grid-area: 3 / 3 / 4 / 4;
+align-self: center;
 justify-self: center;
 `;
 

@@ -41,13 +41,6 @@ const ImageCarousel = ({
       )
     );
   });
-
-  // while (index < styles.length) {
-  //   whle(currentImage < 7){
-  //     console.log('1')
-  //   }
-  //   index + 7;
-  // }
   return (
 
     <ImageWrapper>
