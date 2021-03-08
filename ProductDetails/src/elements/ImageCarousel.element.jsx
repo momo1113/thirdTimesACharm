@@ -36,10 +36,16 @@ top:${(props) => (props.top ? '8%' : '95%')}
 
 export const ThumbnailWrapper = styled.div`
   position:absolute;
-  top: ${(props) => (props.hasArrow ? '15%' : '19%')};
+  top: ${(props) => (props.hasArrow ? '9%' : '19%')};
   left:-7%;
   margin-right:10px;
+`;
 
+
+export const Thumbnails = styled.div`
+overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
 `;
 export const Thumbnail = styled.img`
  display: block;

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import {
   Underline,
-  LeftArrow, RightArrow, Image, Thumbnail, ThumbnailWrapper,
+  LeftArrow, RightArrow, Image, Thumbnail, Thumbnails, ThumbnailWrapper,
   Slider, FullscreenArrow, DownArrow, UpArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
@@ -32,7 +32,6 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
       setIsLastImage(true);
       setIsFirstImage(false);
     }
-    
   };
 
   const upSlide = () => {
@@ -42,9 +41,6 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
       setIsLastImage(false);
     }
   };
-
-
-
 
   const handleOnClick = () => {
     getCurMainImageIndex(current);
@@ -62,14 +58,16 @@ const ImageCarousel = ({ styles, getCurMainImageIndex, getFullScreenClicked }) =
     );
   });
 
+
+
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
-      <div key={index}>
+      <Thumbnails key={index}>
         <Thumbnail key={index} src={url} alt="Women dress" onClick={() => setCurrent(index)} />
         { index === current && (!isLastImage || !isFirstImage)
           && <Underline />}
-      </div>
+      </Thumbnails>
     );
   });
 
