@@ -2,22 +2,9 @@ import styled from 'styled-components';
 import {
   ArrowLeftCircle, ArrowRightCircle, ArrowsAngleExpand,
 } from '@styled-icons/bootstrap';
-import { ArrowIosUpwardOutline, ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline';
-
-export const Slider = styled.div`
-  position:relative;
-  display:flex;
-  height:85vh;
-  justify-content:center;
-  align-items:center;
-  margin-left:10%;
-  
-`;
 
 export const ImageWrapper = styled.div`
- width: 90%;
- height: 80%;
- overflow:hidden;
+
 `;
 
 export const Image = styled.img`
@@ -26,7 +13,9 @@ export const Image = styled.img`
 `;
 
 export const Images = styled.div`
-
+ width: 90%;
+ height: 80%;
+ overflow:hidden;
 `;
 
 export const ImageUnderline = styled.hr`
@@ -38,63 +27,12 @@ top:${(props) => (props.top ? '8%' : '95%')}
 
 `;
 
-export const ThumbnailWrapper = styled.div`
-  position:absolute;
-  top: ${(props) => (props.hasArrow ? '10%' : '15%')};
-  left:-10%;
-  margin-right:10px;
-`;
-
-export const Thumbnails = styled.div`
-overflow-x: auto;
-overflow-y: hidden;
-overflow: ${(props) => props.curImage && 'hidden'};
-`;
-export const Thumbnail = styled.img`
- display: block;
- width:60px;
- height:50px;
- margin-bottom:20px;
- cursor:pointer;
- padding:2px;
- border: 1px solid ${(props) => (props.curImage ? 'black' : ' #DFDFDF')};
- transition:transform .5s ease;
- &:hover{
-  transform: scale(1.5);
- }
-`;
-
-export const Underline = styled.hr`
-position: absolute;
-border: 4px solid #5c5c5f;
-border-radius: 15px;
-width: 57px;
-margin-top: -20%;
-z-index:1;
-
-`;
-
-export const DownArrow = styled(ArrowIosDownwardOutline)`
-width: 40px;
-padding-left: 18%;
-margin-top: -20px;
-cursor: pointer;
-color:${(props) => (props.disabled && '#DFDFDF')};
-`;
-
-export const UpArrow = styled(ArrowIosUpwardOutline)`
-width: 40px;
-padding-left: 18%;
-color:${(props) => (props.disabled && '#DFDFDF')};
-cursor: pointer;
-
-`;
 
 export const LeftArrow = styled(ArrowLeftCircle)`
 position: absolute;
 width: 40px;
 top: 50%;
-left: 10%;
+
 font-size:3rem;
 
 cursor: pointer;
@@ -110,7 +48,7 @@ export const RightArrow = styled(ArrowRightCircle)`
 position: absolute;
 width: 40px;
 top: 50%;
-right:10%;
+
 font-size: 3rem;
 cursor: pointer;
 user-select: none;
@@ -124,8 +62,6 @@ color:#4b5666;
 export const FullscreenArrow = styled(ArrowsAngleExpand)`
 position: absolute;
 width: 20px;
-top: 15%;
-right: 10%;
 font-size: 3rem;
 cursor: pointer;
 user-select: none;
