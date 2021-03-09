@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Modal = styled.div`
 position:fixed;
@@ -19,14 +19,22 @@ position:relative;
 max-width: 600px;
 height: 600px;
 overflow:hidden;
+margin-top:5%;
 `;
 
 export const Image = styled.img`
  width: 100%;
- min-height: 100%;  
+min-height: 100%;  
 border-radius:5px;
-object-fit:cover;
-margin-top:25%;
+object-fit:scale-down;
+
+&:hover{
+    cursor:crosshair;
+}
+${({ clicked }) => clicked && css`
+transform:scale(2.5);
+
+`}
 `;
 
 export const Close = styled.button`

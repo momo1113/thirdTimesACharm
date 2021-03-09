@@ -35,7 +35,6 @@ const ImageCarousel = ({
     const { url } = item.photos[0];
     return (
       index === mainCurrent && (
-
         <Image key={item.style_id} src={url} onClick={handleOnExpandClick} />
 
       )

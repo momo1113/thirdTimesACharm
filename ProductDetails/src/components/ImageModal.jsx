@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   Modal, BigImage, Image, Close,
@@ -6,18 +6,20 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
+
+  const [clicked, setClicked] = useState(false);
+
   const bgMain = styles.map((item, index) => {
     const { url } = item.photos[0];
     return index === curMainImageIndex && (
-      <Image src={url} key={item.style_id} alt="styles" />
+      <Image src={url} key={item.style_id} alt="styles" onClick={() => setClicked(!clicked)} clicked={clicked} />
     );
   });
 
 
-
   return (
     <Modal>
-      <BigImage>
+      <BigImage >
         {bgMain}
       </BigImage>
       <Close type="submit" onClick={() => getFullScreenClicked(false)}>
