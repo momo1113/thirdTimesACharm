@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
 import {
-  Modal, BigImage, Image, Close,
+  Modal, BigImage, Image, Close, ThumbnailsWrapper, Thumbnail,
 } from '../elements/ImageModal.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
-
   const [clicked, setClicked] = useState(false);
 
   const bgMain = styles.map((item, index) => {
@@ -16,12 +15,24 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
     );
   });
 
+  const buttonThumbnails = styles.map((item, index) => {
+    const thumbnailUrl = item.photos[0].thumbnail_url;
+    return (
+      <Thumbnail src={thumbnailUrl} alt="style" />
+    );
+  });
 
   return (
     <Modal>
-      <BigImage >
+      <BigImage>
+
+      
         {bgMain}
+        <ThumbnailsWrapper>
+          {buttonThumbnails}
+        </ThumbnailsWrapper>
       </BigImage>
+
       <Close type="submit" onClick={() => getFullScreenClicked(false)}>
         <div>X</div>
       </Close>
