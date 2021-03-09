@@ -8,23 +8,25 @@ const Style = ({
   style,
   getSelectedStyle,
   selectedStyleId,
-  getClicked,
+  setBagClicked,
   index,
   getMainCurrent,
-  getLikeClicked,
-  getErrorMessageShowed,
+  setLikeClicked,
+  setErrorMesShowed,
+  setSizeQuantitySelected,
 }) => {
   const thumbnailUrl = style.photos[0].thumbnail_url;
 
   const onHandleClick = () => {
     getSelectedStyle(style.style_id);
-    getClicked(false);
+    setBagClicked(false);
     getMainCurrent(index);
-    getLikeClicked(false);
-    getErrorMessageShowed(false);
+    setLikeClicked(false);
+    setErrorMesShowed(false);
+    setSizeQuantitySelected(0);
   };
 
- 
+
 
   return (
     <>

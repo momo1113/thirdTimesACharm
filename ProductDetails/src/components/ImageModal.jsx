@@ -25,8 +25,6 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
   return (
     <Modal>
       <BigImage>
-
-      
         {bgMain}
         <ThumbnailsWrapper>
           {buttonThumbnails}
