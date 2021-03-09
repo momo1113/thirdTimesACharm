@@ -68,12 +68,12 @@ const ThumbnailGallery = ({ styles, mainCurrent, getMainCurrent }) => {
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper moreThanSeven>
         {
-          mainCurrent !== 0
+          length > 6 && mainCurrent !== 0
           && <UpArrow onClick={upSlide} />
         }
         {showThunmbnails}
         {
-          mainCurrent !== length
+          length > 6 && mainCurrent !== length
           && <DownArrow onClick={downSlide} />
         }
       </ThumbnailWrapper>

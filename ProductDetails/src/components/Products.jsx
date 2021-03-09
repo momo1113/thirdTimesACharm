@@ -23,7 +23,7 @@ class Products extends React.Component {
     super();
     this.state = {
       products: [],
-      id: 14807,
+      id: 0,
       product: {},
       styles: [],
       selectedStyleId: 0,

@@ -4,11 +4,6 @@ import { ArrowIosUpwardOutline, ArrowIosDownwardOutline } from '@styled-icons/ev
 
 
 export const ThumbnailWrapper = styled.div`
-  /* position:absolute;
-  top: ${(props) => (props.hasArrow ? '10%' : '15%')};
-  /* left:-10%;
-  margin-right:10px; */
-
   margin-top: ${(props) => (props.moreThanSeven && '75%')};
 `;
 
