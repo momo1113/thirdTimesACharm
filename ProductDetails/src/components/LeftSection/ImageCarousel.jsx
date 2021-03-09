@@ -36,21 +36,18 @@ const ImageCarousel = ({
     return (
       index === mainCurrent && (
 
-        <Image key={index} src={url} />
+        <Image key={item.style_id} src={url} />
 
       )
     );
   });
   return (
-    <>
-      <ImageWrapper>
-        <FullscreenArrow onClick={handleOnClick} />
-        <LeftArrow onClick={preSlide} />
-        <RightArrow onClick={nextSlide} />
-        {imageUrl}
-      </ImageWrapper>
-      {/* <ImageUnderline /> */}
-    </>
+    <ImageWrapper>
+      <FullscreenArrow onClick={handleOnClick} />
+      <LeftArrow onClick={preSlide} />
+      <RightArrow onClick={nextSlide} />
+      {imageUrl}
+    </ImageWrapper>
   );
 };
 

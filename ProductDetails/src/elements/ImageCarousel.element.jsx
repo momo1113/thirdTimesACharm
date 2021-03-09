@@ -5,7 +5,7 @@ import {
 
 export const ImageWrapper = styled.div`
 position:relative;
- max-width: 500px;
+ max-width: 600px;
  height: 500px;
  overflow:hidden;
 `;
@@ -13,18 +13,17 @@ position:relative;
 export const Image = styled.img`
  width: 100%;
  min-height: 100%;  
- object-fit:cover;
+border-radius:5px;
+object-fit:cover;
 `;
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;
-width:${(props) => (props.top ? '80%' : '90%')};
+width:${(props) => (props.top ? '80%' : '44%')};
 border-radius: 5px;
-top:${(props) => (props.top ? '8%' : '95%')}
-
+top:${(props) => (props.top ? '4%' : '85%')};
+margin-left:${({ image }) => (image ? '13.5%' : '4%')};
 `;
-
-
 export const LeftArrow = styled(ArrowLeftCircle)`
 position: absolute;
 width: 40px;
@@ -39,6 +38,7 @@ color:#4b5666;
   &:hover{
   color: white
 }
+margin-left:1%;
 `;
 
 export const RightArrow = styled(ArrowRightCircle)`
@@ -54,6 +54,7 @@ color:#4b5666;
   &:hover{
   color: white
 }
+margin-left:90%;
 `;
 
 export const FullscreenArrow = styled(ArrowsAngleExpand)`
@@ -66,4 +67,6 @@ color:#4b5666;
   &:hover{
   color: white
 }
+margin-left:90%;
+margin-top:5%;
 `;

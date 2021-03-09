@@ -34,11 +34,12 @@ const BottomSection = ({
   const getErrorMessageShowed = (messageShowed) => {
     setErrorMesShowed(messageShowed);
   };
+  console.log(styles[0].style_id);
 
   const styledThumbnails = styles.map(
     (item, index) => (
       <StyleThumbnails
-        key={index}
+        key={item.style_id}
         index={index}
         style={item}
         getSelectedStyle={getSelectedStyle}
@@ -50,9 +51,9 @@ const BottomSection = ({
     ),
   );
   const styledQuanityAndSize = styles.map(
-    (item, index) => (
+    (item) => (
       <QuanityAndSize
-        key={index}
+        key={item.style_id}
         style={item}
         getSelectedStyle={getSelectedStyle}
         selectedStyleId={selectedStyleId}
@@ -78,14 +79,10 @@ const BottomSection = ({
   }
   const handleClickLike = () => {
     setLikeClicked(!likeClicked);
-    console.log('0' + likeClicked)
     if (!sizeQuantitySelected) {
       setErrorMesShowed(true);
     }
-    console.log('1' + likeClicked)
-  }
-  let index = 0;
-  console.log(`${index++} ` + errorMesShowed)
+  };
 
   return (
     <>

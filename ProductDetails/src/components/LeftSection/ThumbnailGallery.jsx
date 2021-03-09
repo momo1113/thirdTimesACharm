@@ -6,13 +6,12 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const ThumbnailGallery = ({ styles, mainCurrent, getMainCurrent }) => {
-  const [current, setCurrent] = useState(0);
   const [isLastImage, setIsLastImage] = useState(false);
   const [isFirstImage, setIsFirstImage] = useState(true);
 
   const downSlide = () => {
     // eslint-disable-next-line no-restricted-globals
-    getMainCurrent(mainCurrent === length ? length : current + 1);
+    getMainCurrent(mainCurrent === length ? length : mainCurrent + 1);
     if (mainCurrent === length) {
       setIsLastImage(true);
       setIsFirstImage(false);
@@ -30,21 +29,21 @@ const ThumbnailGallery = ({ styles, mainCurrent, getMainCurrent }) => {
   const thumbnailUrl = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
-      <Thumbnails key={index} curImage={index === mainCurrent}>
+      <Thumbnails key={item.style_id} curImage={index === mainCurrent}>
         {
-                    index < 7 && (
-                    <Thumbnail
-                      key={index}
-                      src={url}
-                      alt="Women dress"
-                      onClick={() => getMainCurrent(index)}
-                      curImage={index === current}
-                    />
-                    )
-                }
+          index < 7 && (
+            <Thumbnail
+              index={index}
+              src={url}
+              alt="Women dress"
+              onClick={() => getMainCurrent(index)}
+              curImage={index === mainCurrent}
+            />
+          )
+        }
 
         { index === mainCurrent
-                    && <Underline />}
+          && <Underline />}
       </Thumbnails>
     );
   });
@@ -53,14 +52,14 @@ const ThumbnailGallery = ({ styles, mainCurrent, getMainCurrent }) => {
       {/* {thumbnailUrl} */}
       <ThumbnailWrapper hasArrow={styles.length > 7}>
         {
-                    styles.length > 7 && isLastImage
-                    && <UpArrow onClick={upSlide} disabled={isFirstImage} />
-                }
+          styles.length > 7 && isLastImage
+          && <UpArrow onClick={upSlide} disabled={isFirstImage} />
+        }
         {thumbnailUrl}
         {
-                    styles.length > 7 && isFirstImage
-                    && <DownArrow onClick={downSlide} disabled={isLastImage} />
-                }
+          styles.length > 7 && isFirstImage
+          && <DownArrow onClick={downSlide} disabled={isLastImage} />
+        }
       </ThumbnailWrapper>
     </>
   );

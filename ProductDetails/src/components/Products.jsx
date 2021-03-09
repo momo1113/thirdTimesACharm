@@ -31,7 +31,6 @@ class Products extends React.Component {
       fullScreenClicked: false,
       quantitySizeSelected: 0,
       mainCurrent: 0,
-      main: true,
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
@@ -100,7 +99,7 @@ class Products extends React.Component {
           <IconList />
         </Icon>
         <Header>
-          <ImageUnderline top={this.state.main} />
+          <ImageUnderline top />
           <Nav quantitySizeSelected={this.state.quantitySizeSelected} />
         </Header>
         {this.state.fullScreenClicked ? (
@@ -134,6 +133,7 @@ class Products extends React.Component {
             />
           )}
         </Image>
+        <ImageUnderline image />
         <Detail>
           {this.state.id !== 0
             && (
