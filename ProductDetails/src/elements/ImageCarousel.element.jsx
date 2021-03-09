@@ -15,7 +15,9 @@ export const Image = styled.img`
  min-height: 100%;  
 border-radius:5px;
 object-fit:cover;
+cursor:pointer;
 `;
+
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;

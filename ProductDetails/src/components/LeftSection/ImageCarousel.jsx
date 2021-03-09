@@ -26,7 +26,7 @@ const ImageCarousel = ({
     getMainCurrent(mainCurrent === length ? 0 : mainCurrent + 1);
   };
 
-  const handleOnClick = () => {
+  const handleOnExpandClick = () => {
     getCurMainImageIndex(mainCurrent);
     getFullScreenClicked(true);
   };
@@ -36,16 +36,25 @@ const ImageCarousel = ({
     return (
       index === mainCurrent && (
 
-        <Image key={item.style_id} src={url} />
+        <Image key={item.style_id} src={url} onClick={handleOnExpandClick} />
 
       )
     );
   });
   return (
     <ImageWrapper>
-      <FullscreenArrow onClick={handleOnClick} />
-      <LeftArrow onClick={preSlide} />
-      <RightArrow onClick={nextSlide} />
+      <FullscreenArrow onClick={handleOnExpandClick} />
+
+      {
+        mainCurrent !== 0
+        && <LeftArrow onClick={preSlide} />
+      }
+
+      {
+        mainCurrent !== length
+        && <RightArrow onClick={nextSlide} />
+      }
+
       {imageUrl}
     </ImageWrapper>
   );

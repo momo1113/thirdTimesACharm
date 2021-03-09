@@ -15,22 +15,22 @@ z-index:2;
 `;
 
 export const BigImage = styled.div`
-width: 60%;
-height: 50%;
+position:relative;
+max-width: 600px;
+height: 600px;
 overflow:hidden;
-
-margin-left:5%;
 `;
 
 export const Image = styled.img`
- max-width: 100%;
- max-height: 100%;
- border-radius:10px;
+ width: 100%;
+ min-height: 100%;  
+border-radius:5px;
+object-fit:cover;
+margin-top:25%;
 `;
 
 export const Close = styled.button`
 color:#5c5c5f;
-margin-left:92%;
 width:50px;
 height:50px;
 margin-top:1%;

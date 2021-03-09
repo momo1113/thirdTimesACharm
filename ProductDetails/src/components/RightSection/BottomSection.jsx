@@ -45,7 +45,8 @@ const BottomSection = ({
         getClicked={getClicked}
         selectedStyleId={selectedStyleId}
         getMainCurrent={getMainCurrent}
-
+        getLikeClicked={getLikeClicked}
+        getErrorMessageShowed={getErrorMessageShowed}
       />
     ),
   );
@@ -78,7 +79,7 @@ const BottomSection = ({
   }
   const handleClickLike = () => {
     setLikeClicked(!likeClicked);
-    if (!sizeQuantitySelected) {
+    if (sizeQuantitySelected === 0) {
       setErrorMesShowed(true);
     }
   };
@@ -106,16 +107,16 @@ const BottomSection = ({
           </Bag>
           <StarButton
             onClick={handleClickLike}
-            sizeQuantitySelected={sizeQuantitySelected}
+            sizeQuantitySelected={sizeQuantitySelected !== 0}
             disabled={errorMesShowed}
           >
             <FavStar
               likeClicked={likeClicked}
-              sizeQuantitySelected={sizeQuantitySelected}
+              sizeQuantitySelected={sizeQuantitySelected !== 0}
             />
           </StarButton>
           {
-            !sizeQuantitySelected && likeClicked
+            ((sizeQuantitySelected === 0 && likeClicked) || errorMesShowed)
             && (
               <ErrorMessage>
                 Please select your Size to add this item to your wish list.
