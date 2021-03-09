@@ -23,7 +23,7 @@ class Products extends React.Component {
     super();
     this.state = {
       products: [],
-      id: 0,
+      id: 14807,
       product: {},
       styles: [],
       selectedStyleId: 0,
@@ -133,7 +133,7 @@ class Products extends React.Component {
             />
           )}
         </Image>
-        <ImageUnderline image />
+        {/* <ImageUnderline image /> */}
         <Detail>
           {this.state.id !== 0
             && (

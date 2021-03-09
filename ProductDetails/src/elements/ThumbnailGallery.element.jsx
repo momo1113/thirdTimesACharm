@@ -6,8 +6,10 @@ import { ArrowIosUpwardOutline, ArrowIosDownwardOutline } from '@styled-icons/ev
 export const ThumbnailWrapper = styled.div`
   /* position:absolute;
   top: ${(props) => (props.hasArrow ? '10%' : '15%')};
-  left:-10%;
+  /* left:-10%;
   margin-right:10px; */
+
+  margin-top: ${(props) => (props.moreThanSeven && '75%')};
 `;
 
 export const Thumbnails = styled.div`
@@ -44,13 +46,13 @@ width: 40px;
 padding-left: 18%;
 margin-top: -20px;
 cursor: pointer;
-color:${(props) => (props.disabled && '#DFDFDF')};
+color:#DFDFDF;
 `;
 
 export const UpArrow = styled(ArrowIosUpwardOutline)`
 width: 40px;
 padding-left: 18%;
-color:${(props) => (props.disabled && '#DFDFDF')};
+color:#DFDFDF;
 cursor: pointer;
 
 `;

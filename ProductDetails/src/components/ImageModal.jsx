@@ -13,6 +13,8 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
     );
   });
 
+
+
   return (
     <Modal>
       <BigImage>

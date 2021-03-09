@@ -6,59 +6,75 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const ThumbnailGallery = ({ styles, mainCurrent, getMainCurrent }) => {
-  const [isLastImage, setIsLastImage] = useState(false);
-  const [isFirstImage, setIsFirstImage] = useState(true);
+  const length = styles.length - 1;
+  const [upShow, setUpShow] = useState(false);
+  const [downShow, setDownShow] = useState(false);
 
   const downSlide = () => {
-    // eslint-disable-next-line no-restricted-globals
     getMainCurrent(mainCurrent === length ? length : mainCurrent + 1);
-    if (mainCurrent === length) {
-      setIsLastImage(true);
-      setIsFirstImage(false);
-    }
+    setDownShow(true);
+    setUpShow(false);
   };
 
   const upSlide = () => {
     getMainCurrent(mainCurrent === 0 ? 0 : mainCurrent - 1);
-    if (mainCurrent === 0) {
-      setIsFirstImage(true);
-      setIsLastImage(false);
-    }
+    setUpShow(true);
+    setDownShow(false);
   };
 
-  const thumbnailUrl = styles.map((item, index) => {
+  const thumbnailUrFirst7 = styles.map((item, index) => {
     const { url } = item.photos[0];
     return (
-      <Thumbnails key={item.style_id} curImage={index === mainCurrent}>
-        {
-          index < 7 && (
-            <Thumbnail
-              index={index}
-              src={url}
-              alt="Women dress"
-              onClick={() => getMainCurrent(index)}
-              curImage={index === mainCurrent}
-            />
-          )
-        }
-
-        { index === mainCurrent
-          && <Underline />}
-      </Thumbnails>
+      (
+        index < 7
+        && (
+          <Thumbnails key={item.style_id} curImage={mainCurrent === index}>
+            <Thumbnail key={item.style_id} src={url} alt="Women dress" onClick={() => getMainCurrent(index)} />
+            {index === mainCurrent
+              && <Underline />}
+          </Thumbnails>
+        )
+      )
     );
   });
+
+  const thumbnailUrlLast7 = styles.map((item, index) => {
+    const { url } = item.photos[0];
+    return (
+      (
+        index >= 7
+        && (
+          <Thumbnails key={item.style_id} curImage={mainCurrent === index}>
+            <Thumbnail key={item.style_id} src={url} alt="Women dress" onClick={() => getMainCurrent(index)} />
+            {index === mainCurrent
+              && <Underline />}
+          </Thumbnails>
+        )
+      )
+    );
+  });
+
+  let showThunmbnails = '';
+  if (upShow) {
+    showThunmbnails = thumbnailUrFirst7;
+  } else if (downShow) {
+    showThunmbnails = thumbnailUrlLast7;
+  } else {
+    showThunmbnails = thumbnailUrFirst7;
+  }
+
   return (
     <>
       {/* {thumbnailUrl} */}
-      <ThumbnailWrapper hasArrow={styles.length > 7}>
+      <ThumbnailWrapper moreThanSeven>
         {
-          styles.length > 7 && isLastImage
-          && <UpArrow onClick={upSlide} disabled={isFirstImage} />
+          mainCurrent !== 0
+          && <UpArrow onClick={upSlide} />
         }
-        {thumbnailUrl}
+        {showThunmbnails}
         {
-          styles.length > 7 && isFirstImage
-          && <DownArrow onClick={downSlide} disabled={isLastImage} />
+          mainCurrent !== length
+          && <DownArrow onClick={downSlide} />
         }
       </ThumbnailWrapper>
     </>
