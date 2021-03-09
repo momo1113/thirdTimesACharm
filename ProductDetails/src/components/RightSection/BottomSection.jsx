@@ -16,6 +16,7 @@ const BottomSection = ({
   const [sizeQuantitySelected, setSizeQuantitySelcted] = useState(0);
   const [errorMesShowed, setErrorMesShowed] = useState(false);
 
+
   if (!Array.isArray(styles) || styles.length <= 0) {
     return null;
   }
@@ -75,11 +76,12 @@ const BottomSection = ({
   };
   if (clicked && sizeQuantitySelected !== 0) {
     getQuantitySizeSelected(sizeQuantitySelected);
+    setSizeQuantitySelcted(0);
     setClicked(false);
   }
   const handleClickLike = () => {
     setLikeClicked(!likeClicked);
-    if (sizeQuantitySelected === 0) {
+    if (sizeQuantitySelected !== 0) {
       setErrorMesShowed(true);
     }
   };
