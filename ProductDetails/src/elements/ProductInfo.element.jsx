@@ -13,9 +13,8 @@ color: #26262c;
 `;
 
 export const Feature = styled.div`
-margin-left: 50px;
+margin:23px;
 font:1rem/1.3 Avenir medium, sans-serif;
 letter-spacing:.06rem;
 color: #26262c;
-
 `;

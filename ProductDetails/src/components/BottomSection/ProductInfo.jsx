@@ -21,7 +21,6 @@ const ProductInfo = ({ product }) => {
     >
       <Slogan>{product.slogan}</Slogan>
       <Feature>
-        features
         <ul>
           {feature}
         </ul>

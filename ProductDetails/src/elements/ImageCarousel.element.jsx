@@ -4,20 +4,17 @@ import {
 } from '@styled-icons/bootstrap';
 
 export const ImageWrapper = styled.div`
-
+position:relative;
+ max-width: 450px;
+ height: 500px;
+ overflow:hidden;
 `;
 
 export const Image = styled.img`
  width: 100%;
  min-height: 100%;  
+ object-fit:cover;
 `;
-
-export const Images = styled.div`
- width: 90%;
- height: 80%;
- overflow:hidden;
-`;
-
 export const ImageUnderline = styled.hr`
 position: absolute;
 border: 1px solid #DFDFDF;

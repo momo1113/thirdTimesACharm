@@ -35,9 +35,9 @@ const ImageCarousel = ({
     const { url } = item.photos[0];
     return (
       index === mainCurrent && (
-        <Images>
-          <Image key={index} src={url} />
-        </Images>
+
+        <Image key={index} src={url} />
+
       )
     );
   });
@@ -48,7 +48,6 @@ const ImageCarousel = ({
       <LeftArrow onClick={preSlide} />
       <RightArrow onClick={nextSlide} />
       {imageUrl}
-
     </ImageWrapper>
 
   );
