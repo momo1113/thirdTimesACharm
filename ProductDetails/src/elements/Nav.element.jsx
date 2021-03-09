@@ -32,12 +32,13 @@ height:25px;
 margin:0 5px;
 `;
 
-export const ShoopingCart = styled.div`
+export const ShoppingCart = styled.div`
 grid-area: 1 / 4 / 2 / 5; 
+cursor:pointer;
 
 
 `;
-export const AddBag = styled(ShoppingBag)`
+export const Cart = styled(ShoppingBag)`
 height:30px;
 margin-top:12.5%;
 color:#167a92;

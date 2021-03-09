@@ -31,6 +31,7 @@ class Products extends React.Component {
       fullScreenClicked: false,
       quantitySizeSelected: 0,
       mainCurrent: 0,
+      shoppingCart: false,
     };
     this.getStyles = this.getStyles.bind(this);
     this.getSelectedStyle = this.getSelectedStyle.bind(this);
@@ -38,6 +39,7 @@ class Products extends React.Component {
     this.getFullScreenClicked = this.getFullScreenClicked.bind(this);
     this.getQuantitySizeSelected = this.getQuantitySizeSelected.bind(this);
     this.getMainCurrent = this.getMainCurrent.bind(this);
+    this.getShoppingCartStatus = this.getShoppingCartStatus.bind(this);
   }
 
   componentDidMount() {
@@ -92,6 +94,10 @@ class Products extends React.Component {
     this.setState({ mainCurrent: current });
   }
 
+  getShoppingCartStatus(status) {
+    this.setState({ shoppingCart: status });
+  }
+
   render() {
     return (
       <Wrapper>
@@ -100,7 +106,10 @@ class Products extends React.Component {
         </Icon>
         <Header>
           <ImageUnderline top />
-          <Nav quantitySizeSelected={this.state.quantitySizeSelected} />
+          <Nav
+            quantitySizeSelected={this.state.quantitySizeSelected}
+            getShoppingCartStatus={this.getShoppingCartStatus}
+          />
         </Header>
         {this.state.fullScreenClicked ? (
           <ImageModal

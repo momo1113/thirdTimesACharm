@@ -1,23 +1,23 @@
 import React from 'react';
 import {
-  Logo, Input, SearchIcon, AddBag, QuanityTag, ShoopingCart
+  Logo, Input, SearchIcon, Cart, QuanityTag, ShoppingCart
 } from '../../elements/Nav.element.jsx';
 
-const Nav = ({ quantitySizeSelected }) => (
+const Nav = ({ quantitySizeSelected, getShoppingCartStatus }) => (
   <>
     <Logo>humanitarian-hornbills</Logo>
     <Input>
       <SearchIcon />
       Search
     </Input>
-    <ShoopingCart >
-      <AddBag />
+    <ShoppingCart onClick={() => getShoppingCartStatus(true)}>
+      <Cart />
       {quantitySizeSelected !== 0 && (
         <QuanityTag>
           {quantitySizeSelected}
         </QuanityTag>
       )}
-    </ShoopingCart>
+    </ShoppingCart>
   </>
 
 );
