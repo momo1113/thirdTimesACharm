@@ -46,6 +46,7 @@ const BottomSection = ({
         bagClicked={bagClicked}
         setSizeQuantitySelected={setSizeQuantitySelected}
         setErrorMesShowed={setErrorMesShowed}
+        setLikeClicked={setLikeClicked}
       />
     ),
   );
@@ -57,22 +58,12 @@ const BottomSection = ({
     getQuantitySizeSelected(sizeQuantitySelected);
   };
 
-  // if (bagClicked && sizeQuantitySelected !== 0) {
-  //   setBagClicked(false);
-
-  //   console.log('quantitySize ' + sizeQuantitySelected)
-  //   //getQuantitySizeSelected(sizeQuantitySelected);
-  // }
   const handleClickLike = () => {
-    setLikeClicked(!likeClicked);
-    if (likeClicked && sizeQuantitySelected === 0) {
+    if (sizeQuantitySelected === 0) {
       setErrorMesShowed(true);
     }
+    setLikeClicked(!likeClicked);
   };
-
-  // let index = 0;
-  // console.log('likeClicked ' + bagClicked)
-  // console.log(`${index++} ${sizeQuantitySelected}`);
   return (
     <>
       <StyleLegend>
@@ -105,7 +96,7 @@ const BottomSection = ({
             />
           </StarButton>
           {
-            ((sizeQuantitySelected === 0 && likeClicked) || errorMesShowed)
+            (errorMesShowed)
             && (
               <ErrorMessage>
                 Please select your Size to add this item to your wish list.

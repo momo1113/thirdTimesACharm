@@ -11,6 +11,8 @@ const StyledQuanityAndSize = ({
   selectedStyleId,
   bagClicked,
   setSizeQuantitySelected,
+  setLikeClicked,
+  setErrorMesShowed
 
 }) => {
   const [sizeValue, setSizeValue] = useState('0');
@@ -80,9 +82,6 @@ const StyledQuanityAndSize = ({
 
   const sizeChange = (e) => {
     setSizeValue(e.target.value);
-
-
-    console.log('size value ' + e.target.value)
     if (e.target.value !== '0') {
       if (quantityValue === 0) {
         setSizeQuantitySelected(1);
@@ -90,29 +89,18 @@ const StyledQuanityAndSize = ({
         setSizeQuantitySelected(quantityValue);
       }
     }
-  };
+    setLikeClicked(false);
+    setErrorMesShowed(false);
+  }
 
   const onQuantityChange = (e) => {
     setQuantityValue(Number(e.target.value));
-    console.log('quantity value ' + e.target.value)
-    console.log('size value  in quantity change ' + sizeValue)
     if (e.target.value !== 0 && sizeValue !== '0') {
       setSizeQuantitySelected(Number(e.target.value));
+      setLikeClicked(false);
+      setErrorMesShowed(false);
     }
   }
-
-
-  // console.log('size changed ' + sizeValue)
-  // console.log('quantity changed ' + quantityValue)
-
-
-
-  // if (Number(quantityValue) === 0 && sizeValue !== '0') {
-  //   setSizeQuantitySelected(1);
-  // } else {
-  //   setSizeQuantitySelected(Number(quantityValue));
-  // }
-
 
   return (
     <>
