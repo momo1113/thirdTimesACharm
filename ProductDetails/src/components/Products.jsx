@@ -84,8 +84,8 @@ class Products extends React.Component {
     this.setState({ fullScreenClicked: clicked });
   }
 
-  getQuantitySizeSelected(choosed) {
-    this.setState({ quantitySizeSelected: this.state.quantitySizeSelected + choosed });
+  getQuantitySizeSelected(quantity) {
+    this.setState({ quantitySizeSelected: this.state.quantitySizeSelected + quantity });
   }
 
   getMainCurrent(current) {

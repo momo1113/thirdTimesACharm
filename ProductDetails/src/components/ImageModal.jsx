@@ -4,6 +4,7 @@ import {
   Modal, BigImage, Image, Close,
 } from '../elements/ImageModal.element.jsx';
 
+// eslint-disable-next-line react/prop-types
 const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
   const bgMain = styles.map((item, index) => {
     const { url } = item.photos[0];
@@ -22,7 +23,6 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
       <BigImage>
         {bgMain}
       </BigImage>
-
     </Modal>
   );
 };

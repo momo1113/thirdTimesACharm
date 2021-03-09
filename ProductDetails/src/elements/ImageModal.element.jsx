@@ -40,6 +40,11 @@ background-color:#DFDFDF;
 border: 1px solid #DFDFDF;
 outline:none;
 opacity:.4;
+&:hover{
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid rgba(0,0,0,0.9);
+    color:white;
+}
 &:active{
      transform: translateY(4px);
  };

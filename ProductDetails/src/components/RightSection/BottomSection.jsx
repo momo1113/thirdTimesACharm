@@ -13,7 +13,7 @@ const BottomSection = ({
 }) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
-  const [sizeQuantitySelected, setSizeQuantitySelcted] = useState(false);
+  const [sizeQuantitySelected, setSizeQuantitySelcted] = useState(0);
   const [errorMesShowed, setErrorMesShowed] = useState(false);
 
   if (!Array.isArray(styles) || styles.length <= 0) {
@@ -27,14 +27,13 @@ const BottomSection = ({
     setLikeClicked(click);
   };
 
-  const getSizeQuantitySelected = (selected) => {
-    setSizeQuantitySelcted(selected);
+  const getSizeQuantitySelected = (quantity) => {
+    setSizeQuantitySelcted(quantity);
   };
 
   const getErrorMessageShowed = (messageShowed) => {
     setErrorMesShowed(messageShowed);
   };
-  console.log(styles[0].style_id);
 
   const styledThumbnails = styles.map(
     (item, index) => (
@@ -73,8 +72,8 @@ const BottomSection = ({
       setClicked(true);
     }
   };
-  if (clicked && sizeQuantitySelected) {
-    getQuantitySizeSelected(1);
+  if (clicked && sizeQuantitySelected !== 0) {
+    getQuantitySizeSelected(sizeQuantitySelected);
     setClicked(false);
   }
   const handleClickLike = () => {
