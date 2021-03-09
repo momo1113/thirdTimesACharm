@@ -5,13 +5,15 @@ import React from 'react';
 import { SelectedStyled } from '../../elements/RightSection/BottomSection.element.jsx';
 // eslint-disable-next-line react/prop-types
 const Style = ({
-  style, getSelectedStyle, selectedStyleId, getClicked,
+  style, getSelectedStyle, selectedStyleId, getClicked, index, getMainCurrent,
 }) => {
   const thumbnailUrl = style.photos[0].thumbnail_url;
 
   const onHandleClick = () => {
     getSelectedStyle(style.style_id);
     getClicked(false);
+    getMainCurrent(index)
+
   };
 
   return (

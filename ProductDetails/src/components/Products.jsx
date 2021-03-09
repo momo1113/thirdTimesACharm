@@ -113,10 +113,13 @@ class Products extends React.Component {
           />
         ) : ''}
         <Thumbnails>
-          {this.state.id !== 0 && <ThumbnailGallery
-            styles={this.state.styles}
-            getMainCurrent={this.getMainCurrent}
-            mainCurrent={this.state.mainCurrent} />}
+          {this.state.id !== 0 && (
+            <ThumbnailGallery
+              styles={this.state.styles}
+              getMainCurrent={this.getMainCurrent}
+              mainCurrent={this.state.mainCurrent}
+            />
+          )}
         </Thumbnails>
         <Image>
           {this.state.id !== 0 && (
@@ -132,7 +135,18 @@ class Products extends React.Component {
           )}
         </Image>
         <Detail>
-          {this.state.id !== 0 && <ProductDetails product={this.state.product} styles={this.state.styles} getSelectedStyle={this.getSelectedStyle} selectedStyleId={this.state.selectedStyleId} id={this.state.id} getQuantitySizeSelected={this.getQuantitySizeSelected} />}
+          {this.state.id !== 0
+            && (
+              <ProductDetails
+                product={this.state.product}
+                styles={this.state.styles}
+                getSelectedStyle={this.getSelectedStyle}
+                selectedStyleId={this.state.selectedStyleId}
+                id={this.state.id}
+                getQuantitySizeSelected={this.getQuantitySizeSelected}
+                getMainCurrent={this.getMainCurrent}
+              />
+            )}
         </Detail>
         <Info>
           <ProductInfo product={this.state.product} />

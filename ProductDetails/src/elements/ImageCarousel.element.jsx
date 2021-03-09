@@ -5,7 +5,7 @@ import {
 
 export const ImageWrapper = styled.div`
 position:relative;
- max-width: 450px;
+ max-width: 500px;
  height: 500px;
  overflow:hidden;
 `;

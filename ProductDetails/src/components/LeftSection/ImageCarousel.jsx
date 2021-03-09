@@ -2,8 +2,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {
-  LeftArrow, RightArrow, Image, Images,
-  Slider, FullscreenArrow, ImageWrapper, ImageUnderline,
+  LeftArrow, RightArrow, Image,
+  FullscreenArrow, ImageWrapper, ImageUnderline,
 } from '../../elements/ImageCarousel.element.jsx';
 
 const ImageCarousel = ({
@@ -42,14 +42,15 @@ const ImageCarousel = ({
     );
   });
   return (
-
-    <ImageWrapper>
-      <FullscreenArrow onClick={handleOnClick} />
-      <LeftArrow onClick={preSlide} />
-      <RightArrow onClick={nextSlide} />
-      {imageUrl}
-    </ImageWrapper>
-
+    <>
+      <ImageWrapper>
+        <FullscreenArrow onClick={handleOnClick} />
+        <LeftArrow onClick={preSlide} />
+        <RightArrow onClick={nextSlide} />
+        {imageUrl}
+      </ImageWrapper>
+      {/* <ImageUnderline /> */}
+    </>
   );
 };
 

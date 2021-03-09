@@ -9,6 +9,7 @@ import {
 // eslint-disable-next-line react/prop-types
 const BottomSection = ({
   styles, getSelectedStyle, selectedStyleId, getQuantitySizeSelected,
+  getMainCurrent,
 }) => {
   const [clicked, setClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
@@ -38,10 +39,12 @@ const BottomSection = ({
     (item, index) => (
       <StyleThumbnails
         key={index}
+        index={index}
         style={item}
         getSelectedStyle={getSelectedStyle}
         getClicked={getClicked}
         selectedStyleId={selectedStyleId}
+        getMainCurrent={getMainCurrent}
 
       />
     ),
