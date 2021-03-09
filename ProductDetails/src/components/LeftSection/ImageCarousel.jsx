@@ -44,17 +44,14 @@ const ImageCarousel = ({
   return (
     <ImageWrapper>
       <FullscreenArrow onClick={handleOnExpandClick} />
-
       {
         mainCurrent !== 0
         && <LeftArrow onClick={preSlide} />
       }
-
       {
         mainCurrent !== length
         && <RightArrow onClick={nextSlide} />
       }
-
       {imageUrl}
     </ImageWrapper>
   );
