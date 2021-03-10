@@ -18,7 +18,7 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
   const buttonThumbnails = styles.map((item, index) => {
     const thumbnailUrl = item.photos[0].thumbnail_url;
     return (
-      <Thumbnail src={thumbnailUrl} alt="style" />
+      <></>
     );
   });
 

@@ -3,7 +3,7 @@
 import React from 'react';
 import {
   LeftArrow, RightArrow, Image,
-  FullscreenArrow, ImageWrapper, ImageUnderline,
+  FullscreenArrow, ImageWrapper,
 } from '../../elements/ImageCarousel.element.jsx';
 
 const ImageCarousel = ({
