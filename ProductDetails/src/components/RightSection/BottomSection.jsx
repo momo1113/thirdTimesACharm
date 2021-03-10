@@ -82,10 +82,11 @@ const BottomSection = ({
       <div>
         {styledQuanityAndSize}
         <AddToBag>
-          <Bag onClick={handleBagAdd}>
+          <Bag type="submit" onClick={handleBagAdd}>
             ADD TO BAG
           </Bag>
           <StarButton
+            type="submit"
             onClick={handleClickLike}
             sizeQuantitySelected={sizeQuantitySelected !== 0}
             disabled={errorMesShowed}

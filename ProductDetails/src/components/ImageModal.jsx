@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {
   Modal, BigImage, Image, Close,
 } from '../elements/ImageModal.element.jsx';
-
+import { LeftArrow, RightArrow } from '../elements/ImageCarousel.element.jsx';
 
 // eslint-disable-next-line react/prop-types
 const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
@@ -16,11 +16,21 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
       <Image src={url} key={item.style_id} alt="styles" onClick={() => setClicked(!clicked)} clicked={clicked} />
     );
   });
+  const onHandleImageLeftClick = () => {
+    console.log(cur)
+    setCur(cur === 0 ? styles.length - 1 : cur - 1);
+  };
 
+  const onHandleImageRightClick = () => {
+    setCur(cur === styles.length - 1 ? 0 : cur + 1);
+  };
 
   return (
     <Modal>
+
       <BigImage>
+        <LeftArrow onClick={onHandleImageLeftClick} />
+        <RightArrow onClick={onHandleImageRightClick} />
         {bgMain}
       </BigImage>
       <Close type="submit" onClick={() => getFullScreenClicked(false)}>
