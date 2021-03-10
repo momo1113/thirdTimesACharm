@@ -20,6 +20,7 @@ max-width: 600px;
 height: 600px;
 overflow:hidden;
 margin-top:5%;
+box-shadow: 2px -1px 9px 5px rgba(252,255,240,0.15);
 `;
 
 export const Image = styled.img`
