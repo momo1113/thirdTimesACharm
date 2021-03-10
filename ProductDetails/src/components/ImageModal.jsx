@@ -1,36 +1,28 @@
 import React, { useState } from 'react';
 
 import {
-  Modal, BigImage, Image, Close, ThumbnailsWrapper, Thumbnail,
+  Modal, BigImage, Image, Close,
 } from '../elements/ImageModal.element.jsx';
+
 
 // eslint-disable-next-line react/prop-types
 const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
   const [clicked, setClicked] = useState(false);
+  const [cur, setCur] = useState(curMainImageIndex);
 
   const bgMain = styles.map((item, index) => {
     const { url } = item.photos[0];
-    return index === curMainImageIndex && (
+    return index === cur && (
       <Image src={url} key={item.style_id} alt="styles" onClick={() => setClicked(!clicked)} clicked={clicked} />
     );
   });
 
-  const buttonThumbnails = styles.map((item, index) => {
-    const thumbnailUrl = item.photos[0].thumbnail_url;
-    return (
-      <></>
-    );
-  });
 
   return (
     <Modal>
       <BigImage>
         {bgMain}
-        <ThumbnailsWrapper>
-          {buttonThumbnails}
-        </ThumbnailsWrapper>
       </BigImage>
-
       <Close type="submit" onClick={() => getFullScreenClicked(false)}>
         <div>X</div>
       </Close>

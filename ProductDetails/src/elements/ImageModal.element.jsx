@@ -6,7 +6,7 @@ left:0;
 top:0;
 right:0;
 bottom:-100%;
-background-color: rgba(0,0,0,0.9);
+background-color: rgba(0,0,0,1);
 display:flex;
 align-items:cener;
 justify-content:center;
@@ -35,19 +35,6 @@ ${({ clicked }) => clicked && css`
 transform:scale(2.5);
 
 `}
-`;
-
-export const ThumbnailsWrapper = styled.div`
-   display: flex; 
- margin-top: -150%;
-  margin-left: 40%;
-  z-index:10;
-`;
-
-export const Thumbnail = styled.img`
-width:30px;
-height:20px;
-border-radius:50%;
 `;
 
 export const Close = styled.button`
