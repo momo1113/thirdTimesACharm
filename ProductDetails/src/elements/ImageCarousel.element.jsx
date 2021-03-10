@@ -48,7 +48,6 @@ export const RightArrow = styled(ArrowRightCircle)`
 position: absolute;
 width: 40px;
 top: 50%;
-
 font-size: 3rem;
 cursor: pointer;
 user-select: none;
@@ -57,19 +56,19 @@ color:#4b5666;
   &:hover{
   color: white
 }
-margin-left:90%;
+margin-left:${({ modal }) => (modal ? '92%' : '92%')};
 `;
 
 export const FullscreenArrow = styled(ArrowsAngleExpand)`
 position: absolute;
 width: 20px;
-font-size: 3rem;
+font-size:3rem;
 cursor: pointer;
-user-select: none;
+user-select:none;
 color:#4b5666;
   &:hover{
   color: white
 }
-margin-left:90%;
-margin-top:5%;
+margin-left: 90%;
+margin-top: 5%;
 `;

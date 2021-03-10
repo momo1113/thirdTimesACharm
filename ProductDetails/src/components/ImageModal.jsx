@@ -17,7 +17,7 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
     );
   });
   const onHandleImageLeftClick = () => {
-    console.log(cur)
+    console.log(cur);
     setCur(cur === 0 ? styles.length - 1 : cur - 1);
   };
 
@@ -27,10 +27,9 @@ const ImageModal = ({ curMainImageIndex, styles, getFullScreenClicked }) => {
 
   return (
     <Modal>
-
       <BigImage>
-        <LeftArrow onClick={onHandleImageLeftClick} />
-        <RightArrow onClick={onHandleImageRightClick} />
+        <LeftArrow onClick={onHandleImageLeftClick} modal />
+        <RightArrow onClick={onHandleImageRightClick} modal />
         {bgMain}
       </BigImage>
       <Close type="submit" onClick={() => getFullScreenClicked(false)}>

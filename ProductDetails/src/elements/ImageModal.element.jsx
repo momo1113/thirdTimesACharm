@@ -20,7 +20,6 @@ max-width: 600px;
 height: 600px;
 overflow:hidden;
 margin-top:5%;
-
 `;
 
 export const Image = styled.img`
